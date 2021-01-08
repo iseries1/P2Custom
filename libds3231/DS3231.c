@@ -191,7 +191,7 @@ void DS3231_SetDateTime()
     struct timeval tv;
     int i;
     
-    i = (30 + DS3231_Year()) * 36525/100;
+    i = ((30 + DS3231_Year()) * 36525 + 25)/100;
     i = i + _MM[DS3231_Month()-1] + DS3231_Day()-1;
     if ((DS3231_Year() % 4) == 0)
     	if (DS3231_Month() > 2)

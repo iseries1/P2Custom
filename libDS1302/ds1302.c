@@ -22,6 +22,8 @@ int _MISO;
 
 int DS1302_read(int);
 void DS1302_write(int, int);
+void spi_out(int, int, int, int);
+int spi_in(int, int, int);
 
 
 void DS1302_open(int mosi, int cs, int sclk, int miso)
@@ -268,8 +270,10 @@ int DS1302_read(int control)
   int i;
   
   high(_CS);
-  shift_out(_MISO, _SCLK, LSBFIRST, 8, control);
-  i = shift_in(_MOSI, _SCLK, LSBPRE, 8);
+  //shift_out(_MISO, _SCLK, LSBFIRST, 8, control);
+  spi_out(_MISO, _SCLK, 8, control);
+  //i = shift_in(_MOSI, _SCLK, LSBPRE, 8);
+  i = spi_in(_MOSI, _SCLK, 8);
   low(_CS);
   return i;
 }
@@ -282,8 +286,10 @@ void DS1302_write(int control, int data)
 {
   
   high(_CS);
-  shift_out(_MISO, _SCLK, LSBFIRST, 8, control-1);
-  shift_out(_MISO, _SCLK, LSBFIRST, 8, data);
+  //shift_out(_MISO, _SCLK, LSBFIRST, 8, control-1);
+  spi_out(_MISO, _SCLK, 8, control-1);
+  //shift_out(_MISO, _SCLK, LSBFIRST, 8, data);
+  spi_out(_MISO, _SCLK, 8, data);
   low(_CS);
 }
 
@@ -292,10 +298,12 @@ void DS1302_setMessage(char *msg)
   int i;
 
   high(_CS);
-  shift_out(_MISO, _SCLK, LSBFIRST, 8, DS1302BURSTMM-1);
+  //shift_out(_MISO, _SCLK, LSBFIRST, 8, DS1302BURSTMM-1);
+  spi_out(_MISO, _SCLK, 8, DS1302BURSTMM-1);
   for (i=0;i<31;i++)
   {
-    shift_out(_MISO, _SCLK, LSBFIRST, 8, msg[i]);
+    //shift_out(_MISO, _SCLK, LSBFIRST, 8, msg[i]);
+    spi_out(_MISO, _SCLK, 8, msg[i]);
   }    
   low(_CS);
 }
@@ -305,13 +313,54 @@ char *DS1302_getMessage()
   int i;
   
   high(_CS);
-  shift_out(_MISO, _SCLK, LSBFIRST, 8, DS1302BURSTMM);
+  //shift_out(_MISO, _SCLK, LSBFIRST, 8, DS1302BURSTMM);
+  spi_out(_MISO, _SCLK, 8, DS1302BURSTMM);
   for (i=0;i<31;i++)
   {
-    _Msg[i] = shift_in(_MOSI, _SCLK, LSBPRE, 8);
+    //_Msg[i] = shift_in(_MOSI, _SCLK, LSBPRE, 8);
+    _Msg[i] = spi_in(_MOSI, _SCLK, 8);
   }    
   low(_CS);
   return _Msg;
+}
+
+void spi_out(int mosi, int sclk, int len, int data)
+{
+  high(mosi);
+  low(sclk);
+  usleep(1);
+  for (int i=0;i<len;i++)
+  {
+    if ((data & 0x01) == 1)
+      high(mosi);
+    else
+      low(mosi);
+    usleep(1);
+    toggle(sclk);
+    usleep(1);
+    toggle(sclk);
+    usleep(1);
+    data = data >> 1;
+  }
+}
+
+int spi_in(int miso, int sclk, int len)
+{
+  int data;
+
+  data = 0;
+  input(miso);
+  low(sclk);
+  usleep(1);
+  for (int i=0;i<len;i++)
+  {
+    data = data | (input(miso) << i);
+    toggle(sclk);
+    usleep(1);
+    toggle(sclk);
+    usleep(1);
+  }
+  return data;
 }
 
 /*

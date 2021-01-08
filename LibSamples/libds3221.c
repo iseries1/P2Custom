@@ -10,8 +10,8 @@
 #include <propeller.h>
 #include "ds3231.h"
 
-#define DSCLK 8
-#define DSSDA 9
+#define DSCLK 17
+#define DSSDA 16
 
 time_t tm;
 
@@ -21,8 +21,8 @@ int main()
     
     DS3231_Open(DSCLK, DSSDA);
     
-//    DS3231_SetDate(12,8,20);
-//    DS3231_SetTime(9,33,0);
+//    DS3231_SetDate(1,6,21);
+//    DS3231_SetTime(6,41,0);
     
 	DS3231_SetDateTime();
 		
