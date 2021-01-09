@@ -248,7 +248,7 @@ void DS1302_setDateTime(void)
 {
   struct timeval tv;
   
-  int v = (30 + DS1302_getYear()) * 36525/100;
+  int v = ((30 + DS3231_Year()) * 36525 + 25)/100;
   v = v + _MM[DS1302_getMonth()-1] + DS1302_getDay() - 1;
   if ((DS1302_getYear() % 4) == 0)
     if (DS1302_getMonth() > 2)

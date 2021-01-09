@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FlexProp Custom Libraries: serial.h Source File</title>
+<title>FlexProp Custom Libraries: servos.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,27 +64,16 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">serial.h</div>  </div>
+<div class="title">servos.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef __SERIAL_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define __SERIAL_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;libsimpletext/simpletext.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> serial_open(<span class="keywordtype">int</span> rxpin, <span class="keywordtype">int</span> txpin, <span class="keywordtype">int</span> mode, <span class="keywordtype">int</span> baudrate) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> serial_close(<span class="keywordtype">void</span>) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                         </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span>  serial_rxChar(<span class="keywordtype">void</span>)  __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span>  serial_txChar(<span class="keywordtype">int</span> txbyte) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="servos_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0">   16</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0">Servo_Enable</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> position, <span class="keywordtype">int</span> refresh) __fromfile(<span class="stringliteral">&quot;libServo/Servos.c&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7">Servo_Set</a>(<span class="keywordtype">int</span> pin, <span class="keywordtype">int</span> position) __fromfile(<span class="stringliteral">&quot;libServo/Servos.c&quot;</span>);</div>
+<div class="ttc" id="aservos_8h_html_a64e88a7981c7b2de0d9b6d84374717f0"><div class="ttname"><a href="servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0">Servo_Enable</a></div><div class="ttdeci">void Servo_Enable(int pin, int position, int refresh) __fromfile(&quot;libServo/Servos.c&quot;)</div><div class="ttdoc">Enable servo output on pin.</div></div>
+<div class="ttc" id="aservos_8h_html_ae5cefd2ee418f69ba25af0a4f8af1eb7"><div class="ttname"><a href="servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7">Servo_Set</a></div><div class="ttdeci">void Servo_Set(int pin, int position) __fromfile(&quot;libServo/Servos.c&quot;)</div><div class="ttdoc">set servo output value</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

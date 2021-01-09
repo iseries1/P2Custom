@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>FlexProp Custom Libraries: as5048a.h File Reference</title>
+<title>FlexProp Custom Libraries: step.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,62 +66,61 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">as5048a.h File Reference</div>  </div>
+<div class="title">step.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>AS5048 Position Sensor.  
+<p>Control Stepper motors.  
 <a href="#details">More...</a></p>
 
-<p><a href="as5048a_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="step_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a63abc8e4520c74a0bbeb417d31a8423a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as5048a_8h.html#a63abc8e4520c74a0bbeb417d31a8423a">as5048a_open</a> (int CS, int SCK, int MOSI, int MISO) __fromfile(&quot;libas5048a/as5048a.c&quot;)</td></tr>
-<tr class="memdesc:a63abc8e4520c74a0bbeb417d31a8423a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open connection to as5048a.  <a href="as5048a_8h.html#a63abc8e4520c74a0bbeb417d31a8423a">More...</a><br /></td></tr>
-<tr class="separator:a63abc8e4520c74a0bbeb417d31a8423a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d3ae8c493d435062460bba630e236f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as5048a_8h.html#a4d3ae8c493d435062460bba630e236f1">as5048a_readAngle</a> (void) __fromfile(&quot;libas5048a/as5048a.c&quot;)</td></tr>
-<tr class="memdesc:a4d3ae8c493d435062460bba630e236f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current angle from as5048a.  <a href="as5048a_8h.html#a4d3ae8c493d435062460bba630e236f1">More...</a><br /></td></tr>
-<tr class="separator:a4d3ae8c493d435062460bba630e236f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec5de6e543c66740618b1d42993ab68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as5048a_8h.html#aaec5de6e543c66740618b1d42993ab68">as5048a_setOffset</a> (int offset) __fromfile(&quot;libas5048a/as5048a.c&quot;)</td></tr>
-<tr class="memdesc:aaec5de6e543c66740618b1d42993ab68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set offset angle for as5048a.  <a href="as5048a_8h.html#aaec5de6e543c66740618b1d42993ab68">More...</a><br /></td></tr>
-<tr class="separator:aaec5de6e543c66740618b1d42993ab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60efa496b390ec038822f83b65cf3e78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="step_8h.html#a60efa496b390ec038822f83b65cf3e78">Step_Start</a> (int enable, int direction, int step) __fromfile(&quot;libStep/step.c&quot;)</td></tr>
+<tr class="memdesc:a60efa496b390ec038822f83b65cf3e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">start step driver  <a href="step_8h.html#a60efa496b390ec038822f83b65cf3e78">More...</a><br /></td></tr>
+<tr class="separator:a60efa496b390ec038822f83b65cf3e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae92f9a309a2b4ea36f45177e452aff8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c">Step_Step</a> (int motor, int steps) __fromfile(&quot;libStep/step.c&quot;)</td></tr>
+<tr class="memdesc:ae92f9a309a2b4ea36f45177e452aff8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">step motor in direction  <a href="step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c">More...</a><br /></td></tr>
+<tr class="separator:ae92f9a309a2b4ea36f45177e452aff8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0bc26e93b539738cc8a244150272316"><td class="memItemLeft" align="right" valign="top"><a id="af0bc26e93b539738cc8a244150272316"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="step_8h.html#af0bc26e93b539738cc8a244150272316">Step_Wait</a> (void) __fromfile(&quot;libStep/step.c&quot;)</td></tr>
+<tr class="memdesc:af0bc26e93b539738cc8a244150272316"><td class="mdescLeft">&#160;</td><td class="mdescRight">wait for motor <br /></td></tr>
+<tr class="separator:af0bc26e93b539738cc8a244150272316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad142ef21bd40ee35b460a49afe276de1"><td class="memItemLeft" align="right" valign="top"><a id="ad142ef21bd40ee35b460a49afe276de1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="step_8h.html#ad142ef21bd40ee35b460a49afe276de1">Step_Disable</a> (void) __fromfile(&quot;libStep/step.c&quot;)</td></tr>
+<tr class="memdesc:ad142ef21bd40ee35b460a49afe276de1"><td class="mdescLeft">&#160;</td><td class="mdescRight">disable motor <br /></td></tr>
+<tr class="separator:ad142ef21bd40ee35b460a49afe276de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>AS5048 Position Sensor. </p>
+<div class="textblock"><p>Control Stepper motors. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Burmeister </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>January 19, 2016 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>November 29, 2020 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a63abc8e4520c74a0bbeb417d31a8423a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63abc8e4520c74a0bbeb417d31a8423a">&#9670;&nbsp;</a></span>as5048a_open()</h2>
+<a id="a60efa496b390ec038822f83b65cf3e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60efa496b390ec038822f83b65cf3e78">&#9670;&nbsp;</a></span>Step_Start()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int as5048a_open </td>
+          <td class="memname">int Step_Start </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>CS</em>, </td>
+          <td class="paramname"><em>enable</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>SCK</em>, </td>
+          <td class="paramname"><em>direction</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>MOSI</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>MISO</em>&#160;</td>
+          <td class="paramname"><em>step</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -131,65 +130,53 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Open connection to as5048a. </p>
+<p>start step driver </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">CS</td><td>Chip Select Pin </td></tr>
-    <tr><td class="paramname">SCK</td><td>SPI Clock Pin </td></tr>
-    <tr><td class="paramname">MOSI</td><td>Master Out Pin </td></tr>
-    <tr><td class="paramname">MISO</td><td>Master In Pin </td></tr>
+    <tr><td class="paramname">enable</td><td>enable pin </td></tr>
+    <tr><td class="paramname">direction</td><td>direction pin </td></tr>
+    <tr><td class="paramname">step</td><td>step pin </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>AS5048a status </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>driver number </dd></dl>
 
 </div>
 </div>
-<a id="a4d3ae8c493d435062460bba630e236f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d3ae8c493d435062460bba630e236f1">&#9670;&nbsp;</a></span>as5048a_readAngle()</h2>
+<a id="ae92f9a309a2b4ea36f45177e452aff8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae92f9a309a2b4ea36f45177e452aff8c">&#9670;&nbsp;</a></span>Step_Step()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int as5048a_readAngle </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get current angle from as5048a. </p>
-<dl class="section return"><dt>Returns</dt><dd>Angle in degrees </dd></dl>
-
-</div>
-</div>
-<a id="aaec5de6e543c66740618b1d42993ab68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaec5de6e543c66740618b1d42993ab68">&#9670;&nbsp;</a></span>as5048a_setOffset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void as5048a_setOffset </td>
+          <td class="memname">void Step_Step </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>offset</em></td><td>)</td>
+          <td class="paramname"><em>motor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>steps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set offset angle for as5048a. </p>
+<p>step motor in direction </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td></td></tr>
+    <tr><td class="paramname">motor</td><td>driver number </td></tr>
+    <tr><td class="paramname">steps</td><td>number of steps needed </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Nothing </dd></dl>
 
 </div>
 </div>

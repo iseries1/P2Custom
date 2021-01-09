@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['tfmini_5fdistance_364',['tfmini_distance',['../tfmini_8h.html#ad4d5effe85eeecf7d337d467b17d749a',1,'tfmini.h']]],
-  ['tfmini_5fopen_365',['tfmini_open',['../tfmini_8h.html#a9154160f2d1835e697c3c7687afdad70',1,'tfmini.h']]],
-  ['tfmini_5fsetrate_366',['tfmini_setRate',['../tfmini_8h.html#acc95ce4a46a1f4351c16f537516c272d',1,'tfmini.h']]],
-  ['tfmini_5fsetunits_367',['tfmini_setUnits',['../tfmini_8h.html#a4015772ca1b38d44bb198ceb9fdd6923',1,'tfmini.h']]],
-  ['tfmini_5fstrength_368',['tfmini_strength',['../tfmini_8h.html#af47b1a32822679588f7d60712c84aa2b',1,'tfmini.h']]],
-  ['tfmini_5ftemperature_369',['tfmini_temperature',['../tfmini_8h.html#a5ec242632c8c5f04a08aafc4a34bb9db',1,'tfmini.h']]]
+  ['servo_5fenable_374',['Servo_Enable',['../servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0',1,'servos.h']]],
+  ['servo_5fset_375',['Servo_Set',['../servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7',1,'servos.h']]],
+  ['step_5fdisable_376',['Step_Disable',['../step_8h.html#ad142ef21bd40ee35b460a49afe276de1',1,'step.h']]],
+  ['step_5fstart_377',['Step_Start',['../step_8h.html#a60efa496b390ec038822f83b65cf3e78',1,'step.h']]],
+  ['step_5fstep_378',['Step_Step',['../step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c',1,'step.h']]],
+  ['step_5fwait_379',['Step_Wait',['../step_8h.html#af0bc26e93b539738cc8a244150272316',1,'step.h']]]
 ];

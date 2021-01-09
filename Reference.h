@@ -14,6 +14,8 @@
  *  <a href="lcd1602_8h.html">LCD1602 2 line lcd display driver.</a><br>
  *  <a href="lcddisplay_8h.html">Parallax LCD Driver.</a><br>
  *  <a href="_s_s_d1331_8h.html">SSD1331 Color OLED display.</a><br>
+ *  <a href="servos_8h.html">Servo Driver Library.</a><br>
+ *  <a href="step_8h.html">Stepper Motor Driver (A4988).</a><br>
  *  <a href="tfmini_8h.html">TFMINI distance driver.</a><br>
  *  <a href="ws2812_8h.html">WS2812B LED Driver</a><br>
  */

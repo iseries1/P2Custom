@@ -125,6 +125,7 @@ int DS1822_ReadPower(int pin) __fromfile("libDS1822/ds1822.c");
 /**
  * @brief CRC
  * @param data point to data
+ * @param len length of data
  * @return CRC value
  */
 int DS1822_CRC(char* data, int len) __fromfile("libDS1822/ds1822.c");
