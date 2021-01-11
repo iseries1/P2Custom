@@ -31,7 +31,7 @@ int tfmini_open(int Rx, int Tx)
   Buffer[0] = Rx;
   Buffer[1] = Tx;
   
-  c = __builtin_cogstart(doTFmini(), &Stack[0]);
+  c = _cogstart(doTFmini, 0, Stack, 40);
   
   return c;
 }

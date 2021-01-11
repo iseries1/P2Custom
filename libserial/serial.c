@@ -17,45 +17,42 @@ void serial_open(int rxpin, int txpin, int mode, int baudrate)
     bit_mode = 7 + (bitperiod << 16);
     
     // set up the transmit pin
-    _pinf(txpin);
-    _wrpin(txpin, P_OE | P_ASYNC_TX);
-    _wxpin(txpin, bit_mode);
-    _pinl(txpin); // turn smartpin on by making the pin an output
-    
+    if (txpin >= 0)
+      _pinstart(txpin, P_OE | P_ASYNC_TX, bit_mode, 0);
+
     // set up the receive pin
-    _pinf(rxpin);
-    _wrpin(rxpin, P_ASYNC_RX);
-    _wxpin(rxpin, bit_mode);
-    _pinl(rxpin); // turn smartpin on
+    if (rxpin >= 0)
+      _pinstart(rxpin, P_ASYNC_RX, bit_mode, 0);
    
 }
 
 void serial_close()
 {
+    if (tx_pin >= 0)
+      _pinf(tx_pin);
+    if (rx_pin >= 0)
+      _pinf(rx_pin);
     return;
 }
 
 int serial_rxChar()
 {
-    int rxpin = rx_pin;
     int z = 0;
     int rxbyte;
     
     while (z == 0)
-	    z = _pinr(rxpin);
+	    z = _pinr(rx_pin);
     
-	rxbyte = _rdpin(rxpin) >> 24; // shift down to byte
+	rxbyte = _rdpin(rx_pin) >> 24; // shift down to byte
 	
 	return rxbyte;
 }
 
 int serial_txChar(int txbyte)
 {
-    int txpin = tx_pin;
     int z = 0;
     
-    _wypin(txpin, txbyte);
+    _wypin(tx_pin, txbyte);
     while (z == 0)
-    	z = _pinr(txpin);
-    
+    	z = _pinr(tx_pin);
 }
