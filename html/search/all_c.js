@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['ws2812_2eh_192',['ws2812.h',['../ws2812_8h.html',1,'']]],
-  ['ws2812_5fset_193',['ws2812_set',['../ws2812_8h.html#a1cb60fff07cbaa75d83fc0d7dfd4008f',1,'ws2812.h']]]
+  ['tfmini_2eh_213',['tfmini.h',['../tfmini_8h.html',1,'']]],
+  ['tfmini_5fdistance_214',['tfmini_distance',['../tfmini_8h.html#ad4d5effe85eeecf7d337d467b17d749a',1,'tfmini.h']]],
+  ['tfmini_5fopen_215',['tfmini_open',['../tfmini_8h.html#a9154160f2d1835e697c3c7687afdad70',1,'tfmini.h']]],
+  ['tfmini_5fsetrate_216',['tfmini_setRate',['../tfmini_8h.html#acc95ce4a46a1f4351c16f537516c272d',1,'tfmini.h']]],
+  ['tfmini_5fsetunits_217',['tfmini_setUnits',['../tfmini_8h.html#a4015772ca1b38d44bb198ceb9fdd6923',1,'tfmini.h']]],
+  ['tfmini_5fstrength_218',['tfmini_strength',['../tfmini_8h.html#af47b1a32822679588f7d60712c84aa2b',1,'tfmini.h']]],
+  ['tfmini_5ftemperature_219',['tfmini_temperature',['../tfmini_8h.html#a5ec242632c8c5f04a08aafc4a34bb9db',1,'tfmini.h']]]
 ];

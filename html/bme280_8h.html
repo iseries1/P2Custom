@@ -64,493 +64,71 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">bme280.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>BME280 sensor library.  
+<p>Sensor driver for BME280 sensor.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &quot;libbme280/bme280_defs.h&quot;</code><br />
+</div>
 <p><a href="bme280_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top"><a id="a06fc87d81c62e9abb8790b6e5713c55b"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>oversample_0</b>
-, <b>oversample_1</b>
-, <b>oversample_2</b>
-, <b>oversample_4</b>
-, <br />
-&#160;&#160;<b>oversample_8</b>
-, <b>oversample_16</b>
-<br />
- }</td></tr>
-<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memItemLeft" align="right" valign="top"><a id="adf764cbdea00d65edcd07bb9953ad2b7"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>BME280_sleep</b>
-, <b>BME280_forced</b>
-, <b>BME280_forced1</b>
-, <b>BME280_normal</b>
- }</td></tr>
-<tr class="separator:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99fb83031ce9923c84392b4e92f956b5"><td class="memItemLeft" align="right" valign="top"><a id="a99fb83031ce9923c84392b4e92f956b5"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>standby5</b>
-, <b>standby625</b>
-, <b>standby1250</b>
-, <b>standby2500</b>
-, <br />
-&#160;&#160;<b>standby5000</b>
-, <b>standby10000</b>
-, <b>standby100</b>
-, <b>standby200</b>
-<br />
- }</td></tr>
-<tr class="separator:a99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6126af1d45847bc59afa0aa3216b04"><td class="memItemLeft" align="right" valign="top"><a id="abc6126af1d45847bc59afa0aa3216b04"></a>enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
-&#160;&#160;<b>filter0</b>
-, <b>filter2</b>
-, <b>filter4</b>
-, <b>filter8</b>
-, <br />
-&#160;&#160;<b>filter16</b>
-<br />
- }</td></tr>
-<tr class="separator:abc6126af1d45847bc59afa0aa3216b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a81677e5bc9aeac3b2f6dab198a423c34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a81677e5bc9aeac3b2f6dab198a423c34">BME280_open</a> (int scl, int sda) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a81677e5bc9aeac3b2f6dab198a423c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open i2c connection to BME280.  <a href="bme280_8h.html#a81677e5bc9aeac3b2f6dab198a423c34">More...</a><br /></td></tr>
-<tr class="separator:a81677e5bc9aeac3b2f6dab198a423c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b11034646d96537dac14e1878326a68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a7b11034646d96537dac14e1878326a68">BME280_getID</a> (void)</td></tr>
-<tr class="memdesc:a7b11034646d96537dac14e1878326a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get BME280 ID (0x60)  <a href="bme280_8h.html#a7b11034646d96537dac14e1878326a68">More...</a><br /></td></tr>
-<tr class="separator:a7b11034646d96537dac14e1878326a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6369731f94fc3191c5061e01daabc67"><td class="memItemLeft" align="right" valign="top"><a id="ae6369731f94fc3191c5061e01daabc67"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#ae6369731f94fc3191c5061e01daabc67">BME280_reset</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:ae6369731f94fc3191c5061e01daabc67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Do soft reset of BME280. <br /></td></tr>
-<tr class="separator:ae6369731f94fc3191c5061e01daabc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96c8b5a904b3d14580b490fb54fdc1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#aa96c8b5a904b3d14580b490fb54fdc1d">BME280_getStatus</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:aa96c8b5a904b3d14580b490fb54fdc1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get measurement status.  <a href="bme280_8h.html#aa96c8b5a904b3d14580b490fb54fdc1d">More...</a><br /></td></tr>
-<tr class="separator:aa96c8b5a904b3d14580b490fb54fdc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add5ac5e315c9b8c6e2e3ab96668c9674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#add5ac5e315c9b8c6e2e3ab96668c9674">BME280_setStandbyRate</a> (int s) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:add5ac5e315c9b8c6e2e3ab96668c9674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forced mode standby rate .5, 62.5 125, 250, 500, 1000, 100, and 200.  <a href="bme280_8h.html#add5ac5e315c9b8c6e2e3ab96668c9674">More...</a><br /></td></tr>
-<tr class="separator:add5ac5e315c9b8c6e2e3ab96668c9674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00b3e5139635b932f05d0c2cb9844017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a00b3e5139635b932f05d0c2cb9844017">BME280_setFilterRate</a> (int f) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a00b3e5139635b932f05d0c2cb9844017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forced mode filter rate 0, 2, 4, 8, 16.  <a href="bme280_8h.html#a00b3e5139635b932f05d0c2cb9844017">More...</a><br /></td></tr>
-<tr class="separator:a00b3e5139635b932f05d0c2cb9844017"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c3e0ae8f483886c84d8c86531c29430"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a1c3e0ae8f483886c84d8c86531c29430">BME280_setMode</a> (int m) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a1c3e0ae8f483886c84d8c86531c29430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set BME280 Mode of operation Sleep, Forced, and Normal.  <a href="bme280_8h.html#a1c3e0ae8f483886c84d8c86531c29430">More...</a><br /></td></tr>
-<tr class="separator:a1c3e0ae8f483886c84d8c86531c29430"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87bc176d3acc1fc675899b1e1255b253"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a87bc176d3acc1fc675899b1e1255b253">BME280_getMode</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a87bc176d3acc1fc675899b1e1255b253"><td class="mdescLeft">&#160;</td><td class="mdescRight">get BME280 Mode of operation  <a href="bme280_8h.html#a87bc176d3acc1fc675899b1e1255b253">More...</a><br /></td></tr>
-<tr class="separator:a87bc176d3acc1fc675899b1e1255b253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3148482f73e6874427f62dc6e504490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#ae3148482f73e6874427f62dc6e504490">BME280_setPressure</a> (int f) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:ae3148482f73e6874427f62dc6e504490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set pressure measurement sampling 0, 1, 2, 4, 8, 16.  <a href="bme280_8h.html#ae3148482f73e6874427f62dc6e504490">More...</a><br /></td></tr>
-<tr class="separator:ae3148482f73e6874427f62dc6e504490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a6eac8dc255172cc3752e6775b03bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a6a6eac8dc255172cc3752e6775b03bd2">BME280_setTemp</a> (int f) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a6a6eac8dc255172cc3752e6775b03bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Temperature measurment sampling 0, 1, 2, 4, 8, 16.  <a href="bme280_8h.html#a6a6eac8dc255172cc3752e6775b03bd2">More...</a><br /></td></tr>
-<tr class="separator:a6a6eac8dc255172cc3752e6775b03bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cce3400fcbf1a6c1ccd2b690b63fbbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a5cce3400fcbf1a6c1ccd2b690b63fbbf">BME280_setHumidity</a> (int f) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a5cce3400fcbf1a6c1ccd2b690b63fbbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Humidity measurement sampling 0, 1, 2, 4, 8, 16.  <a href="bme280_8h.html#a5cce3400fcbf1a6c1ccd2b690b63fbbf">More...</a><br /></td></tr>
-<tr class="separator:a5cce3400fcbf1a6c1ccd2b690b63fbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa86bcc714fb50e9280a01b4f31fd224"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#afa86bcc714fb50e9280a01b4f31fd224">BME280_getPressure</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:afa86bcc714fb50e9280a01b4f31fd224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Pressure in pascals.  <a href="bme280_8h.html#afa86bcc714fb50e9280a01b4f31fd224">More...</a><br /></td></tr>
-<tr class="separator:afa86bcc714fb50e9280a01b4f31fd224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7baa09a95840977187309173ffdbf64e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a7baa09a95840977187309173ffdbf64e">BME280_getTemp</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a7baa09a95840977187309173ffdbf64e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Temperature in celius.  <a href="bme280_8h.html#a7baa09a95840977187309173ffdbf64e">More...</a><br /></td></tr>
-<tr class="separator:a7baa09a95840977187309173ffdbf64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aec0266677ae7e460360434b98daff6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a9aec0266677ae7e460360434b98daff6">BME280_getHumidity</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a9aec0266677ae7e460360434b98daff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Humidity in percent times 100.  <a href="bme280_8h.html#a9aec0266677ae7e460360434b98daff6">More...</a><br /></td></tr>
-<tr class="separator:a9aec0266677ae7e460360434b98daff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d7ef93d5b143698dda5f7b4801244c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a9d7ef93d5b143698dda5f7b4801244c8">BME280_getTempF</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a9d7ef93d5b143698dda5f7b4801244c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Temperature in Fahrenheit.  <a href="bme280_8h.html#a9d7ef93d5b143698dda5f7b4801244c8">More...</a><br /></td></tr>
-<tr class="separator:a9d7ef93d5b143698dda5f7b4801244c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fe7ad554b36181d35c59627c76623a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8h.html#a6fe7ad554b36181d35c59627c76623a7">BME280_getPressureM</a> (void) __fromfile(&quot;libBME280/bme280.c&quot;)</td></tr>
-<tr class="memdesc:a6fe7ad554b36181d35c59627c76623a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Pressure in inch of mercury.  <a href="bme280_8h.html#a6fe7ad554b36181d35c59627c76623a7">More...</a><br /></td></tr>
-<tr class="separator:a6fe7ad554b36181d35c59627c76623a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a277c3b43e99f820c3c711351e3f1f7d4"><td class="memItemLeft" align="right" valign="top"><a id="a277c3b43e99f820c3c711351e3f1f7d4"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_init</b> (struct bme280_dev *dev) __fromfile(&quot;libbme280/bme280.c&quot;)</td></tr>
+<tr class="separator:a277c3b43e99f820c3c711351e3f1f7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a631b93eb751d5260f66090655b276d38"><td class="memItemLeft" align="right" valign="top"><a id="a631b93eb751d5260f66090655b276d38"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_set_regs</b> (uint8_t *reg_addr, const uint8_t *reg_data, uint8_t len, struct bme280_dev *dev)</td></tr>
+<tr class="separator:a631b93eb751d5260f66090655b276d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90217ff8a635240c20b763a88554da8c"><td class="memItemLeft" align="right" valign="top"><a id="a90217ff8a635240c20b763a88554da8c"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_get_regs</b> (uint8_t reg_addr, uint8_t *reg_data, uint16_t len, struct bme280_dev *dev)</td></tr>
+<tr class="separator:a90217ff8a635240c20b763a88554da8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd93f268d8109802cffa06b89f868922"><td class="memItemLeft" align="right" valign="top"><a id="afd93f268d8109802cffa06b89f868922"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_set_sensor_settings</b> (uint8_t desired_settings, struct bme280_dev *dev)</td></tr>
+<tr class="separator:afd93f268d8109802cffa06b89f868922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bef90d33942197a98715ea8657211f"><td class="memItemLeft" align="right" valign="top"><a id="af3bef90d33942197a98715ea8657211f"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_get_sensor_settings</b> (struct bme280_dev *dev)</td></tr>
+<tr class="separator:af3bef90d33942197a98715ea8657211f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6373385e51038a9b982c42e0dce4ba9f"><td class="memItemLeft" align="right" valign="top"><a id="a6373385e51038a9b982c42e0dce4ba9f"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_set_sensor_mode</b> (uint8_t sensor_mode, struct bme280_dev *dev)</td></tr>
+<tr class="separator:a6373385e51038a9b982c42e0dce4ba9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab44df556ac18f4e7800d8869a5d483f"><td class="memItemLeft" align="right" valign="top"><a id="aab44df556ac18f4e7800d8869a5d483f"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_get_sensor_mode</b> (uint8_t *sensor_mode, struct bme280_dev *dev)</td></tr>
+<tr class="separator:aab44df556ac18f4e7800d8869a5d483f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f874563c32b64cb625677e81ac20740"><td class="memItemLeft" align="right" valign="top"><a id="a6f874563c32b64cb625677e81ac20740"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_soft_reset</b> (struct bme280_dev *dev)</td></tr>
+<tr class="separator:a6f874563c32b64cb625677e81ac20740"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6671fea2c1e01f40029a653b9ab4410d"><td class="memItemLeft" align="right" valign="top"><a id="a6671fea2c1e01f40029a653b9ab4410d"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_get_sensor_data</b> (uint8_t sensor_comp, struct bme280_data *comp_data, struct bme280_dev *dev)</td></tr>
+<tr class="separator:a6671fea2c1e01f40029a653b9ab4410d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84be45ccf7a3a82138ff2170123462c3"><td class="memItemLeft" align="right" valign="top"><a id="a84be45ccf7a3a82138ff2170123462c3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_parse_sensor_data</b> (const uint8_t *reg_data, struct bme280_uncomp_data *uncomp_data)</td></tr>
+<tr class="separator:a84be45ccf7a3a82138ff2170123462c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2c3c8c683b434ca10447515f85c0de"><td class="memItemLeft" align="right" valign="top"><a id="a9f2c3c8c683b434ca10447515f85c0de"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_compensate_data</b> (uint8_t sensor_comp, const struct bme280_uncomp_data *uncomp_data, struct bme280_data *comp_data, struct bme280_calib_data *calib_data)</td></tr>
+<tr class="separator:a9f2c3c8c683b434ca10447515f85c0de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ea40fe8f8243c6d24b6a19d5ab6226"><td class="memItemLeft" align="right" valign="top"><a id="af9ea40fe8f8243c6d24b6a19d5ab6226"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_cal_meas_delay</b> (const struct bme280_settings *settings)</td></tr>
+<tr class="separator:af9ea40fe8f8243c6d24b6a19d5ab6226"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>BME280 sensor library. </p>
-<dl class="section author"><dt>Author</dt><dd>Michael Burmeister </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>December 14, 2017 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.2</dd></dl>
-<p>sample code:</p>
-<p>i = BME280_open(BMESCL, BMESDA);<br  />
- <a class="el" href="bme280_8h.html#ae6369731f94fc3191c5061e01daabc67" title="Do soft reset of BME280.">BME280_reset()</a>;<br  />
- BME280_setHumidity(oversample_1);<br  />
- BME280_setTemp(oversample_1);<br  />
- BME280_setPressure(oversample_1);<br  />
- BME280_setStandbyRate(standby625);<br  />
- BME280_setMode(BME280_normal);<br  />
- while (<a class="el" href="bme280_8h.html#aa96c8b5a904b3d14580b490fb54fdc1d" title="Get measurement status.">BME280_getStatus()</a> != 0);<br  />
- <a class="el" href="bme280_8h.html#a9d7ef93d5b143698dda5f7b4801244c8" title="Get Temperature in Fahrenheit.">BME280_getTempF()</a>;<br  />
- </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a9aec0266677ae7e460360434b98daff6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aec0266677ae7e460360434b98daff6">&#9670;&nbsp;</a></span>BME280_getHumidity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getHumidity </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Humidity in percent times 100. </p>
-<dl class="section return"><dt>Returns</dt><dd>Percent humidity time 100 </dd></dl>
-
-</div>
-</div>
-<a id="a7b11034646d96537dac14e1878326a68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b11034646d96537dac14e1878326a68">&#9670;&nbsp;</a></span>BME280_getID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getID </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get BME280 ID (0x60) </p>
-<dl class="section return"><dt>Returns</dt><dd>0x60 </dd></dl>
-
-</div>
-</div>
-<a id="a87bc176d3acc1fc675899b1e1255b253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87bc176d3acc1fc675899b1e1255b253">&#9670;&nbsp;</a></span>BME280_getMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getMode </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>get BME280 Mode of operation </p>
-<dl class="section return"><dt>Returns</dt><dd>Mode value for Sleep, Forced and Normal </dd></dl>
-
-</div>
-</div>
-<a id="afa86bcc714fb50e9280a01b4f31fd224"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa86bcc714fb50e9280a01b4f31fd224">&#9670;&nbsp;</a></span>BME280_getPressure()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getPressure </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Pressure in pascals. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pascal value </dd></dl>
-
-</div>
-</div>
-<a id="a6fe7ad554b36181d35c59627c76623a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fe7ad554b36181d35c59627c76623a7">&#9670;&nbsp;</a></span>BME280_getPressureM()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getPressureM </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Pressure in inch of mercury. </p>
-<dl class="section return"><dt>Returns</dt><dd>inches of mercury time 100 </dd></dl>
-
-</div>
-</div>
-<a id="aa96c8b5a904b3d14580b490fb54fdc1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa96c8b5a904b3d14580b490fb54fdc1d">&#9670;&nbsp;</a></span>BME280_getStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getStatus </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get measurement status. </p>
-<dl class="section return"><dt>Returns</dt><dd>status bit 3 = measurement running, bit 0 = copying measurement </dd></dl>
-
-</div>
-</div>
-<a id="a7baa09a95840977187309173ffdbf64e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7baa09a95840977187309173ffdbf64e">&#9670;&nbsp;</a></span>BME280_getTemp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getTemp </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Temperature in celius. </p>
-<dl class="section return"><dt>Returns</dt><dd>celius temperature </dd></dl>
-
-</div>
-</div>
-<a id="a9d7ef93d5b143698dda5f7b4801244c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7ef93d5b143698dda5f7b4801244c8">&#9670;&nbsp;</a></span>BME280_getTempF()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_getTempF </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get Temperature in Fahrenheit. </p>
-<dl class="section return"><dt>Returns</dt><dd>Temperature in Fahrenheit time 100 </dd></dl>
-
-</div>
-</div>
-<a id="a81677e5bc9aeac3b2f6dab198a423c34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81677e5bc9aeac3b2f6dab198a423c34">&#9670;&nbsp;</a></span>BME280_open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int BME280_open </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sda</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Open i2c connection to BME280. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">scl</td><td>I2c clock pin </td></tr>
-    <tr><td class="paramname">sda</td><td>I2c data pin </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0x60 or -1 if not found </dd></dl>
-
-</div>
-</div>
-<a id="a00b3e5139635b932f05d0c2cb9844017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00b3e5139635b932f05d0c2cb9844017">&#9670;&nbsp;</a></span>BME280_setFilterRate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setFilterRate </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Forced mode filter rate 0, 2, 4, 8, 16. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>Filter rate item name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5cce3400fcbf1a6c1ccd2b690b63fbbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cce3400fcbf1a6c1ccd2b690b63fbbf">&#9670;&nbsp;</a></span>BME280_setHumidity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setHumidity </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set Humidity measurement sampling 0, 1, 2, 4, 8, 16. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>Frquency Item Name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1c3e0ae8f483886c84d8c86531c29430"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c3e0ae8f483886c84d8c86531c29430">&#9670;&nbsp;</a></span>BME280_setMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setMode </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set BME280 Mode of operation Sleep, Forced, and Normal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Mode item name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae3148482f73e6874427f62dc6e504490"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3148482f73e6874427f62dc6e504490">&#9670;&nbsp;</a></span>BME280_setPressure()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setPressure </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set pressure measurement sampling 0, 1, 2, 4, 8, 16. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>Frequency Item Name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="add5ac5e315c9b8c6e2e3ab96668c9674"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add5ac5e315c9b8c6e2e3ab96668c9674">&#9670;&nbsp;</a></span>BME280_setStandbyRate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setStandbyRate </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Forced mode standby rate .5, 62.5 125, 250, 500, 1000, 100, and 200. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s</td><td>Standby Item name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6a6eac8dc255172cc3752e6775b03bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a6eac8dc255172cc3752e6775b03bd2">&#9670;&nbsp;</a></span>BME280_setTemp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BME280_setTemp </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set Temperature measurment sampling 0, 1, 2, 4, 8, 16. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>Frequency Item Name </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p>Sensor driver for BME280 sensor. </p>
+<p>Copyright (c) 2020 Bosch Sensortec GmbH. All rights reserved.</p>
+<p>BSD-3-Clause</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol type="1">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<dl class="section date"><dt>Date</dt><dd>2020-03-28 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>v3.5.0</dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.0
