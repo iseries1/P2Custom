@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.1</span>
+   &#160;<span id="projectnumber">1.2</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
   </td>
@@ -74,7 +74,7 @@ $(function() {
 <p>CPP guard </p>
 
 
-<h3><a id="bme280_api_bme280_init"></a>bme280_init</h3><div class="textblock"><div class="fragment"><div class="line"><span class="comment">//int8_t bme280_init(struct bme280_dev *dev);</span></div>
+<h3><a id="bme280_api_bme280_init"></a>bme280_init</h3><div class="textblock"><div class="fragment"><div class="line">int8_t bme280_init(<span class="keyword">struct</span> bme280_dev *dev);</div>
 </div><!-- fragment -->This API reads the chip-id of the sensor which is the first step to verify the sensor and also calibrates the sensor As this API is the entry point, call this API before using other APIs.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">dev</td><td>: Structure instance of bme280_dev</td></tr>

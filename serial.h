@@ -6,6 +6,7 @@
 
 
 /**
+ * @file serial.h
  * @brief Open a simple (half duplex) serial connection.  
  *
  * @param rxpin Serial input pin, receives serial data.

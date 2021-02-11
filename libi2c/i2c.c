@@ -104,6 +104,7 @@ int I2C_WriteByte(i2c_t *x, int b)
         _pinl(c);
     }
 	_dirl(d); // float answer
+     usleep(s);
 	_pinh(c);
 	usleep(s);
 	d = _pinr(d); //ACK=low
@@ -125,6 +126,7 @@ int I2C_ReadByte(i2c_t *x, int ack)
     c = i &0xff;
 
 	_dirl(d);
+     usleep(s);
 	b = 0;
 	for (i=0;i<8;i++)
 	{
@@ -165,13 +167,12 @@ int I2C_WriteData(i2c_t *x, char *data, int count)
 int I2C_ReadData(i2c_t *x, char *data, int count)
 {
     int i;
-    
-	count--;
-    for (i=0;i<count;i++)
+
+    for (i=0;i<count-1;i++)
     {
         data[i] = I2C_ReadByte(x, 0);
     }
-    data[i++] = I2C_ReadByte(x, 1);
+    data[i] = I2C_ReadByte(x, 1);
     return i;
 }
 
@@ -216,11 +217,7 @@ int I2C_Out(i2c_t *x, int address, int reg, int size, char *data, int count)
     buffer[3] = reg & 0xff;
     i = 4 - size;
     i = I2C_WriteData(x, &buffer[i], size);
-
-    I2C_Start(x);
-    if (I2C_WriteByte(x, address))
-	    return 0;
-    i = I2C_ReadData(x, data, count);
+    i = I2C_WriteData(x, data, count);
     I2C_Stop(x);
     return i;
 }

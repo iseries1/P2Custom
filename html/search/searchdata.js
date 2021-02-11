@@ -1,27 +1,30 @@
 var indexSectionsWithContent =
 {
   0: "abcdehijlmrstw",
-  1: "abdehijlmstw",
-  2: "abdehijlstw",
-  3: "birs",
-  4: "bc"
+  1: "s",
+  2: "abdehijlmstw",
+  3: "abdehijlstw",
+  4: "birs",
+  5: "bc"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files",
-  2: "functions",
-  3: "groups",
-  4: "pages"
+  1: "classes",
+  2: "files",
+  3: "functions",
+  4: "groups",
+  5: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Files",
-  2: "Functions",
-  3: "Modules",
-  4: "Pages"
+  1: "Data Structures",
+  2: "Files",
+  3: "Functions",
+  4: "Modules",
+  5: "Pages"
 };
 

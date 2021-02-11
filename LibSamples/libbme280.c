@@ -11,8 +11,8 @@
 #include "simpletools.h"
 #include "bme280.h"
 
-#define BMESCL 23
-#define BMESDA 22
+#define BMESCL 36
+#define BMESDA 37
 i2c Bme;
 
 
@@ -20,7 +20,8 @@ i2c Bme;
 int main(int argc, char** argv)
 {
     
-    i2c_open(&Bme, BMESCL, BMESDA, 0);
+    i2c_open(&Bme, BMESCL, BMESDA, 1);
+    //Bme = I2C_Init(BMESCL, BMESDA, 0);
 
     struct bme280_dev dev;
     int8_t rslt = BME280_OK;
@@ -144,7 +145,6 @@ BME280_INTF_RET_TYPE bme280Read(uint8_t reg_addr, uint8_t *data, uint16_t len, v
     
     i = *(uint8_t*)dev_id;
     i = i2c_in(&Bme, i, reg_addr, 1, data, len);
-
     if (i > 0)
     	return 0;
     else

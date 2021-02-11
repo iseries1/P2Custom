@@ -1459,7 +1459,6 @@ static int8_t get_calib_data(struct bme280_dev *dev)
 
     /* Read the calibration data from the sensor */
     rslt = bme280_get_regs(reg_addr, calib_data, BME280_TEMP_PRESS_CALIB_DATA_LEN, dev);
-
     if (rslt == BME280_OK)
     {
         /* Parse temperature and pressure calibration data and store
