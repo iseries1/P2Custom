@@ -64,52 +64,54 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">serial.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Open a simple (half duplex) serial connection. <br  />
-  
+<p>Open a serial connection.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;libsimpletext/simpletext.h&quot;</code><br />
-</div>
+
 <p><a href="serial_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:accf96de77cd3b13f8b27aff1582a1ced"><td class="memItemLeft" align="right" valign="top"><a id="accf96de77cd3b13f8b27aff1582a1ced"></a>
+typedef int *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_t</b></td></tr>
+<tr class="separator:accf96de77cd3b13f8b27aff1582a1ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9e499adaee37b5a149ef57199b567bf4"><td class="memItemLeft" align="right" valign="top"><a id="a9e499adaee37b5a149ef57199b567bf4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int rxpin, int txpin, int mode, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
-<tr class="separator:a9e499adaee37b5a149ef57199b567bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8e6e1ac94da148222287f7114527e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ac8e6e1ac94da148222287f7114527e02">serial_close</a> (void) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
-<tr class="memdesc:ac8e6e1ac94da148222287f7114527e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close serial connection. <br  />
-  <a href="serial_8h.html#ac8e6e1ac94da148222287f7114527e02">More...</a><br /></td></tr>
-<tr class="separator:ac8e6e1ac94da148222287f7114527e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88620c23bb709e517b74b613de03c0bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a88620c23bb709e517b74b613de03c0bb">serial_rxChar</a> (void) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
-<tr class="memdesc:a88620c23bb709e517b74b613de03c0bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a byte. Waits until next byte is received.  <a href="serial_8h.html#a88620c23bb709e517b74b613de03c0bb">More...</a><br /></td></tr>
-<tr class="separator:a88620c23bb709e517b74b613de03c0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f31893c99210871e43a15de4afce548"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a1f31893c99210871e43a15de4afce548">serial_txChar</a> (int txbyte) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
-<tr class="memdesc:a1f31893c99210871e43a15de4afce548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a byte.  <a href="serial_8h.html#a1f31893c99210871e43a15de4afce548">More...</a><br /></td></tr>
-<tr class="separator:a1f31893c99210871e43a15de4afce548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3fa21e72fc9bd4fb5738bebf666df4e"><td class="memItemLeft" align="right" valign="top"><a id="aa3fa21e72fc9bd4fb5738bebf666df4e"></a>
+serial_t *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int rxpin, int txpin, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="separator:aa3fa21e72fc9bd4fb5738bebf666df4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e434648d4f9119c047ee3b9151c066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#af2e434648d4f9119c047ee3b9151c066">serial_close</a> (serial_t *device) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="memdesc:af2e434648d4f9119c047ee3b9151c066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close serial connection. <br  />
+  <a href="serial_8h.html#af2e434648d4f9119c047ee3b9151c066">More...</a><br /></td></tr>
+<tr class="separator:af2e434648d4f9119c047ee3b9151c066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2aa9a5c93d49d68ebff3d78cf1311a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#aa2aa9a5c93d49d68ebff3d78cf1311a2">serial_rxChar</a> (serial_t *device) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="memdesc:aa2aa9a5c93d49d68ebff3d78cf1311a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a byte. Waits until next byte is received.  <a href="serial_8h.html#aa2aa9a5c93d49d68ebff3d78cf1311a2">More...</a><br /></td></tr>
+<tr class="separator:aa2aa9a5c93d49d68ebff3d78cf1311a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bffb511e3af831539a51b60a1c467db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a4bffb511e3af831539a51b60a1c467db">serial_txChar</a> (serial_t *device, char txbyte) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="memdesc:a4bffb511e3af831539a51b60a1c467db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a byte.  <a href="serial_8h.html#a4bffb511e3af831539a51b60a1c467db">More...</a><br /></td></tr>
+<tr class="separator:a4bffb511e3af831539a51b60a1c467db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Open a simple (half duplex) serial connection. <br  />
- </p>
+<div class="textblock"><p>Open a serial connection. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rxpin</td><td>Serial input pin, receives serial data.</td></tr>
-    <tr><td class="paramname">txpin</td><td>Serial output pin, transmits serial data.</td></tr>
-    <tr><td class="paramname">mode</td><td>Unused mode field (for FdSerial compatibility)</td></tr>
-    <tr><td class="paramname">baudrate</td><td>Bit value transmit rate, 9600, 115200, etc...</td></tr>
+    <tr><td class="paramname">rxpin</td><td>Serial input pin, receives serial data. </td></tr>
+    <tr><td class="paramname">txpin</td><td>Serial output pin, transmits serial data. </td></tr>
+    <tr><td class="paramname">baudrate</td><td>Bit value transmit rate, 9600, 115200, etc... </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>serial pointer for use as an identifier for serial and simpletext library functions that have serial or text_t parameter types. <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>id Serial connnection id </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ac8e6e1ac94da148222287f7114527e02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8e6e1ac94da148222287f7114527e02">&#9670;&nbsp;</a></span>serial_close()</h2>
+<a id="af2e434648d4f9119c047ee3b9151c066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2e434648d4f9119c047ee3b9151c066">&#9670;&nbsp;</a></span>serial_close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,8 +119,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
         <tr>
           <td class="memname">void serial_close </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">serial_t *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -128,15 +130,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*device</td><td>Identifier returned by serial_open. </td></tr>
+    <tr><td class="paramname">device</td><td>Serial connection id. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a88620c23bb709e517b74b613de03c0bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88620c23bb709e517b74b613de03c0bb">&#9670;&nbsp;</a></span>serial_rxChar()</h2>
+<a id="aa2aa9a5c93d49d68ebff3d78cf1311a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2aa9a5c93d49d68ebff3d78cf1311a2">&#9670;&nbsp;</a></span>serial_rxChar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,8 +146,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
         <tr>
           <td class="memname">int serial_rxChar </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">serial_t *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -154,7 +156,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
 <p>Receive a byte. Waits until next byte is received. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*device</td><td>Identifier returned by serial_open.</td></tr>
+    <tr><td class="paramname">device</td><td>Identifier returned by serial_open. </td></tr>
   </table>
   </dd>
 </dl>
@@ -162,8 +164,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
 
 </div>
 </div>
-<a id="a1f31893c99210871e43a15de4afce548"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f31893c99210871e43a15de4afce548">&#9670;&nbsp;</a></span>serial_txChar()</h2>
+<a id="a4bffb511e3af831539a51b60a1c467db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bffb511e3af831539a51b60a1c467db">&#9670;&nbsp;</a></span>serial_txChar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,9 +173,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
         <tr>
           <td class="memname">int serial_txChar </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>txbyte</em></td><td>)</td>
+          <td class="paramtype">serial_t *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>txbyte</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -181,12 +193,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int 
 <p>Send a byte. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*device</td><td>is a previously open/started serial device.</td></tr>
-    <tr><td class="paramname">txbyte</td><td>The byte to send.</td></tr>
+    <tr><td class="paramname">device</td><td>is a previously open/started serial device. </td></tr>
+    <tr><td class="paramname">txbyte</td><td>The byte to send. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Byte that was transmitted. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>status 0 if byte was send </dd></dl>
 
 </div>
 </div>

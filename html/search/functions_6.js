@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['json_5ffind_445',['json_find',['../json_8h.html#ac89e33cd4ced15b3ad989daec25ff841',1,'json.h']]],
-  ['json_5finit_446',['json_init',['../json_8h.html#aa67e8d7927747de0a4ec2aba16d06ce6',1,'json.h']]],
-  ['json_5fputarray_447',['json_putArray',['../json_8h.html#ad2b6f96ce9123a695d29a7685c382226',1,'json.h']]],
-  ['json_5fputdec_448',['json_putDec',['../json_8h.html#a15ff6c91797c556e3fa507ae3d31338b',1,'json.h']]],
-  ['json_5fputmore_449',['json_putMore',['../json_8h.html#a84666720d10de20cd83be62932e406c3',1,'json.h']]],
-  ['json_5fputobject_450',['json_putObject',['../json_8h.html#a3833fcee33f231d15ca9a8ed4b4f5e5b',1,'json.h']]],
-  ['json_5fputstr_451',['json_putStr',['../json_8h.html#a5269cefd6b18e7b98693a0e030c1eba4',1,'json.h']]]
+  ['getgpio_552',['getGPIO',['../newhaven_8h.html#a97acfc93748959af95e5083007508971',1,'newhaven.h']]],
+  ['gpiodir_553',['GPIODir',['../newhaven_8h.html#a0a2daad643170f8eae715d7c894bd4f8',1,'newhaven.h']]]
 ];

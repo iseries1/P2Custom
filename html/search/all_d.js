@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ws2812_2eh_254',['ws2812.h',['../ws2812_8h.html',1,'']]],
-  ['ws2812_5fset_255',['ws2812_set',['../ws2812_8h.html#a1cb60fff07cbaa75d83fc0d7dfd4008f',1,'ws2812.h']]]
+  ['opennewhaven_285',['openNewHaven',['../newhaven_8h.html#a8a1c9e5471a648c9bcb9a3a70a9b1c42',1,'newhaven.h']]]
 ];

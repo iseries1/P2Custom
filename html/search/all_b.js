@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['sensor_20data_222',['Sensor Data',['../group__bme280_api_sensor_data.html',1,'']]],
-  ['sensor_20delay_223',['Sensor Delay',['../group__bme280_api_sensor_delay.html',1,'']]],
-  ['sensor_20mode_224',['Sensor Mode',['../group__bme280_api_sensor_mode.html',1,'']]],
-  ['sensor_20settings_225',['Sensor Settings',['../group__bme280_api_sensor_settings.html',1,'']]],
-  ['system_226',['System',['../group__bme280_api_system.html',1,'']]],
-  ['sensor_20api_227',['SENSOR API',['../group___b_m_e680.html',1,'']]],
-  ['serial_2eh_228',['serial.h',['../serial_8h.html',1,'']]],
-  ['serial_5fclose_229',['serial_close',['../serial_8h.html#ac8e6e1ac94da148222287f7114527e02',1,'serial.h']]],
-  ['serial_5frxchar_230',['serial_rxChar',['../serial_8h.html#a88620c23bb709e517b74b613de03c0bb',1,'serial.h']]],
-  ['serial_5ftxchar_231',['serial_txChar',['../serial_8h.html#a1f31893c99210871e43a15de4afce548',1,'serial.h']]],
-  ['servo_5fenable_232',['Servo_Enable',['../servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0',1,'servos.h']]],
-  ['servo_5fset_233',['Servo_Set',['../servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7',1,'servos.h']]],
-  ['servos_2eh_234',['servos.h',['../servos_8h.html',1,'']]],
-  ['spiffs_5fconfig_235',['spiffs_config',['../structspiffs__config.html',1,'']]],
-  ['spiffs_5fdir_236',['spiffs_DIR',['../structspiffs___d_i_r.html',1,'']]],
-  ['spiffs_5fdirent_237',['spiffs_dirent',['../structspiffs__dirent.html',1,'']]],
-  ['spiffs_5fix_5fmap_238',['spiffs_ix_map',['../structspiffs__ix__map.html',1,'']]],
-  ['spiffs_5fstat_239',['spiffs_stat',['../structspiffs__stat.html',1,'']]],
-  ['spiffs_5ft_240',['spiffs_t',['../structspiffs__t.html',1,'']]],
-  ['ssd1331_2eh_241',['SSD1331.h',['../_s_s_d1331_8h.html',1,'']]],
-  ['step_2eh_242',['step.h',['../step_8h.html',1,'']]],
-  ['step_5fdisable_243',['Step_Disable',['../step_8h.html#ad142ef21bd40ee35b460a49afe276de1',1,'step.h']]],
-  ['step_5fstart_244',['Step_Start',['../step_8h.html#a60efa496b390ec038822f83b65cf3e78',1,'step.h']]],
-  ['step_5fstep_245',['Step_Step',['../step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c',1,'step.h']]],
-  ['step_5fwait_246',['Step_Wait',['../step_8h.html#af0bc26e93b539738cc8a244150272316',1,'step.h']]]
+  ['macro_279',['MACRO',['../newhaven_8h.html#acdbbfb5793f20caa38fc7d924dddb5a7',1,'newhaven.h']]],
+  ['macro_5f0_280',['MACRO_0',['../newhaven_8h.html#ac814e5c546523b2afa73608ad83d95a6',1,'newhaven.h']]],
+  ['macro_5f1_281',['MACRO_1',['../newhaven_8h.html#adfbdf6cf11ede1994593294bf145cf9f',1,'newhaven.h']]],
+  ['myblink_2eh_282',['myblink.h',['../myblink_8h.html',1,'']]]
 ];

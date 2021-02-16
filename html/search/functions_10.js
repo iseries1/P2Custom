@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['save_5fcontext_641',['SAVE_CONTEXT',['../newhaven_8h.html#a483f427eb6c7ba57848c4ae6b39b3bbd',1,'newhaven.h']]],
+  ['scissor_5fsize_642',['SCISSOR_SIZE',['../newhaven_8h.html#a8b27c8ff91afdf27573f2ce1e2f6ba43',1,'newhaven.h']]],
+  ['scissor_5fxy_643',['SCISSOR_XY',['../newhaven_8h.html#a6c6027192d55ece1c16679dbf042073d',1,'newhaven.h']]],
+  ['serial_5fclose_644',['serial_close',['../serial_8h.html#af2e434648d4f9119c047ee3b9151c066',1,'serial.h']]],
+  ['serial_5frxchar_645',['serial_rxChar',['../serial_8h.html#aa2aa9a5c93d49d68ebff3d78cf1311a2',1,'serial.h']]],
+  ['serial_5ftxchar_646',['serial_txChar',['../serial_8h.html#a4bffb511e3af831539a51b60a1c467db',1,'serial.h']]],
+  ['servo_5fenable_647',['Servo_Enable',['../servos_8h.html#a64e88a7981c7b2de0d9b6d84374717f0',1,'servos.h']]],
+  ['servo_5fset_648',['Servo_Set',['../servos_8h.html#ae5cefd2ee418f69ba25af0a4f8af1eb7',1,'servos.h']]],
+  ['setbrightness_649',['setBrightness',['../newhaven_8h.html#a2feb994aaedc91261b032cee80cde1b8',1,'newhaven.h']]],
+  ['setdisplay_650',['setDisplay',['../newhaven_8h.html#a8db3bb59fc9a20b9a606ce7d9185a9ad',1,'newhaven.h']]],
+  ['setgpio_651',['setGPIO',['../newhaven_8h.html#adab3dc2eb90a9514f60524591f7bd204',1,'newhaven.h']]],
+  ['setrotation_652',['setRotation',['../newhaven_8h.html#a6e08939aaffbe00e1242676bec05dd69',1,'newhaven.h']]],
+  ['stencil_5ffunc_653',['STENCIL_FUNC',['../newhaven_8h.html#a8d8d38659e05808321719e9fcbc242be',1,'newhaven.h']]],
+  ['stencil_5fmask_654',['STENCIL_MASK',['../newhaven_8h.html#a9d1bb66b85a86fdb4677aa39d994e794',1,'newhaven.h']]],
+  ['stencil_5fop_655',['STENCIL_OP',['../newhaven_8h.html#a900dc0dc6b80e1961492bab17a0ab396',1,'newhaven.h']]],
+  ['step_5fdisable_656',['Step_Disable',['../step_8h.html#ad142ef21bd40ee35b460a49afe276de1',1,'step.h']]],
+  ['step_5fstart_657',['Step_Start',['../step_8h.html#a60efa496b390ec038822f83b65cf3e78',1,'step.h']]],
+  ['step_5fstep_658',['Step_Step',['../step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c',1,'step.h']]],
+  ['step_5fwait_659',['Step_Wait',['../step_8h.html#af0bc26e93b539738cc8a244150272316',1,'step.h']]]
+];

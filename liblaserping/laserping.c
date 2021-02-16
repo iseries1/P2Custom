@@ -24,7 +24,7 @@ int _Average[16];
 char _Buffer[25];
 int _RS;
 long Stack[51];
-
+serial_t *_s;
 
 void laserping_start(char mode, char pin)
 {
@@ -46,20 +46,20 @@ void laserping_run(void *par)
   _pinl(_Pin);
   _waitms(250);
 
-  serial_open( -1, _Pin, 0, 9600);
+  _s = serial_open( -1, _Pin, 9600);
   
-  serial_txChar('I');
-  serial_txChar('I');
+  serial_txChar(_s, 'I');
+  serial_txChar(_s, 'I');
 
-  serial_close();
-  serial_open(_Pin, -1, 0, 9600);
+  serial_close(_s);
+  _s = serial_open(_Pin, -1, 9600);
 
   p = 0;
   t = 0;
   _RS = 1;
   while (_RS)
   {
-    c = serial_rxChar();
+    c = serial_rxChar(_s);
     if (c == 13)
     {
       _Buffer[p] = 0;
@@ -74,7 +74,7 @@ void laserping_run(void *par)
     if (p > 10)
       p = 0;
   }
-  serial_close();
+  serial_close(_s);
   //cogstop(cogid());
 }
 
@@ -114,7 +114,7 @@ void laserping_stop(void)
 }
 
 // Pulse pin for x
-PulseOut(int p, int t)
+void PulseOut(int p, int t)
 {
     int i;
     
@@ -131,7 +131,7 @@ PulseOut(int p, int t)
 }
 
 // Get Pulse Length in microseconds
-PulseIn(int p, int int s)
+int PulseIn(int p, int s)
 {
     int i;
     

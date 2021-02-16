@@ -6,13 +6,13 @@
  * 
 */
 
-#include "simpletools.h"
+#include <propeller.h>
 #include "tfmini.h"
 #include "serial.h"
 
 void doTFmini(void *par);
 
-
+serial_t *_s;
 
 static volatile int send;
 static volatile int distance;
@@ -71,18 +71,19 @@ void tfmini_setRate(short rate)
   send = 6;
 }
 
-void doTFmini(void)
+void doTFmini(void *par)
 {
   char data;
   int i;
   char s;
     
-  serial_open(Buffer[0], Buffer[1], 0, 115200);
+  _s = serial_open(Buffer[0], Buffer[1], 115200);
   i = 0;
   
   while (1)
   {
-    Buffer[i++] = serial_rxChar();
+    Buffer[i++] = serial_rxChar(_s);
+    _pinl(56);
     if (i == 2)
     {
       if ((Buffer[0] != 0x59) || (Buffer[1] != 0x59))
@@ -104,10 +105,10 @@ void doTFmini(void)
       s = 0;
       for (int j=0;j<send;j++)
       {
-        serial_txChar(Buffer[j+8]);
+        serial_txChar(_s, Buffer[j+8]);
         s += Buffer[j+8];
       }        
-      serial_txChar(s);
+      serial_txChar(_s, s);
       send = 0;
       i = 0;
     }        
