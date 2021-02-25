@@ -8,11 +8,10 @@
 
 #include <stdio.h>
 #include <propeller.h>
-#include "simpletools.h"
 #include "laserping.h"
 
 
-#define LASER 16
+#define LASER 36
 #define PING 0
 
 int i;
@@ -25,7 +24,7 @@ int main()
   while(1)
   {
     i = laserping_distance();
-    printi("Distance: %d\n", i);
-    pause(500);
+    printf("Distance: %d\n", i);
+    _waitms(500);
   }  
 }

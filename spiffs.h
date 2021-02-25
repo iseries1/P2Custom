@@ -1,4 +1,5 @@
-/*
+/**
+ * @file spiffs.h
  * spiffs.h
  *
  *  Created on: May 26, 2013

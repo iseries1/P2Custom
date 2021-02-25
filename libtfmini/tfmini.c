@@ -6,13 +6,14 @@
  * 
 */
 
+#include <stdio.h>
 #include <propeller.h>
 #include "tfmini.h"
 #include "serial.h"
 
 void doTFmini(void *par);
 
-serial_t *_s;
+FILE *_s;
 
 static volatile int send;
 static volatile int distance;

@@ -10,13 +10,13 @@
 #include "libHX8357/HX8357Reg.h"
 
 
-#define LITE 6
-#define RST 5
-#define DC 4
-#define CS 3
-#define MOSI 2
-#define MISO 1
-#define CLK 0
+#define LITE 22
+#define RST 21
+#define DC 20
+#define CS 19
+#define MOSI 18
+#define MISO 17
+#define CLK 16
 
 int i;
 unsigned long PCNT;

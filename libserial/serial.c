@@ -1,19 +1,44 @@
 
+#include <sys/vfs.h>
+#include <fcntl.h>
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <propeller.h>
 #include "serial.h"
 
-serial_t *serial_open(int rxpin, int txpin, int baudrate)
+FILE *serial_open(int rxpin, int txpin, int baudrate)
 {
+    int i;
     int bitperiod = (_clkfreq / baudrate);
     int bit_mode;
-    serial_t *x;
+    FILE *fd;
+    struct _default_buffer *b = 0;
 
-    x = malloc(sizeof(int));
+    for (i=3;i<_MAX_FILES;i++)
+      if ((fd = __getftab(i))->state == 0)
+        break;
+    if (i == _MAX_FILES)
+      return _seterror(EMFILE);
+    
+//    b = malloc(sizeof(struct _default_buffer));
+//    b->cnt = 0;
+//    b->ptr = b->buf;
+
+    fd->vfsdata = b;
+
+    fd->flags = O_RDWR;
+    fd->read = &serial_read;
+    fd->write = &serial_write;
+    fd->putcf = &serial_putcf;
+    fd->getcf = &serial_getcf;
+    fd->close = &serial_close;
+    fd->ioctl = 0;
+    fd->flush = 0;
+    fd->lseek = 0;
 
     bit_mode = rxpin | (txpin << 8);
-    *x = (serial_t)bit_mode;
+    fd->state = (bit_mode << 16) | _VFS_STATE_INUSE | _VFS_STATE_WROK;;
 
     // calculate smartpin mode for 8 bits per character
     bit_mode = 7 + (bitperiod << 16);
@@ -25,17 +50,17 @@ serial_t *serial_open(int rxpin, int txpin, int baudrate)
     // set up the receive pin
     if (rxpin >= 0)
       _pinstart(rxpin, P_ASYNC_RX, bit_mode, 0);
-   
-    return x;
+
+    return fd;
 }
 
-void serial_close(serial_t *device)
+int serial_close(FILE *device)
 {
     int i;
     int tx_pin;
     int rx_pin;
 
-    i = (int)*device;
+    i = device->state >> 16;
     rx_pin = i & 0xff;
     tx_pin = i >> 8;
 
@@ -44,18 +69,21 @@ void serial_close(serial_t *device)
     if (rx_pin < 64)
       _pinf(rx_pin);
 
-    free(device);
+    if (device->vfsdata != 0)
+      free(device->vfsdata);
 
-    return;
+    memset(device, 0, sizeof(device));
+
+    return 0;
 }
 
-int serial_rxChar(serial_t *device)
+int serial_rxChar(FILE *device)
 {
     int z = 0;
     int rxbyte;
     int rx_pin;
 
-    rx_pin = (int)*device;
+    rx_pin = device->state >> 16;
     rx_pin = rx_pin & 0xff;
 
     while (z == 0)
@@ -67,12 +95,12 @@ int serial_rxChar(serial_t *device)
 	return rxbyte;
 }
 
-int serial_txChar(serial_t *device, int txbyte)
+int serial_txChar(FILE *device, int txbyte)
 {
     int z = 0;
     int tx_pin;
 
-    tx_pin = (int)*device;
+    tx_pin = device->state >> 16;
     tx_pin = tx_pin >> 8;
 
     _wypin(tx_pin, txbyte);
@@ -86,4 +114,42 @@ int serial_txChar(serial_t *device, int txbyte)
     }
 
     return -1;
+}
+
+int serial_putcf(int c, FILE *device)
+{
+  return serial_txChar(device, c);
+}
+
+int serial_getcf(FILE *device)
+{
+  return serial_rxChar(device);
+}
+
+ssize_t serial_read(FILE *device, void *buff, size_t count)
+{
+    unsigned char *b = (unsigned char*)buff;
+
+    b[0] = serial_rxChar(device);
+    return 1;
+}
+
+ssize_t serial_write(FILE *device, const void *buff, size_t count)
+{
+    int z = 0;
+    int tx_pin;
+    const unsigned char *b = (const unsigned char*)buff;
+
+    tx_pin = device->flags;
+    tx_pin = tx_pin >> 8;
+
+    for (int i=0;i<count;i++)
+    {
+      _wypin(tx_pin, b[i]);
+      z = _pinr(tx_pin);
+      if (z != 0)
+        return i;
+    }
+
+    return count;
 }

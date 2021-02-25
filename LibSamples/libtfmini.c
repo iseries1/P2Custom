@@ -6,11 +6,10 @@
  * 
 */
 #include <propeller.h>
-#include "simpletools.h"
 #include "tfmini.h"
 
-#define TRX 1
-#define TTX 0
+#define TRX 37
+#define TTX 36
 
 int i;
 int d, s, t;
@@ -18,6 +17,8 @@ int d, s, t;
 
 int main()
 {
+  printf("Starting\n");
+
   i = tfmini_open(TRX, TTX);
 
   tfmini_setUnits(2);
@@ -27,7 +28,7 @@ int main()
     d = tfmini_distance();
     s = tfmini_strength();
     t = tfmini_temperature();
-    print("Distance: %d, Strength: %d, Temp: %d\n", d, s, t);
-    pause(1000);    
+    printf("Distance: %d, Strength: %d, Temp: %d\n", d, s, t);
+    _waitms(1000);    
   }  
 }

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.2</span>
+   &#160;<span id="projectnumber">1.3</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
   </td>
@@ -67,461 +67,491 @@ $(function() {
 <div class="title">spiffs.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * spiffs.h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *  Created on: May 26, 2013</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *      Author: petera</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef SPIFFS_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SPIFFS_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;libspiffs/spiffs_config.h&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define SPIFFS_OK                       0</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_MOUNTED          -10000</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FULL                 -10001</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_FOUND            -10002</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_END_OF_OBJECT        -10003</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_DELETED              -10004</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_FINALIZED        -10005</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_INDEX            -10006</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_OUT_OF_FILE_DESCS    -10007</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_CLOSED          -10008</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_DELETED         -10009</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_BAD_DESCRIPTOR       -10010</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IS_INDEX             -10011</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IS_FREE              -10012</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_SPAN_MISMATCH  -10013</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_DATA_SPAN_MISMATCH   -10014</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_FREE       -10015</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_LU         -10016</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_INVALID    -10017</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_FREE           -10018</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_LU             -10019</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_INVALID        -10020</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_WRITABLE         -10021</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_READABLE         -10022</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_CONFLICTING_NAME     -10023</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_CONFIGURED       -10024</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_A_FS             -10025</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_MOUNTED              -10026</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_ERASE_FAIL           -10027</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_MAGIC_NOT_POSSIBLE   -10028</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NO_DELETED_BLOCKS    -10029</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_EXISTS          -10030</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_A_FILE           -10031</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_RO_NOT_IMPL          -10032</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_RO_ABORTED_OPERATION -10033</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_PROBE_TOO_FEW_BLOCKS -10034</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_PROBE_NOT_A_FS       -10035</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NAME_TOO_LONG        -10036</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_UNMAPPED      -10037</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_MAPPED        -10038</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_BAD_RANGE     -10039</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_SEEK_BOUNDS          -10040</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<a href="spiffs_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef SPIFFS_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define SPIFFS_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;libspiffs/spiffs_config.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define SPIFFS_OK                       0</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_MOUNTED          -10000</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FULL                 -10001</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_FOUND            -10002</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_END_OF_OBJECT        -10003</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_DELETED              -10004</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_FINALIZED        -10005</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_INDEX            -10006</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_OUT_OF_FILE_DESCS    -10007</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_CLOSED          -10008</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_DELETED         -10009</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_BAD_DESCRIPTOR       -10010</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IS_INDEX             -10011</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IS_FREE              -10012</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_SPAN_MISMATCH  -10013</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_DATA_SPAN_MISMATCH   -10014</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_FREE       -10015</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_LU         -10016</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_REF_INVALID    -10017</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_FREE           -10018</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_LU             -10019</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INDEX_INVALID        -10020</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_WRITABLE         -10021</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_READABLE         -10022</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_CONFLICTING_NAME     -10023</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_CONFIGURED       -10024</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_A_FS             -10025</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_MOUNTED              -10026</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_ERASE_FAIL           -10027</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_MAGIC_NOT_POSSIBLE   -10028</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NO_DELETED_BLOCKS    -10029</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_FILE_EXISTS          -10030</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NOT_A_FILE           -10031</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_RO_NOT_IMPL          -10032</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_RO_ABORTED_OPERATION -10033</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_PROBE_TOO_FEW_BLOCKS -10034</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_PROBE_NOT_A_FS       -10035</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_NAME_TOO_LONG        -10036</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_UNMAPPED      -10037</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_MAPPED        -10038</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_IX_MAP_BAD_RANGE     -10039</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_SEEK_BOUNDS          -10040</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INTERNAL             -10050</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_TEST                 -10100</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_INTERNAL             -10050</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#define SPIFFS_ERR_TEST                 -10100</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// spiffs file descriptor index type. must be signed</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">typedef</span> s16_t spiffs_file;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// spiffs file descriptor flags</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">typedef</span> u16_t spiffs_flags;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// spiffs file mode</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">typedef</span> u16_t spiffs_mode;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// object type</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">typedef</span> u8_t spiffs_obj_type;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#if SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/* spi read call function type */</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_read)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size, u8_t *dst);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/* spi write call function type */</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_write)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size, u8_t *src);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/* spi erase call function type */</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_erase)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#else </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/* spi read call function type */</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_read)(u32_t addr, u32_t size, u8_t *dst);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/* spi write call function type */</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_write)(u32_t addr, u32_t size, u8_t *src);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/* spi erase call function type */</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_erase)(u32_t addr, u32_t size);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">/* file system check callback report operation */</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  SPIFFS_CHECK_LOOKUP = 0,</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  SPIFFS_CHECK_INDEX,</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  SPIFFS_CHECK_PAGE</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} spiffs_check_type;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">/* file system check callback report type */</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  SPIFFS_CHECK_PROGRESS = 0,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  SPIFFS_CHECK_ERROR,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  SPIFFS_CHECK_FIX_INDEX,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  SPIFFS_CHECK_FIX_LOOKUP,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  SPIFFS_CHECK_DELETE_ORPHANED_INDEX,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  SPIFFS_CHECK_DELETE_PAGE,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  SPIFFS_CHECK_DELETE_BAD_FILE</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} spiffs_check_report;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/* file system check callback function */</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#if SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">typedef</span> void (*spiffs_check_callback)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, spiffs_check_type type, spiffs_check_report report,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    u32_t arg1, u32_t arg2);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#else </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">typedef</span> void (*spiffs_check_callback)(spiffs_check_type type, spiffs_check_report report,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    u32_t arg1, u32_t arg2);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">/* file system listener callback operation */</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="comment">/* the file has been created */</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  SPIFFS_CB_CREATED = 0,</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="comment">/* the file has been updated or moved to another page */</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  SPIFFS_CB_UPDATED,</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="comment">/* the file has been deleted */</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  SPIFFS_CB_DELETED</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;} spiffs_fileop_type;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/* file system listener callback function */</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">typedef</span> void (*spiffs_file_callback)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, spiffs_fileop_type op, spiffs_obj_id obj_id, spiffs_page_ix pix);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="preprocessor">#ifndef SPIFFS_DBG</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#define SPIFFS_DBG(...) \</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">    printf(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#ifndef SPIFFS_GC_DBG</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#define SPIFFS_GC_DBG(...) printf(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#ifndef SPIFFS_CACHE_DBG</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#define SPIFFS_CACHE_DBG(...) printf(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#ifndef SPIFFS_CHECK_DBG</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#define SPIFFS_CHECK_DBG(...) printf(__VA_ARGS__)</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">/* Any write to the filehandle is appended to end of the file */</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#define SPIFFS_APPEND                   (1&lt;&lt;0)</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#define SPIFFS_O_APPEND                 SPIFFS_APPEND</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">/* If the opened file exists, it will be truncated to zero length before opened */</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#define SPIFFS_TRUNC                    (1&lt;&lt;1)</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#define SPIFFS_O_TRUNC                  SPIFFS_TRUNC</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">/* If the opened file does not exist, it will be created before opened */</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#define SPIFFS_CREAT                    (1&lt;&lt;2)</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#define SPIFFS_O_CREAT                  SPIFFS_CREAT</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">/* The opened file may only be read */</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#define SPIFFS_RDONLY                   (1&lt;&lt;3)</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#define SPIFFS_O_RDONLY                 SPIFFS_RDONLY</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">/* The opened file may only be written */</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#define SPIFFS_WRONLY                   (1&lt;&lt;4)</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#define SPIFFS_O_WRONLY                 SPIFFS_WRONLY</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">/* The opened file may be both read and written */</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#define SPIFFS_RDWR                     (SPIFFS_RDONLY | SPIFFS_WRONLY)</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#define SPIFFS_O_RDWR                   SPIFFS_RDWR</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">/* Any writes to the filehandle will never be cached but flushed directly */</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#define SPIFFS_DIRECT                   (1&lt;&lt;5)</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#define SPIFFS_O_DIRECT                 SPIFFS_DIRECT</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">/* If SPIFFS_O_CREAT and SPIFFS_O_EXCL are set, SPIFFS_open() shall fail if the file exists */</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#define SPIFFS_EXCL                     (1&lt;&lt;6)</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#define SPIFFS_O_EXCL                   SPIFFS_EXCL</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_SET                 (0)</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_CUR                 (1)</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_END                 (2)</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_FILE                (1)</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_DIR                 (2)</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_HARD_LINK           (3)</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_SOFT_LINK           (4)</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#ifndef SPIFFS_LOCK</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#define SPIFFS_LOCK(fs)</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#ifndef SPIFFS_UNLOCK</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#define SPIFFS_UNLOCK(fs)</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">// phys structs</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">// spiffs spi configuration struct</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="structspiffs__config.html">  200</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="comment">// physical read function</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  spiffs_read hal_read_f;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">// physical write function</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  spiffs_write hal_write_f;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="comment">// physical erase function</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  spiffs_erase hal_erase_f;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="preprocessor">#if SPIFFS_SINGLETON == 0</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="comment">// physical size of the spi flash</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  u32_t phys_size;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="comment">// physical offset in spi flash used for spiffs,</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="comment">// must be on block boundary</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  u32_t phys_addr;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="comment">// physical size when erasing a block</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  u32_t phys_erase_block;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">// logical size of a block, must be on physical</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">// block size boundary and must never be less than</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">// a physical block</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  u32_t log_block_size;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">// logical size of a page, must be at least</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="comment">// log_block_size / 8</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  u32_t log_page_size;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#if SPIFFS_FILEHDL_OFFSET</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <span class="comment">// an integer offset added to each file handle</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  u16_t fh_ix_offset;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;} <a class="code" href="structspiffs__config.html">spiffs_config</a>;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="structspiffs__t.html">  231</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> {</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="comment">// file system configuration</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <a class="code" href="structspiffs__config.html">spiffs_config</a> cfg;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="comment">// number of logical blocks</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  u32_t block_count;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="comment">// cursor for free blocks, block index</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  spiffs_block_ix free_cursor_block_ix;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="comment">// cursor for free blocks, entry index</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordtype">int</span> free_cursor_obj_lu_entry;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="comment">// cursor when searching, block index</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  spiffs_block_ix cursor_block_ix;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="comment">// cursor when searching, entry index</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keywordtype">int</span> cursor_obj_lu_entry;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="comment">// primary work buffer, size of a logical page</span></div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  u8_t *lu_work;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="comment">// secondary work buffer, size of a logical page</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  u8_t *work;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="comment">// file descriptor memory area</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  u8_t *fd_space;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="comment">// available file descriptors</span></div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  u32_t fd_count;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="comment">// last error</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  s32_t err_code;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="comment">// current number of free blocks</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  u32_t free_blocks;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="comment">// current number of busy pages</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  u32_t stats_p_allocated;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="comment">// current number of deleted pages</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  u32_t stats_p_deleted;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="comment">// flag indicating that garbage collector is cleaning</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  u8_t cleaning;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="comment">// max erase count amongst all blocks</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  spiffs_obj_id max_erase_count;</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#if SPIFFS_GC_STATS</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  u32_t stats_gc_runs;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="comment">// cache memory</span></div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keywordtype">void</span> *cache;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="comment">// cache size</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  u32_t cache_size;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE_STATS</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  u32_t cache_hits;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  u32_t cache_misses;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">// spiffs file descriptor index type. must be signed</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">typedef</span> s16_t spiffs_file;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// spiffs file descriptor flags</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">typedef</span> u16_t spiffs_flags;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// spiffs file mode</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">typedef</span> u16_t spiffs_mode;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">// object type</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">typedef</span> u8_t spiffs_obj_type;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#if SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/* spi read call function type */</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_read)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size, u8_t *dst);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/* spi write call function type */</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_write)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size, u8_t *src);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/* spi erase call function type */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_erase)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, u32_t addr, u32_t size);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#else </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/* spi read call function type */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_read)(u32_t addr, u32_t size, u8_t *dst);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/* spi write call function type */</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_write)(u32_t addr, u32_t size, u8_t *src);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/* spi erase call function type */</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">typedef</span> s32_t (*spiffs_erase)(u32_t addr, u32_t size);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/* file system check callback report operation */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  SPIFFS_CHECK_LOOKUP = 0,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  SPIFFS_CHECK_INDEX,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  SPIFFS_CHECK_PAGE</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} spiffs_check_type;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/* file system check callback report type */</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  SPIFFS_CHECK_PROGRESS = 0,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  SPIFFS_CHECK_ERROR,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  SPIFFS_CHECK_FIX_INDEX,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  SPIFFS_CHECK_FIX_LOOKUP,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  SPIFFS_CHECK_DELETE_ORPHANED_INDEX,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  SPIFFS_CHECK_DELETE_PAGE,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  SPIFFS_CHECK_DELETE_BAD_FILE</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} spiffs_check_report;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/* file system check callback function */</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#if SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">typedef</span> void (*spiffs_check_callback)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, spiffs_check_type type, spiffs_check_report report,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    u32_t arg1, u32_t arg2);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#else </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">typedef</span> void (*spiffs_check_callback)(spiffs_check_type type, spiffs_check_report report,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    u32_t arg1, u32_t arg2);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_HAL_CALLBACK_EXTRA</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">/* file system listener callback operation */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="comment">/* the file has been created */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  SPIFFS_CB_CREATED = 0,</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="comment">/* the file has been updated or moved to another page */</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  SPIFFS_CB_UPDATED,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="comment">/* the file has been deleted */</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  SPIFFS_CB_DELETED</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;} spiffs_fileop_type;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">/* file system listener callback function */</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keyword">typedef</span> void (*spiffs_file_callback)(<span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> *fs, spiffs_fileop_type op, spiffs_obj_id obj_id, spiffs_page_ix pix);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#ifndef SPIFFS_DBG</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#define SPIFFS_DBG(...) \</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">    printf(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#ifndef SPIFFS_GC_DBG</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#define SPIFFS_GC_DBG(...) printf(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="preprocessor">#ifndef SPIFFS_CACHE_DBG</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#define SPIFFS_CACHE_DBG(...) printf(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#ifndef SPIFFS_CHECK_DBG</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#define SPIFFS_CHECK_DBG(...) printf(__VA_ARGS__)</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">/* Any write to the filehandle is appended to end of the file */</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#define SPIFFS_APPEND                   (1&lt;&lt;0)</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#define SPIFFS_O_APPEND                 SPIFFS_APPEND</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/* If the opened file exists, it will be truncated to zero length before opened */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#define SPIFFS_TRUNC                    (1&lt;&lt;1)</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#define SPIFFS_O_TRUNC                  SPIFFS_TRUNC</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">/* If the opened file does not exist, it will be created before opened */</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor">#define SPIFFS_CREAT                    (1&lt;&lt;2)</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#define SPIFFS_O_CREAT                  SPIFFS_CREAT</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/* The opened file may only be read */</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#define SPIFFS_RDONLY                   (1&lt;&lt;3)</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#define SPIFFS_O_RDONLY                 SPIFFS_RDONLY</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">/* The opened file may only be written */</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#define SPIFFS_WRONLY                   (1&lt;&lt;4)</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#define SPIFFS_O_WRONLY                 SPIFFS_WRONLY</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">/* The opened file may be both read and written */</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#define SPIFFS_RDWR                     (SPIFFS_RDONLY | SPIFFS_WRONLY)</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#define SPIFFS_O_RDWR                   SPIFFS_RDWR</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">/* Any writes to the filehandle will never be cached but flushed directly */</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">#define SPIFFS_DIRECT                   (1&lt;&lt;5)</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#define SPIFFS_O_DIRECT                 SPIFFS_DIRECT</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">/* If SPIFFS_O_CREAT and SPIFFS_O_EXCL are set, SPIFFS_open() shall fail if the file exists */</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#define SPIFFS_EXCL                     (1&lt;&lt;6)</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#define SPIFFS_O_EXCL                   SPIFFS_EXCL</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_SET                 (0)</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_CUR                 (1)</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#define SPIFFS_SEEK_END                 (2)</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_FILE                (1)</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_DIR                 (2)</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_HARD_LINK           (3)</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">#define SPIFFS_TYPE_SOFT_LINK           (4)</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#ifndef SPIFFS_LOCK</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#define SPIFFS_LOCK(fs)</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#ifndef SPIFFS_UNLOCK</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#define SPIFFS_UNLOCK(fs)</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">// phys structs</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">// spiffs spi configuration struct</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="structspiffs__config.html">  201</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="comment">// physical read function</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  spiffs_read hal_read_f;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="comment">// physical write function</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  spiffs_write hal_write_f;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">// physical erase function</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  spiffs_erase hal_erase_f;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="preprocessor">#if SPIFFS_SINGLETON == 0</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="comment">// physical size of the spi flash</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  u32_t phys_size;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="comment">// physical offset in spi flash used for spiffs,</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="comment">// must be on block boundary</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  u32_t phys_addr;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="comment">// physical size when erasing a block</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  u32_t phys_erase_block;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">// logical size of a block, must be on physical</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">// block size boundary and must never be less than</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="comment">// a physical block</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  u32_t log_block_size;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="comment">// logical size of a page, must be at least</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="comment">// log_block_size / 8</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  u32_t log_page_size;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">#if SPIFFS_FILEHDL_OFFSET</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="comment">// an integer offset added to each file handle</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  u16_t fh_ix_offset;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;} <a class="code" href="structspiffs__config.html">spiffs_config</a>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno"><a class="line" href="structspiffs__t.html">  232</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structspiffs__t.html">spiffs_t</a> {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="comment">// file system configuration</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <a class="code" href="structspiffs__config.html">spiffs_config</a> cfg;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="comment">// number of logical blocks</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  u32_t block_count;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  <span class="comment">// cursor for free blocks, block index</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  spiffs_block_ix free_cursor_block_ix;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="comment">// cursor for free blocks, entry index</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keywordtype">int</span> free_cursor_obj_lu_entry;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="comment">// cursor when searching, block index</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  spiffs_block_ix cursor_block_ix;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="comment">// cursor when searching, entry index</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  <span class="keywordtype">int</span> cursor_obj_lu_entry;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="comment">// primary work buffer, size of a logical page</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  u8_t *lu_work;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="comment">// secondary work buffer, size of a logical page</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  u8_t *work;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="comment">// file descriptor memory area</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  u8_t *fd_space;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="comment">// available file descriptors</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  u32_t fd_count;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="comment">// last error</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  s32_t err_code;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="comment">// current number of free blocks</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  u32_t free_blocks;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="comment">// current number of busy pages</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  u32_t stats_p_allocated;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="comment">// current number of deleted pages</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  u32_t stats_p_deleted;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="comment">// flag indicating that garbage collector is cleaning</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  u8_t cleaning;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="comment">// max erase count amongst all blocks</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  spiffs_obj_id max_erase_count;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor">#if SPIFFS_GC_STATS</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  u32_t stats_gc_runs;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="comment">// cache memory</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keywordtype">void</span> *cache;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="comment">// cache size</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  u32_t cache_size;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE_STATS</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  u32_t cache_hits;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  u32_t cache_misses;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="comment">// check callback function</span></div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  spiffs_check_callback check_cb_f;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="comment">// file callback function</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  spiffs_file_callback file_cb_f;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">// mounted flag</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  u8_t mounted;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="comment">// user data</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keywordtype">void</span> *user_data;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="comment">// config magic</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  u32_t config_magic;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;} <a class="code" href="structspiffs__t.html">spiffs</a>;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">/* spiffs file status struct */</span></div>
-<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="structspiffs__stat.html">  297</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  spiffs_obj_id obj_id;</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  u32_t size;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  spiffs_obj_type type;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  spiffs_page_ix pix;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  u8_t name[SPIFFS_OBJ_NAME_LEN];</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  u8_t meta[SPIFFS_OBJ_META_LEN];</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;} <a class="code" href="structspiffs__stat.html">spiffs_stat</a>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="structspiffs__dirent.html">  308</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> {</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  spiffs_obj_id obj_id;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  u8_t name[SPIFFS_OBJ_NAME_LEN];</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  spiffs_obj_type type;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  u32_t size;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  spiffs_page_ix pix;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  u8_t meta[SPIFFS_OBJ_META_LEN];</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;};</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="structspiffs___d_i_r.html">  319</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <a class="code" href="structspiffs__t.html">spiffs</a> *fs;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  spiffs_block_ix block;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <span class="keywordtype">int</span> entry;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;} <a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a>;</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;<span class="preprocessor">#if SPIFFS_IX_MAP</span></div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="structspiffs__ix__map.html">  327</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  <span class="comment">// buffer with looked up data pixes</span></div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  spiffs_page_ix *map_buf;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  <span class="comment">// precise file byte offset</span></div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  u32_t offset;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="comment">// start data span index of lookup buffer</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  spiffs_span_ix start_spix;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="comment">// end data span index of lookup buffer</span></div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  spiffs_span_ix end_spix;</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;} <a class="code" href="structspiffs__ix__map.html">spiffs_ix_map</a>;</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="comment">// functions</span></div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="preprocessor">#if SPIFFS_USE_MAGIC &amp;&amp; SPIFFS_USE_MAGIC_LENGTH &amp;&amp; SPIFFS_SINGLETON==0</span></div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;s32_t SPIFFS_probe_fs(<a class="code" href="structspiffs__config.html">spiffs_config</a> *config);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_USE_MAGIC &amp;&amp; SPIFFS_USE_MAGIC_LENGTH &amp;&amp; SPIFFS_SINGLETON==0</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;s32_t SPIFFS_mount(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <a class="code" href="structspiffs__config.html">spiffs_config</a> *config, u8_t *work,</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    u8_t *fd_space, u32_t fd_space_size,</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordtype">void</span> *cache, u32_t cache_size,</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    spiffs_check_callback check_cb_f) __fromfile(<span class="stringliteral">&quot;libspiffs/spiffs_hydrogen.c&quot;</span>);</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keywordtype">void</span> SPIFFS_unmount(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;s32_t SPIFFS_creat(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, spiffs_mode mode);</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;spiffs_file SPIFFS_open(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, spiffs_flags flags, spiffs_mode mode);</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;spiffs_file SPIFFS_open_by_dirent(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">struct</span> <a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *e, spiffs_flags flags, spiffs_mode mode);</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;spiffs_file SPIFFS_open_by_page(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_page_ix page_ix, spiffs_flags flags, spiffs_mode mode);</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;s32_t SPIFFS_read(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keywordtype">void</span> *buf, s32_t len);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;s32_t SPIFFS_write(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keywordtype">void</span> *buf, s32_t len);</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;s32_t SPIFFS_lseek(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, s32_t offs, <span class="keywordtype">int</span> whence);</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;s32_t SPIFFS_remove(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;s32_t SPIFFS_fremove(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;s32_t SPIFFS_stat(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, <a class="code" href="structspiffs__stat.html">spiffs_stat</a> *s);</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;s32_t SPIFFS_fstat(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <a class="code" href="structspiffs__stat.html">spiffs_stat</a> *s);</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;s32_t SPIFFS_fflush(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160; </div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;s32_t SPIFFS_close(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;s32_t SPIFFS_rename(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *old, <span class="keyword">const</span> <span class="keywordtype">char</span> *newPath);</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;s32_t SPIFFS_update_meta(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keyword">const</span> <span class="keywordtype">void</span> *meta);</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;s32_t SPIFFS_fupdate_meta(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keyword">const</span> <span class="keywordtype">void</span> *meta);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160; </div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;s32_t SPIFFS_errno(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="keywordtype">void</span> SPIFFS_clearerr(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *SPIFFS_opendir(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d);</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;s32_t SPIFFS_closedir(<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d);</div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160; </div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *SPIFFS_readdir(<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d, <span class="keyword">struct</span> <a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *e);</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;s32_t SPIFFS_check(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;s32_t SPIFFS_info(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t *total, u32_t *used);</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;s32_t SPIFFS_format(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;u8_t SPIFFS_mounted(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;s32_t SPIFFS_gc_quick(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u16_t max_free_pages);</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;s32_t SPIFFS_gc(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t size);</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;s32_t SPIFFS_eof(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;s32_t SPIFFS_tell(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;s32_t SPIFFS_set_file_callback_func(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file_callback cb_func);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;<span class="preprocessor">#if SPIFFS_IX_MAP</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160; </div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;s32_t SPIFFS_ix_map(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <a class="code" href="structspiffs__ix__map.html">spiffs_ix_map</a> *map,</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;    u32_t offset, u32_t len, spiffs_page_ix *map_buf);</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160; </div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;s32_t SPIFFS_ix_unmap(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;s32_t SPIFFS_ix_remap(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, u32_t offs);</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160; </div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;s32_t SPIFFS_bytes_to_ix_map_entries(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t bytes);</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160; </div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;s32_t SPIFFS_ix_map_entries_to_bytes(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t map_page_ix_entries);</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160; </div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_IX_MAP</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="comment">// check callback function</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  spiffs_check_callback check_cb_f;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="comment">// file callback function</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  spiffs_file_callback file_cb_f;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="comment">// mounted flag</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  u8_t mounted;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="comment">// user data</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keywordtype">void</span> *user_data;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="comment">// config magic</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  u32_t config_magic;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;} <a class="code" href="structspiffs__t.html">spiffs</a>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">/* spiffs file status struct */</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="structspiffs__stat.html">  298</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  spiffs_obj_id obj_id;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  u32_t size;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  spiffs_obj_type type;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  spiffs_page_ix pix;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  u8_t name[SPIFFS_OBJ_NAME_LEN];</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  u8_t meta[SPIFFS_OBJ_META_LEN];</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;} <a class="code" href="structspiffs__stat.html">spiffs_stat</a>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="structspiffs__dirent.html">  309</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  spiffs_obj_id obj_id;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  u8_t name[SPIFFS_OBJ_NAME_LEN];</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  spiffs_obj_type type;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  u32_t size;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  spiffs_page_ix pix;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  u8_t meta[SPIFFS_OBJ_META_LEN];</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;};</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="structspiffs___d_i_r.html">  320</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <a class="code" href="structspiffs__t.html">spiffs</a> *fs;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  spiffs_block_ix block;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordtype">int</span> entry;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;} <a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a>;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="preprocessor">#if SPIFFS_IX_MAP</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="structspiffs__ix__map.html">  328</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="comment">// buffer with looked up data pixes</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  spiffs_page_ix *map_buf;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="comment">// precise file byte offset</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  u32_t offset;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="comment">// start data span index of lookup buffer</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  spiffs_span_ix start_spix;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <span class="comment">// end data span index of lookup buffer</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  spiffs_span_ix end_spix;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;} <a class="code" href="structspiffs__ix__map.html">spiffs_ix_map</a>;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="comment">// functions</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;<span class="preprocessor">#if SPIFFS_USE_MAGIC &amp;&amp; SPIFFS_USE_MAGIC_LENGTH &amp;&amp; SPIFFS_SINGLETON==0</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;s32_t SPIFFS_probe_fs(<a class="code" href="structspiffs__config.html">spiffs_config</a> *config);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_USE_MAGIC &amp;&amp; SPIFFS_USE_MAGIC_LENGTH &amp;&amp; SPIFFS_SINGLETON==0</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="spiffs_8h.html#aedab90cfa75f517bebce551e3babaa47">  392</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#aedab90cfa75f517bebce551e3babaa47">SPIFFS_mount</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <a class="code" href="structspiffs__config.html">spiffs_config</a> *config, u8_t *work,</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    u8_t *fd_space, u32_t fd_space_size,</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keywordtype">void</span> *cache, u32_t cache_size,</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    spiffs_check_callback check_cb_f) __fromfile(<span class="stringliteral">&quot;libspiffs/spiffs_hydrogen.c&quot;</span>);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a98b86b521e4e51790dac322618558441">  402</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="spiffs_8h.html#a98b86b521e4e51790dac322618558441">SPIFFS_unmount</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ad653345a098d4933f63a95a1a64cb5fe">  410</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#ad653345a098d4933f63a95a1a64cb5fe">SPIFFS_creat</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, spiffs_mode mode);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ad6449ab3ad1c07b9a8ca743af4b836fa">  421</a></span>&#160;spiffs_file <a class="code" href="spiffs_8h.html#ad6449ab3ad1c07b9a8ca743af4b836fa">SPIFFS_open</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, spiffs_flags flags, spiffs_mode mode);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a5442ec7cf9973ef1bae26753f8715b8d">  436</a></span>&#160;spiffs_file <a class="code" href="spiffs_8h.html#a5442ec7cf9973ef1bae26753f8715b8d">SPIFFS_open_by_dirent</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">struct</span> <a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *e, spiffs_flags flags, spiffs_mode mode);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno"><a class="line" href="spiffs_8h.html#adc5848eb9323ebfbad6f1a94f34154f4">  452</a></span>&#160;spiffs_file <a class="code" href="spiffs_8h.html#adc5848eb9323ebfbad6f1a94f34154f4">SPIFFS_open_by_page</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_page_ix page_ix, spiffs_flags flags, spiffs_mode mode);</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="spiffs_8h.html#abe8899197a8c5032f7dd85f3a9f9eec6">  462</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#abe8899197a8c5032f7dd85f3a9f9eec6">SPIFFS_read</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keywordtype">void</span> *buf, s32_t len);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="line" href="spiffs_8h.html#af34f802723bd3a2e033b44c644483d39">  472</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#af34f802723bd3a2e033b44c644483d39">SPIFFS_write</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keywordtype">void</span> *buf, s32_t len);</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ae396bc62e88e9846d371f16859b93e54">  484</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#ae396bc62e88e9846d371f16859b93e54">SPIFFS_lseek</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, s32_t offs, <span class="keywordtype">int</span> whence);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00491"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a962677491700668b80117a9e0f728b51">  491</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a962677491700668b80117a9e0f728b51">SPIFFS_remove</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
+<div class="line"><a name="l00498"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a1e75f5d57aeb09fa936a1fa3d6ceb2d5">  498</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a1e75f5d57aeb09fa936a1fa3d6ceb2d5">SPIFFS_fremove</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
+<div class="line"><a name="l00506"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a3ac72ca8843be826ef5a77b1663ee4ac">  506</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a3ac72ca8843be826ef5a77b1663ee4ac">SPIFFS_stat</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *path, <a class="code" href="structspiffs__stat.html">spiffs_stat</a> *s);</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00514"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a0bfb43557c275cf88eae52dcd7b53524">  514</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a0bfb43557c275cf88eae52dcd7b53524">SPIFFS_fstat</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <a class="code" href="structspiffs__stat.html">spiffs_stat</a> *s);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ac335bf8ade9f4f8ac44123a6a608d78a">  521</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#ac335bf8ade9f4f8ac44123a6a608d78a">SPIFFS_fflush</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a9a9babd221dab492856c5da4fa74bf88">  528</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a9a9babd221dab492856c5da4fa74bf88">SPIFFS_close</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160; </div>
+<div class="line"><a name="l00536"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a20b3521d3794d9150f4116372ff7c4e9">  536</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a20b3521d3794d9150f4116372ff7c4e9">SPIFFS_rename</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *old, <span class="keyword">const</span> <span class="keywordtype">char</span> *newPath);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="preprocessor">#if SPIFFS_OBJ_META_LEN</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;s32_t SPIFFS_update_meta(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <span class="keyword">const</span> <span class="keywordtype">void</span> *meta);</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;s32_t SPIFFS_fupdate_meta(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <span class="keyword">const</span> <span class="keywordtype">void</span> *meta);</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
+<div class="line"><a name="l00560"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a7c7c930dcabe1403be5bf5ecd57986ec">  560</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a7c7c930dcabe1403be5bf5ecd57986ec">SPIFFS_errno</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="line"><a name="l00566"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a5b45ea9230e7d9a73bc63f871b33b709">  566</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="spiffs_8h.html#a5b45ea9230e7d9a73bc63f871b33b709">SPIFFS_clearerr</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
+<div class="line"><a name="l00577"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a116271bb88503c16c860b805368c88be">  577</a></span>&#160;<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *<a class="code" href="spiffs_8h.html#a116271bb88503c16c860b805368c88be">SPIFFS_opendir</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, <span class="keyword">const</span> <span class="keywordtype">char</span> *name, <a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d);</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<div class="line"><a name="l00583"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a88a4782ebf1c1d37c5c2352a7700a4cf">  583</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a88a4782ebf1c1d37c5c2352a7700a4cf">SPIFFS_closedir</a>(<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d);</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; </div>
+<div class="line"><a name="l00591"></a><span class="lineno"><a class="line" href="spiffs_8h.html#adb15aebc5a6add477b2f6dbf81756763">  591</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *<a class="code" href="spiffs_8h.html#adb15aebc5a6add477b2f6dbf81756763">SPIFFS_readdir</a>(<a class="code" href="structspiffs___d_i_r.html">spiffs_DIR</a> *d, <span class="keyword">struct</span> <a class="code" href="structspiffs__dirent.html">spiffs_dirent</a> *e);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
+<div class="line"><a name="l00597"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ab2a6e1f0464c8fa41535b43d597cdd26">  597</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#ab2a6e1f0464c8fa41535b43d597cdd26">SPIFFS_check</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
+<div class="line"><a name="l00611"></a><span class="lineno"><a class="line" href="spiffs_8h.html#acfda216b52879b2e8b637258f319269a">  611</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#acfda216b52879b2e8b637258f319269a">SPIFFS_info</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t *total, u32_t *used);</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
+<div class="line"><a name="l00626"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a85de96c305e5b362975ef8dceebfd9e4">  626</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a85de96c305e5b362975ef8dceebfd9e4">SPIFFS_format</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
+<div class="line"><a name="l00632"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a6796d3c00ddb94ec1e2fe2fde2bb292a">  632</a></span>&#160;u8_t <a class="code" href="spiffs_8h.html#a6796d3c00ddb94ec1e2fe2fde2bb292a">SPIFFS_mounted</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160; </div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="spiffs_8h.html#aea9c999e519fc5ad90c1580d9835ac9f">  657</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#aea9c999e519fc5ad90c1580d9835ac9f">SPIFFS_gc_quick</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u16_t max_free_pages);</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
+<div class="line"><a name="l00676"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a996713c9c86267523b1fcf14e1f59ba1">  676</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a996713c9c86267523b1fcf14e1f59ba1">SPIFFS_gc</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t size);</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00683"></a><span class="lineno"><a class="line" href="spiffs_8h.html#aa964e15f59ddd9053b78933d661282e8">  683</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#aa964e15f59ddd9053b78933d661282e8">SPIFFS_eof</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
+<div class="line"><a name="l00690"></a><span class="lineno"><a class="line" href="spiffs_8h.html#aae0d52538b75019bb6f745de8d143765">  690</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#aae0d52538b75019bb6f745de8d143765">SPIFFS_tell</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160; </div>
+<div class="line"><a name="l00706"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a10506068cc612f18ca683cdd1ea1e4fd">  706</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a10506068cc612f18ca683cdd1ea1e4fd">SPIFFS_set_file_callback_func</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file_callback cb_func);</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;<span class="preprocessor">#if SPIFFS_IX_MAP</span></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160; </div>
+<div class="line"><a name="l00737"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a499bb9dcaca7b521c8c2570e05398819">  737</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a499bb9dcaca7b521c8c2570e05398819">SPIFFS_ix_map</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, <a class="code" href="structspiffs__ix__map.html">spiffs_ix_map</a> *map,</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;    u32_t offset, u32_t len, spiffs_page_ix *map_buf);</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00751"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a4baa2232bff9f57cf6e4c22dd1be39ed">  751</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a4baa2232bff9f57cf6e4c22dd1be39ed">SPIFFS_ix_unmap</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh);</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160; </div>
+<div class="line"><a name="l00760"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a89fc66b432eff73af21e4d67765e5936">  760</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a89fc66b432eff73af21e4d67765e5936">SPIFFS_ix_remap</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, spiffs_file fh, u32_t offs);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160; </div>
+<div class="line"><a name="l00771"></a><span class="lineno"><a class="line" href="spiffs_8h.html#ad25309d97902ea6af6bebca7adcbf305">  771</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#ad25309d97902ea6af6bebca7adcbf305">SPIFFS_bytes_to_ix_map_entries</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t bytes);</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160; </div>
+<div class="line"><a name="l00782"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a5191607b9e23975e9016a44ec58b3c00">  782</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a5191607b9e23975e9016a44ec58b3c00">SPIFFS_ix_map_entries_to_bytes</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t map_page_ix_entries);</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160; </div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SPIFFS_IX_MAP</span></div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="preprocessor">#if SPIFFS_TEST_VISUALISATION</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;s32_t SPIFFS_vis(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160; </div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="preprocessor">#if SPIFFS_BUFFER_HELP</span></div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;u32_t SPIFFS_buffer_bytes_for_filedescs(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t num_descs);</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;u32_t SPIFFS_buffer_bytes_for_cache(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t num_pages);</div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160; </div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="preprocessor">#if SPIFFS_TEST_VISUALISATION</span></div>
+<div class="line"><a name="l00792"></a><span class="lineno"><a class="line" href="spiffs_8h.html#a0b99caa66e378817103e37e539396329">  792</a></span>&#160;s32_t <a class="code" href="spiffs_8h.html#a0b99caa66e378817103e37e539396329">SPIFFS_vis</a>(<a class="code" href="structspiffs__t.html">spiffs</a> *fs);</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="preprocessor">#if SPIFFS_BUFFER_HELP</span></div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;u32_t SPIFFS_buffer_bytes_for_filedescs(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t num_descs);</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160; </div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;u32_t SPIFFS_buffer_bytes_for_cache(<a class="code" href="structspiffs__t.html">spiffs</a> *fs, u32_t num_pages);</div>
 <div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160; </div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;}</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160; </div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPIFFS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="astructspiffs___d_i_r_html"><div class="ttname"><a href="structspiffs___d_i_r.html">spiffs_DIR</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:319</div></div>
-<div class="ttc" id="astructspiffs__config_html"><div class="ttname"><a href="structspiffs__config.html">spiffs_config</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:200</div></div>
-<div class="ttc" id="astructspiffs__dirent_html"><div class="ttname"><a href="structspiffs__dirent.html">spiffs_dirent</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:308</div></div>
-<div class="ttc" id="astructspiffs__ix__map_html"><div class="ttname"><a href="structspiffs__ix__map.html">spiffs_ix_map</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:327</div></div>
-<div class="ttc" id="astructspiffs__stat_html"><div class="ttname"><a href="structspiffs__stat.html">spiffs_stat</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:297</div></div>
-<div class="ttc" id="astructspiffs__t_html"><div class="ttname"><a href="structspiffs__t.html">spiffs_t</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:231</div></div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="preprocessor">#if SPIFFS_CACHE</span></div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;}</div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SPIFFS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aspiffs_8h_html_a0b99caa66e378817103e37e539396329"><div class="ttname"><a href="spiffs_8h.html#a0b99caa66e378817103e37e539396329">SPIFFS_vis</a></div><div class="ttdeci">s32_t SPIFFS_vis(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a0bfb43557c275cf88eae52dcd7b53524"><div class="ttname"><a href="spiffs_8h.html#a0bfb43557c275cf88eae52dcd7b53524">SPIFFS_fstat</a></div><div class="ttdeci">s32_t SPIFFS_fstat(spiffs *fs, spiffs_file fh, spiffs_stat *s)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a10506068cc612f18ca683cdd1ea1e4fd"><div class="ttname"><a href="spiffs_8h.html#a10506068cc612f18ca683cdd1ea1e4fd">SPIFFS_set_file_callback_func</a></div><div class="ttdeci">s32_t SPIFFS_set_file_callback_func(spiffs *fs, spiffs_file_callback cb_func)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a116271bb88503c16c860b805368c88be"><div class="ttname"><a href="spiffs_8h.html#a116271bb88503c16c860b805368c88be">SPIFFS_opendir</a></div><div class="ttdeci">spiffs_DIR * SPIFFS_opendir(spiffs *fs, const char *name, spiffs_DIR *d)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a1e75f5d57aeb09fa936a1fa3d6ceb2d5"><div class="ttname"><a href="spiffs_8h.html#a1e75f5d57aeb09fa936a1fa3d6ceb2d5">SPIFFS_fremove</a></div><div class="ttdeci">s32_t SPIFFS_fremove(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a20b3521d3794d9150f4116372ff7c4e9"><div class="ttname"><a href="spiffs_8h.html#a20b3521d3794d9150f4116372ff7c4e9">SPIFFS_rename</a></div><div class="ttdeci">s32_t SPIFFS_rename(spiffs *fs, const char *old, const char *newPath)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a3ac72ca8843be826ef5a77b1663ee4ac"><div class="ttname"><a href="spiffs_8h.html#a3ac72ca8843be826ef5a77b1663ee4ac">SPIFFS_stat</a></div><div class="ttdeci">s32_t SPIFFS_stat(spiffs *fs, const char *path, spiffs_stat *s)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a499bb9dcaca7b521c8c2570e05398819"><div class="ttname"><a href="spiffs_8h.html#a499bb9dcaca7b521c8c2570e05398819">SPIFFS_ix_map</a></div><div class="ttdeci">s32_t SPIFFS_ix_map(spiffs *fs, spiffs_file fh, spiffs_ix_map *map, u32_t offset, u32_t len, spiffs_page_ix *map_buf)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a4baa2232bff9f57cf6e4c22dd1be39ed"><div class="ttname"><a href="spiffs_8h.html#a4baa2232bff9f57cf6e4c22dd1be39ed">SPIFFS_ix_unmap</a></div><div class="ttdeci">s32_t SPIFFS_ix_unmap(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a5191607b9e23975e9016a44ec58b3c00"><div class="ttname"><a href="spiffs_8h.html#a5191607b9e23975e9016a44ec58b3c00">SPIFFS_ix_map_entries_to_bytes</a></div><div class="ttdeci">s32_t SPIFFS_ix_map_entries_to_bytes(spiffs *fs, u32_t map_page_ix_entries)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a5442ec7cf9973ef1bae26753f8715b8d"><div class="ttname"><a href="spiffs_8h.html#a5442ec7cf9973ef1bae26753f8715b8d">SPIFFS_open_by_dirent</a></div><div class="ttdeci">spiffs_file SPIFFS_open_by_dirent(spiffs *fs, struct spiffs_dirent *e, spiffs_flags flags, spiffs_mode mode)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a5b45ea9230e7d9a73bc63f871b33b709"><div class="ttname"><a href="spiffs_8h.html#a5b45ea9230e7d9a73bc63f871b33b709">SPIFFS_clearerr</a></div><div class="ttdeci">void SPIFFS_clearerr(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a6796d3c00ddb94ec1e2fe2fde2bb292a"><div class="ttname"><a href="spiffs_8h.html#a6796d3c00ddb94ec1e2fe2fde2bb292a">SPIFFS_mounted</a></div><div class="ttdeci">u8_t SPIFFS_mounted(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a7c7c930dcabe1403be5bf5ecd57986ec"><div class="ttname"><a href="spiffs_8h.html#a7c7c930dcabe1403be5bf5ecd57986ec">SPIFFS_errno</a></div><div class="ttdeci">s32_t SPIFFS_errno(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a85de96c305e5b362975ef8dceebfd9e4"><div class="ttname"><a href="spiffs_8h.html#a85de96c305e5b362975ef8dceebfd9e4">SPIFFS_format</a></div><div class="ttdeci">s32_t SPIFFS_format(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a88a4782ebf1c1d37c5c2352a7700a4cf"><div class="ttname"><a href="spiffs_8h.html#a88a4782ebf1c1d37c5c2352a7700a4cf">SPIFFS_closedir</a></div><div class="ttdeci">s32_t SPIFFS_closedir(spiffs_DIR *d)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a89fc66b432eff73af21e4d67765e5936"><div class="ttname"><a href="spiffs_8h.html#a89fc66b432eff73af21e4d67765e5936">SPIFFS_ix_remap</a></div><div class="ttdeci">s32_t SPIFFS_ix_remap(spiffs *fs, spiffs_file fh, u32_t offs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a962677491700668b80117a9e0f728b51"><div class="ttname"><a href="spiffs_8h.html#a962677491700668b80117a9e0f728b51">SPIFFS_remove</a></div><div class="ttdeci">s32_t SPIFFS_remove(spiffs *fs, const char *path)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a98b86b521e4e51790dac322618558441"><div class="ttname"><a href="spiffs_8h.html#a98b86b521e4e51790dac322618558441">SPIFFS_unmount</a></div><div class="ttdeci">void SPIFFS_unmount(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a996713c9c86267523b1fcf14e1f59ba1"><div class="ttname"><a href="spiffs_8h.html#a996713c9c86267523b1fcf14e1f59ba1">SPIFFS_gc</a></div><div class="ttdeci">s32_t SPIFFS_gc(spiffs *fs, u32_t size)</div></div>
+<div class="ttc" id="aspiffs_8h_html_a9a9babd221dab492856c5da4fa74bf88"><div class="ttname"><a href="spiffs_8h.html#a9a9babd221dab492856c5da4fa74bf88">SPIFFS_close</a></div><div class="ttdeci">s32_t SPIFFS_close(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_aa964e15f59ddd9053b78933d661282e8"><div class="ttname"><a href="spiffs_8h.html#aa964e15f59ddd9053b78933d661282e8">SPIFFS_eof</a></div><div class="ttdeci">s32_t SPIFFS_eof(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_aae0d52538b75019bb6f745de8d143765"><div class="ttname"><a href="spiffs_8h.html#aae0d52538b75019bb6f745de8d143765">SPIFFS_tell</a></div><div class="ttdeci">s32_t SPIFFS_tell(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ab2a6e1f0464c8fa41535b43d597cdd26"><div class="ttname"><a href="spiffs_8h.html#ab2a6e1f0464c8fa41535b43d597cdd26">SPIFFS_check</a></div><div class="ttdeci">s32_t SPIFFS_check(spiffs *fs)</div></div>
+<div class="ttc" id="aspiffs_8h_html_abe8899197a8c5032f7dd85f3a9f9eec6"><div class="ttname"><a href="spiffs_8h.html#abe8899197a8c5032f7dd85f3a9f9eec6">SPIFFS_read</a></div><div class="ttdeci">s32_t SPIFFS_read(spiffs *fs, spiffs_file fh, void *buf, s32_t len)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ac335bf8ade9f4f8ac44123a6a608d78a"><div class="ttname"><a href="spiffs_8h.html#ac335bf8ade9f4f8ac44123a6a608d78a">SPIFFS_fflush</a></div><div class="ttdeci">s32_t SPIFFS_fflush(spiffs *fs, spiffs_file fh)</div></div>
+<div class="ttc" id="aspiffs_8h_html_acfda216b52879b2e8b637258f319269a"><div class="ttname"><a href="spiffs_8h.html#acfda216b52879b2e8b637258f319269a">SPIFFS_info</a></div><div class="ttdeci">s32_t SPIFFS_info(spiffs *fs, u32_t *total, u32_t *used)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ad25309d97902ea6af6bebca7adcbf305"><div class="ttname"><a href="spiffs_8h.html#ad25309d97902ea6af6bebca7adcbf305">SPIFFS_bytes_to_ix_map_entries</a></div><div class="ttdeci">s32_t SPIFFS_bytes_to_ix_map_entries(spiffs *fs, u32_t bytes)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ad6449ab3ad1c07b9a8ca743af4b836fa"><div class="ttname"><a href="spiffs_8h.html#ad6449ab3ad1c07b9a8ca743af4b836fa">SPIFFS_open</a></div><div class="ttdeci">spiffs_file SPIFFS_open(spiffs *fs, const char *path, spiffs_flags flags, spiffs_mode mode)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ad653345a098d4933f63a95a1a64cb5fe"><div class="ttname"><a href="spiffs_8h.html#ad653345a098d4933f63a95a1a64cb5fe">SPIFFS_creat</a></div><div class="ttdeci">s32_t SPIFFS_creat(spiffs *fs, const char *path, spiffs_mode mode)</div></div>
+<div class="ttc" id="aspiffs_8h_html_adb15aebc5a6add477b2f6dbf81756763"><div class="ttname"><a href="spiffs_8h.html#adb15aebc5a6add477b2f6dbf81756763">SPIFFS_readdir</a></div><div class="ttdeci">struct spiffs_dirent * SPIFFS_readdir(spiffs_DIR *d, struct spiffs_dirent *e)</div></div>
+<div class="ttc" id="aspiffs_8h_html_adc5848eb9323ebfbad6f1a94f34154f4"><div class="ttname"><a href="spiffs_8h.html#adc5848eb9323ebfbad6f1a94f34154f4">SPIFFS_open_by_page</a></div><div class="ttdeci">spiffs_file SPIFFS_open_by_page(spiffs *fs, spiffs_page_ix page_ix, spiffs_flags flags, spiffs_mode mode)</div></div>
+<div class="ttc" id="aspiffs_8h_html_ae396bc62e88e9846d371f16859b93e54"><div class="ttname"><a href="spiffs_8h.html#ae396bc62e88e9846d371f16859b93e54">SPIFFS_lseek</a></div><div class="ttdeci">s32_t SPIFFS_lseek(spiffs *fs, spiffs_file fh, s32_t offs, int whence)</div></div>
+<div class="ttc" id="aspiffs_8h_html_aea9c999e519fc5ad90c1580d9835ac9f"><div class="ttname"><a href="spiffs_8h.html#aea9c999e519fc5ad90c1580d9835ac9f">SPIFFS_gc_quick</a></div><div class="ttdeci">s32_t SPIFFS_gc_quick(spiffs *fs, u16_t max_free_pages)</div></div>
+<div class="ttc" id="aspiffs_8h_html_aedab90cfa75f517bebce551e3babaa47"><div class="ttname"><a href="spiffs_8h.html#aedab90cfa75f517bebce551e3babaa47">SPIFFS_mount</a></div><div class="ttdeci">s32_t SPIFFS_mount(spiffs *fs, spiffs_config *config, u8_t *work, u8_t *fd_space, u32_t fd_space_size, void *cache, u32_t cache_size, spiffs_check_callback check_cb_f) __fromfile(&quot;libspiffs/spiffs_hydrogen.c&quot;)</div></div>
+<div class="ttc" id="aspiffs_8h_html_af34f802723bd3a2e033b44c644483d39"><div class="ttname"><a href="spiffs_8h.html#af34f802723bd3a2e033b44c644483d39">SPIFFS_write</a></div><div class="ttdeci">s32_t SPIFFS_write(spiffs *fs, spiffs_file fh, void *buf, s32_t len)</div></div>
+<div class="ttc" id="astructspiffs___d_i_r_html"><div class="ttname"><a href="structspiffs___d_i_r.html">spiffs_DIR</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:320</div></div>
+<div class="ttc" id="astructspiffs__config_html"><div class="ttname"><a href="structspiffs__config.html">spiffs_config</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:201</div></div>
+<div class="ttc" id="astructspiffs__dirent_html"><div class="ttname"><a href="structspiffs__dirent.html">spiffs_dirent</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:309</div></div>
+<div class="ttc" id="astructspiffs__ix__map_html"><div class="ttname"><a href="structspiffs__ix__map.html">spiffs_ix_map</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:328</div></div>
+<div class="ttc" id="astructspiffs__stat_html"><div class="ttname"><a href="structspiffs__stat.html">spiffs_stat</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:298</div></div>
+<div class="ttc" id="astructspiffs__t_html"><div class="ttname"><a href="structspiffs__t.html">spiffs_t</a></div><div class="ttdef"><b>Definition:</b> spiffs.h:232</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

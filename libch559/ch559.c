@@ -13,11 +13,11 @@
 
 
 int _RXPin;
-char _Buffer[256];
+char _Buffer[1024];
 volatile int Head;
 volatile int Tail;
 int Stack[50];
-serial_t *s;
+FILE *s;
 
 void CH559_Open(int rxpin, int txpin)
 {
@@ -39,7 +39,7 @@ void CH559Run(void *par)
     {
         ch = serial_rxChar(s);
         _Buffer[Head++] = ch;
-        Head = Head & 0xff;
+        Head = Head & 0x3ff;
     }
 }
 
@@ -51,7 +51,7 @@ int CH559_Recieve(char *data, int size)
     while (Head != Tail)
     {
         data[i++] = _Buffer[Tail++];
-        Tail = Tail & 0xff;
+        Tail = Tail & 0x3ff;
         if (i >= size)
             break;
     }
