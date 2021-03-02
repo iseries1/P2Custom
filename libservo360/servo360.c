@@ -14,6 +14,7 @@
 
 void DoServos(void *);
 
+uint32_t usec;
 
 volatile struct S360 {
     int16_t Servo;
@@ -25,6 +26,7 @@ volatile struct S360 {
     int16_t Turns;
     int16_t TargetError;
     int16_t PWM;
+    int16_t Enable;
 } Servo360[9];
 
 int Stack[100];
@@ -32,6 +34,8 @@ int Stack[100];
 
 int Servo360_Start(int servo, int feedback)
 {
+    usec = _clkfreq / 1000000;
+
     for (int i=0;i<9;i++)
         Servo360[i].Servo = -256;
 
@@ -48,7 +52,7 @@ void DoServos(void *par)
             if (Servo360[i].Servo >= 0)
             {
                 UpdateAngle(i);
-                if (Servo360[i].PWM != 0)
+                if (Servo360[i].Enable != 0)
                     UpdatePosition(i);
                 _wypin(Servo360[i].Servo, Servo360[i].PWM);
             }
@@ -116,49 +120,54 @@ void UpdatePosition(int servo)
 
 void UpdateAngle(int servo)
 {
-    int i;
-    uint32_t p;
+    int i, p;
+    uint32_t t, r, w;
 
-    i = Servo360[servo].Feedback;
+    p = Servo360[servo].Feedback;
+    w = usec * 1000;
 
     __asm volatile {
-    loop1   testp   i wc
-    if_c    jmp     #loop1
-    loop2   testp   i wc
-    if_nc   jmp     #loop2
-            getct   p
-    loop3   testp   i wc
-    if_c    jmp     #loop3
+            mov     i, w
+    loop1   testp   p wc
+    if_c    djnz    i, #loop1
+            mov     i, w
+    loop2   testp   p wc
+    if_nc   djnz    i, #loop2
+            getct   r
+            mov     i, w
+    loop3   testp   p wc
+    if_c    djnz    i, #loop3
+            getct   t
+            sub     t, r
     }
 
-    p = _cnt() - p;
-    p = p / (_clkfreq/1000000) - 34;
-    p = 360 * p / 1000;
+    i = t / usec - 34;
+    i = 360 * i / 1000;
 
-    if (p > 360)
-        p = 360;
-    if (p < 0)
-        p = 0;
+    if (i > 360)
+        i = 360;
+    if (i < 0)
+        i = 0;
 
-    Servo360[servo].Angle = p;
+    Servo360[servo].Angle = i;
 
     if (Servo360[servo].PrevAngle < 0)
     {
-        Servo360[servo].PrevAngle = p;
-        Servo360[servo].TargetAngle = p;
+        Servo360[servo].PrevAngle = i;
+        Servo360[servo].TargetAngle = i;
     }
 
-    if ((p < 5) && (Servo360[servo].PrevAngle > 355))
+    if ((i < 5) && (Servo360[servo].PrevAngle > 355))
     {
         Servo360[servo].Turns++;
     }
 
-    if ((p > 355) && (Servo360[servo].PrevAngle < 5))
+    if ((i > 355) && (Servo360[servo].PrevAngle < 5))
     {
         Servo360[servo].Turns--;
     }
 
-    Servo360[servo].PrevAngle = p;
+    Servo360[servo].PrevAngle = i;
 }
 
 int Servo360_Add(int servo, int feedback)
@@ -226,6 +235,8 @@ int Servo360_Status(int servo)
 
 void Servo360_Enable(int servo, int enable)
 {
+    Servo360[servo].Enable = enable;
+    
     if (!enable)
         Servo360[servo].PWM = 0;
     else
