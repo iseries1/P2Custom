@@ -19,6 +19,7 @@
  *  <a href="lcd1602_8h.html">LCD1602 2 line lcd display driver.</a><br>
  *  <a href="lcddisplay_8h.html">Parallax LCD Driver.</a><br>
  *  <a href="newhaven_8h.html">New Haven Display Driver.</a><br>
+ *  <a href="_sbus_8h.html">SBUS driver for X8R Receiver.</a><br>
  *  <a href="serial_8h.html">Smart Pin serial driver.</a><br>
  *  <a href="_s_s_d1331_8h.html">SSD1331 Color OLED display.</a><br>
  *  <a href="servos_8h.html">Servo Driver Library.</a><br>
