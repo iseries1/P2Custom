@@ -89,9 +89,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad08678a37dd8d1ea060e0dd427b65451"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sbus_8h.html#ad08678a37dd8d1ea060e0dd427b65451">Sbus_GetScaled</a> (int channel)</td></tr>
 <tr class="memdesc:ad08678a37dd8d1ea060e0dd427b65451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Scaled Channel value.  <a href="_sbus_8h.html#ad08678a37dd8d1ea060e0dd427b65451">More...</a><br /></td></tr>
 <tr class="separator:ad08678a37dd8d1ea060e0dd427b65451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac21602c73645411d0e40c4e508b21511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sbus_8h.html#ac21602c73645411d0e40c4e508b21511">Sbus_SetScaled</a> (int channel, uint16_t cmax, uint16_t cmin)</td></tr>
-<tr class="memdesc:ac21602c73645411d0e40c4e508b21511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Scaled Channel values.  <a href="_sbus_8h.html#ac21602c73645411d0e40c4e508b21511">More...</a><br /></td></tr>
-<tr class="separator:ac21602c73645411d0e40c4e508b21511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b8761a55146a4055d8b17173626842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sbus_8h.html#a78b8761a55146a4055d8b17173626842">Sbus_SetScaled</a> (int channel, uint16_t cmin, uint16_t cmax)</td></tr>
+<tr class="memdesc:a78b8761a55146a4055d8b17173626842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Scaled Channel values.  <a href="_sbus_8h.html#a78b8761a55146a4055d8b17173626842">More...</a><br /></td></tr>
+<tr class="separator:a78b8761a55146a4055d8b17173626842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8632881ba7a3b06af9e7ede7f540959"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sbus_8h.html#ad8632881ba7a3b06af9e7ede7f540959">Sbus_GetFailsafe</a> (void)</td></tr>
+<tr class="memdesc:ad8632881ba7a3b06af9e7ede7f540959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Failsafe.  <a href="_sbus_8h.html#ad8632881ba7a3b06af9e7ede7f540959">More...</a><br /></td></tr>
+<tr class="separator:ad8632881ba7a3b06af9e7ede7f540959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Decode SBUS serial data from X8R receiver. </p>
@@ -153,6 +156,27 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad8632881ba7a3b06af9e7ede7f540959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8632881ba7a3b06af9e7ede7f540959">&#9670;&nbsp;</a></span>Sbus_GetFailsafe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Sbus_GetFailsafe </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get Failsafe. </p>
+<dl class="section return"><dt>Returns</dt><dd>failsafe 0 - off </dd></dl>
+
+</div>
+</div>
 <a id="ad08678a37dd8d1ea060e0dd427b65451"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad08678a37dd8d1ea060e0dd427b65451">&#9670;&nbsp;</a></span>Sbus_GetScaled()</h2>
 
@@ -206,8 +230,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac21602c73645411d0e40c4e508b21511"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac21602c73645411d0e40c4e508b21511">&#9670;&nbsp;</a></span>Sbus_SetScaled()</h2>
+<a id="a78b8761a55146a4055d8b17173626842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78b8761a55146a4055d8b17173626842">&#9670;&nbsp;</a></span>Sbus_SetScaled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,13 +246,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>cmax</em>, </td>
+          <td class="paramname"><em>cmin</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>cmin</em>&#160;</td>
+          <td class="paramname"><em>cmax</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -242,8 +266,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">channel</td><td>number 1 to 16 </td></tr>
-    <tr><td class="paramname">maxium</td><td>channel pwm </td></tr>
     <tr><td class="paramname">minium</td><td>channel pwm </td></tr>
+    <tr><td class="paramname">maxium</td><td>channel pwm </td></tr>
   </table>
   </dd>
 </dl>

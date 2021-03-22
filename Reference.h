@@ -3,6 +3,7 @@
  * @mainpage Custom Libraries
  *  <a href="myblink_8h.html">Sample Blink Library.</a><br>
  *  <a href="as5048a_8h.html">Magnetic Rotary Encoder.</a><br>
+ *  <a href="_base64_8h.html">Base64 Encoder/Decoder Library.</a><br>
  *  <a href="bme280_8h.html">BME280 Digital Humidity, Pressure and Temperature sensor.</a><br>
  *  <a href="bme680_8h.html">BME680 Digital Environmental Sensor.</a><br>
  *  <a href="_d_s1822_8h.html">DS1822 One Wire Temperature Driver.</a><br>
@@ -25,7 +26,8 @@
  *  <a href="servos_8h.html">Servo Driver Library.</a><br>
  *  <a href="servo360_8h.html">Servo 360 Driver Library.</a><br>
  *  <a href="spiffs_8h.html">SPIFFS flash file system.</a><br>
- *  <a href="step_8h.html">Stepper Motor Driver (A4988).</a><br>
+ *  <a href="step_8h.html">Step Motor Driver (A4988).</a><br>
+ *  <a href="_stepper_8h.html">Stepper Motor Driver (A4988).</a><br>
  *  <a href="tfmini_8h.html">TFMINI distance driver.</a><br>
  *  <a href="ws2812_8h.html">WS2812B LED Driver</a><br>
  */

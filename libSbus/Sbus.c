@@ -79,7 +79,7 @@ uint16_t Sbus_GetScaled(int channel)
     return v;
 }
 
-void Sbus_SetScaled(int channel, uint16_t cmax, uint16_t cmin)
+void Sbus_SetScaled(int channel, uint16_t cmin, uint16_t cmax)
 {
     if (channel < 1)
         return;
@@ -88,6 +88,11 @@ void Sbus_SetScaled(int channel, uint16_t cmax, uint16_t cmin)
     
     CMax[channel - 1] = cmax;
     CMin[channel - 1] = cmin;
+}
+
+int Sbus_GetFailsafe(void)
+{
+    return FailSafe;
 }
 
 void DoReceiveSbus(void *par)

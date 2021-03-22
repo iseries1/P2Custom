@@ -37,7 +37,13 @@ uint16_t Sbus_GetScaled(int channel);
 /**
  * @brief Set Scaled Channel values
  * @param channel number 1 to 16
- * @param maxium channel pwm
  * @param minium channel pwm
+ * @param maxium channel pwm
  */
-void Sbus_SetScaled(int channel, uint16_t cmax, uint16_t cmin);
+void Sbus_SetScaled(int channel, uint16_t cmin, uint16_t cmax);
+
+/**
+ * @brief Get Failsafe
+ * @return failsafe 0 - off 
+ */
+int Sbus_GetFailsafe(void);
