@@ -34,19 +34,19 @@ int HX8357_open(char Clk, char MISO, char MOSI, char CS, char DC, char RST, char
  * @brief get control value
  * @return value
  */
-int HX8357_control(void) __fromfile("libHX8357/HX8357.c");
+int HX8357_control(void);
 
 /**
  * @brief set rotation
  * @param rotation
  */
-void HX8357_rotation(char rotation) __fromfile("libHX8357/HX8357.c");
+void HX8357_rotation(char rotation);
 
 /**
  * @brief invert display
  * @param yes
  */
-void HX8357_invert(char yes) __fromfile("libHX8357/HX8357.c");
+void HX8357_invert(char yes);
 
 /**
  * @brief set window location
@@ -55,26 +55,26 @@ void HX8357_invert(char yes) __fromfile("libHX8357/HX8357.c");
  * @param width
  * @param height
  */
-void HX8357_window(short x, short y, short width, short height) __fromfile("libHX8357/HX8357.c");
+void HX8357_window(short x, short y, short width, short height);
 
 /**
  * @brief push color
  * @brief color
  */
-void HX8357_pushColor(short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_pushColor(short color);
 
 /**
  * @brief write pixel color
  * @param color
  */
-void HX8357_writePixel(short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_writePixel(short color);
 
 /**
  * @brief write color
  * @param color
  * @param len
  */
-void HX8357_writeColor(short color, int len) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeColor(short color, int len);
 
 /**
  * @brief plot point color
@@ -82,7 +82,7 @@ void HX8357_writeColor(short color, int len) __fromfile("libHX8357/HX8357.c");
  * @param y
  * @param color
  */
-void HX8357_plot(short x, short y, short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_plot(short x, short y, short color);
 
 /**
  * @brief fill rectangle
@@ -92,7 +92,7 @@ void HX8357_plot(short x, short y, short color) __fromfile("libHX8357/HX8357.c")
  * @param height
  * @param color
  */
-void HX8357_fillRectangle(short x, short y, short width, short height, short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_fillRectangle(short x, short y, short width, short height, short color);
 
 /**
  * @brief draw pixel color
@@ -100,50 +100,50 @@ void HX8357_fillRectangle(short x, short y, short width, short height, short col
  * @param y
  * @param color
  */
-void HX8357_drawPixel(short x, short y, short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_drawPixel(short x, short y, short color);
 
 /**
  * @brief clear screen
  * @param color
  */
-void HX8357_cls(short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_cls(short color);
 
 /**
  * @brief set display on
  * @param mode 0/1 off/on
  */
-void HX8357_displayOn(char mode) __fromfile("libHX8357/HX8357.c");
+void HX8357_displayOn(char mode);
 
 /**
  * @brief put display to sleep
  * @param sleep 0/1 off/on
  */
-void HX8357_sleepOn(char sleep) __fromfile("libHX8357/HX8357.c");
+void HX8357_sleepOn(char sleep);
 
 /**
  * @brief set inverse on/off
  * @param inverse 0/1 on/off
  */
-void HX8357_inverse(char inverse) __fromfile("libHX8357/HX8357.c");
+void HX8357_inverse(char inverse);
 
 /**
  * @brief set all pixels on/off
  * @param set 0/1 on/off
  */
-void HX8357_allPixels(char set) __fromfile("libHX8357/HX8357.c");
+void HX8357_allPixels(char set);
 
 /**
  * @brief display mode normal/partial
  * @brief mode 0/1 normal/partial
  */
-void HX8357_displayMode(char mode) __fromfile("libHX8357/HX8357.c");
+void HX8357_displayMode(char mode);
 
 /**
  * @brief set text color
  * @param fgcolor
  * @param bgcolor
  */
-void HX8357_textColor(short fgcolor, short bgcolor) __fromfile("libHX8357/HX8357.c");
+void HX8357_textColor(short fgcolor, short bgcolor);
 
 /**
  * @brief write small string 8x8 (5x7)
@@ -151,7 +151,7 @@ void HX8357_textColor(short fgcolor, short bgcolor) __fromfile("libHX8357/HX8357
  * @param y
  * @param text
  */
-void HX8357_writeSStr(short x, short y, char *text) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeSStr(short x, short y, char *text);
 
 /**
  * @brief write small character 8x8 (5x7)
@@ -159,7 +159,7 @@ void HX8357_writeSStr(short x, short y, char *text) __fromfile("libHX8357/HX8357
  * @param y
  * @param character
  */
-void HX8357_writeSChar(short x, short y, char character) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeSChar(short x, short y, char character);
 
 /**
  * @brief write character 16x32
@@ -167,7 +167,7 @@ void HX8357_writeSChar(short x, short y, char character) __fromfile("libHX8357/H
  * @param y offset
  * @param c character
  */
-void HX8357_writeChar(short x, short y, char c) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeChar(short x, short y, char c);
 
 /**
  * @brief write string 16x32
@@ -175,7 +175,7 @@ void HX8357_writeChar(short x, short y, char c) __fromfile("libHX8357/HX8357.c")
  * @param y offset
  * @param s pointer to string
  */
-void HX8357_writeStr(short x, short y, char* s) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeStr(short x, short y, char* s);
 
 /**
  * @brief write extra large character 32x64
@@ -183,7 +183,7 @@ void HX8357_writeStr(short x, short y, char* s) __fromfile("libHX8357/HX8357.c")
  * @param y offset
  * @param c character
  */
-void HX8357_writeXChar(short x, short y, char c) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeXChar(short x, short y, char c);
 
 /**
  * @brief write extra large string 32x64
@@ -191,7 +191,7 @@ void HX8357_writeXChar(short x, short y, char c) __fromfile("libHX8357/HX8357.c"
  * @param y offset
  * @param s pointer to string
  */
-void HX8357_writeXStr(short x, short y, char *s) __fromfile("libHX8357/HX8357.c");
+void HX8357_writeXStr(short x, short y, char *s);
 
 /*
  * @brief draw line 
@@ -201,7 +201,7 @@ void HX8357_writeXStr(short x, short y, char *s) __fromfile("libHX8357/HX8357.c"
  * @param y1 end point
  * @param color
  */
-void HX8357_drawLine(short x, short y, short x1, short y1, short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_drawLine(short x, short y, short x1, short y1, short color);
 
 /*
  * @brief draw a box
@@ -211,7 +211,7 @@ void HX8357_drawLine(short x, short y, short x1, short y1, short color) __fromfi
  * @param y1 end point
  * @param color On/Off
  */
-void HX8357_drawBox(short x, short y, short x1, short y1, short color) __fromfile("libHX8357/HX8357.c");
+void HX8357_drawBox(short x, short y, short x1, short y1, short color);
 
 /* @brief build 888 rgb color value
  * @param red 8 bits
@@ -219,4 +219,4 @@ void HX8357_drawBox(short x, short y, short x1, short y1, short color) __fromfil
  * @param blue 8 bits
  * @return color
  */
-unsigned short HX8357_color(char red, char green, char blue) __fromfile("libHX8357/HX8357.c");
+unsigned short HX8357_color(char red, char green, char blue);

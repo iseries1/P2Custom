@@ -21,14 +21,34 @@ int Step_Start(int enable, int direction, int step) __fromfile("libStep/step.c")
  * @param motor driver number
  * @param steps number of steps needed
  */
-void Step_Step(int motor, int steps) __fromfile("libStep/step.c");
+void Step_Step(int motor, int steps);
 
 /**
  * @brief wait for motor
  */
-void Step_Wait(void) __fromfile("libStep/step.c");
+void Step_Wait(void);
 
 /**
  * @brief disable motor
+ * @param motor driver number
  */
-void Step_Disable(void) __fromfile("libStep/step.c");
+void Step_Disable(int motor);
+
+/**
+ * @brief enable motor
+ * @param motor driver number
+ */
+void Step_Enable(int motor);
+
+/**
+ * @brief get motor step number
+ * @param motor driver number
+ * @return steps current step number
+ */
+int Step_Number(int motor);
+
+/**
+ * @brief clear current step count
+ * @param motor driver number
+ */
+void Step_Clear(int motor);

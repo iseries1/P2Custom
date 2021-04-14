@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.4</span>
+   &#160;<span id="projectnumber">1.5</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
   </td>
@@ -70,15 +70,24 @@ $(function() {
 <a href="step_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="step_8h.html#a60efa496b390ec038822f83b65cf3e78">   17</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="step_8h.html#a60efa496b390ec038822f83b65cf3e78">Step_Start</a>(<span class="keywordtype">int</span> enable, <span class="keywordtype">int</span> direction, <span class="keywordtype">int</span> step) __fromfile(<span class="stringliteral">&quot;libStep/step.c&quot;</span>);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c">Step_Step</a>(<span class="keywordtype">int</span> motor, <span class="keywordtype">int</span> steps) __fromfile(<span class="stringliteral">&quot;libStep/step.c&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="step_8h.html#ac50fd8cdcc12016fb8b38e1bf17386eb">   24</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#ac50fd8cdcc12016fb8b38e1bf17386eb">Step_Step</a>(<span class="keywordtype">int</span> motor, <span class="keywordtype">int</span> steps);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="step_8h.html#af0bc26e93b539738cc8a244150272316">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#af0bc26e93b539738cc8a244150272316">Step_Wait</a>(<span class="keywordtype">void</span>) __fromfile(<span class="stringliteral">&quot;libStep/step.c&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="step_8h.html#a99f19c4c20c978c12e20651e4d5b6c44">   29</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#a99f19c4c20c978c12e20651e4d5b6c44">Step_Wait</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="step_8h.html#ad142ef21bd40ee35b460a49afe276de1">   34</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#ad142ef21bd40ee35b460a49afe276de1">Step_Disable</a>(<span class="keywordtype">void</span>) __fromfile(<span class="stringliteral">&quot;libStep/step.c&quot;</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="step_8h.html#a0a790a0d1afb9c96d0a557aec0891306">   35</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#a0a790a0d1afb9c96d0a557aec0891306">Step_Disable</a>(<span class="keywordtype">int</span> motor);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="step_8h.html#a71bdab7be6e16f1630b3da5f8e182b89">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#a71bdab7be6e16f1630b3da5f8e182b89">Step_Enable</a>(<span class="keywordtype">int</span> motor);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="step_8h.html#a7ba72cbb0e3435556792534034117b7b">   48</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="step_8h.html#a7ba72cbb0e3435556792534034117b7b">Step_Number</a>(<span class="keywordtype">int</span> motor);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="step_8h.html#aba363576eff1b01515de6b43f4a7cfd4">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="step_8h.html#aba363576eff1b01515de6b43f4a7cfd4">Step_Clear</a>(<span class="keywordtype">int</span> motor);</div>
+<div class="ttc" id="astep_8h_html_a0a790a0d1afb9c96d0a557aec0891306"><div class="ttname"><a href="step_8h.html#a0a790a0d1afb9c96d0a557aec0891306">Step_Disable</a></div><div class="ttdeci">void Step_Disable(int motor)</div><div class="ttdoc">disable motor</div></div>
 <div class="ttc" id="astep_8h_html_a60efa496b390ec038822f83b65cf3e78"><div class="ttname"><a href="step_8h.html#a60efa496b390ec038822f83b65cf3e78">Step_Start</a></div><div class="ttdeci">int Step_Start(int enable, int direction, int step) __fromfile(&quot;libStep/step.c&quot;)</div><div class="ttdoc">start step driver</div></div>
-<div class="ttc" id="astep_8h_html_ad142ef21bd40ee35b460a49afe276de1"><div class="ttname"><a href="step_8h.html#ad142ef21bd40ee35b460a49afe276de1">Step_Disable</a></div><div class="ttdeci">void Step_Disable(void) __fromfile(&quot;libStep/step.c&quot;)</div><div class="ttdoc">disable motor</div></div>
-<div class="ttc" id="astep_8h_html_ae92f9a309a2b4ea36f45177e452aff8c"><div class="ttname"><a href="step_8h.html#ae92f9a309a2b4ea36f45177e452aff8c">Step_Step</a></div><div class="ttdeci">void Step_Step(int motor, int steps) __fromfile(&quot;libStep/step.c&quot;)</div><div class="ttdoc">step motor in direction</div></div>
-<div class="ttc" id="astep_8h_html_af0bc26e93b539738cc8a244150272316"><div class="ttname"><a href="step_8h.html#af0bc26e93b539738cc8a244150272316">Step_Wait</a></div><div class="ttdeci">void Step_Wait(void) __fromfile(&quot;libStep/step.c&quot;)</div><div class="ttdoc">wait for motor</div></div>
+<div class="ttc" id="astep_8h_html_a71bdab7be6e16f1630b3da5f8e182b89"><div class="ttname"><a href="step_8h.html#a71bdab7be6e16f1630b3da5f8e182b89">Step_Enable</a></div><div class="ttdeci">void Step_Enable(int motor)</div><div class="ttdoc">enable motor</div></div>
+<div class="ttc" id="astep_8h_html_a7ba72cbb0e3435556792534034117b7b"><div class="ttname"><a href="step_8h.html#a7ba72cbb0e3435556792534034117b7b">Step_Number</a></div><div class="ttdeci">int Step_Number(int motor)</div><div class="ttdoc">get motor step number</div></div>
+<div class="ttc" id="astep_8h_html_a99f19c4c20c978c12e20651e4d5b6c44"><div class="ttname"><a href="step_8h.html#a99f19c4c20c978c12e20651e4d5b6c44">Step_Wait</a></div><div class="ttdeci">void Step_Wait(void)</div><div class="ttdoc">wait for motor</div></div>
+<div class="ttc" id="astep_8h_html_aba363576eff1b01515de6b43f4a7cfd4"><div class="ttname"><a href="step_8h.html#aba363576eff1b01515de6b43f4a7cfd4">Step_Clear</a></div><div class="ttdeci">void Step_Clear(int motor)</div><div class="ttdoc">clear current step count</div></div>
+<div class="ttc" id="astep_8h_html_ac50fd8cdcc12016fb8b38e1bf17386eb"><div class="ttname"><a href="step_8h.html#ac50fd8cdcc12016fb8b38e1bf17386eb">Step_Step</a></div><div class="ttdeci">void Step_Step(int motor, int steps)</div><div class="ttdoc">step motor in direction</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

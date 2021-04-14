@@ -6,8 +6,9 @@
  * 
 */
 
+#include <stdlib.h>
+#include <propeller.h>
 #include "json.h"
-#include "simpletools.h"
 
 short json_getItem(void);
 

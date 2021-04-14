@@ -36,7 +36,7 @@ int main()
   if ((i & 0x04) == 0)
     HX8357_displayOn(1);
   
-  i = readCmd(HX8357_RDMADCTL);
+  i = HX8357_control();
   print("Control: %x\n", i);
 
   HX8357_rotation(1);
