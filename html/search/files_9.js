@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newhaven_2eh_438',['newhaven.h',['../newhaven_8h.html',1,'']]]
+  ['newhaven_2eh_451',['newhaven.h',['../newhaven_8h.html',1,'']]]
 ];
