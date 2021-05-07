@@ -6,9 +6,8 @@
  * 
 */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include <propeller.h>
-#include "simpletools.h"
 #include "laserping.h"
 #include "serial.h"
 
@@ -24,16 +23,16 @@ int _Average[16];
 char _Buffer[25];
 int _RS;
 long Stack[51];
-serial_t *_s;
+FILE *_s;
 
 void laserping_start(char mode, char pin)
 {
   _Pin = pin;
 
   if (mode == 'S')
-    _cogstart(laserping_run, 0, Stack, 50);
+    cogstart(laserping_run, 0, Stack, 50);
   else
-    _cogstart(laserping_runp, 0, Stack, 50);
+    cogstart(laserping_runp, 0, Stack, 50);
 }
   
 void laserping_run(void *par)
@@ -43,6 +42,7 @@ void laserping_run(void *par)
   int i;
   int t;
   
+  _dirh(_Pin);
   _pinl(_Pin);
   _waitms(250);
 

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.5</span>
+   &#160;<span id="projectnumber">1.6</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
   </td>
@@ -84,9 +84,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 <tr class="memitem:ae01176b12b8c590589a9f5988472bd6a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">Panel_Color</a> (char red, char green, char blue)</td></tr>
 <tr class="memdesc:ae01176b12b8c590589a9f5988472bd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combine color value.  <a href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">More...</a><br /></td></tr>
 <tr class="separator:ae01176b12b8c590589a9f5988472bd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aace3cd1f66db59384b997981c3b9b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a6aace3cd1f66db59384b997981c3b9b4">Panel_Plot</a> (int x, int y, int color)</td></tr>
-<tr class="memdesc:a6aace3cd1f66db59384b997981c3b9b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot point.  <a href="_panel64_8h.html#a6aace3cd1f66db59384b997981c3b9b4">More...</a><br /></td></tr>
-<tr class="separator:a6aace3cd1f66db59384b997981c3b9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87d5cbd8d38ea5deb908e24150201474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">Panel_SetPixel</a> (int x, int y, int color)</td></tr>
+<tr class="memdesc:a87d5cbd8d38ea5deb908e24150201474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Pixel Color at point.  <a href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">More...</a><br /></td></tr>
+<tr class="separator:a87d5cbd8d38ea5deb908e24150201474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d8ff41bf9e32842c4d33b12398845b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">Panel_TextColor</a> (int foreground, int background)</td></tr>
 <tr class="memdesc:a9d8ff41bf9e32842c4d33b12398845b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set text color.  <a href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">More...</a><br /></td></tr>
 <tr class="separator:a9d8ff41bf9e32842c4d33b12398845b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +114,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 <tr class="memitem:a70e2e682a41f736d6ee8d907e0ddf1ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a70e2e682a41f736d6ee8d907e0ddf1ac">Panel_ScrollHorizontal</a> (int amount)</td></tr>
 <tr class="memdesc:a70e2e682a41f736d6ee8d907e0ddf1ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scroll Left/Right.  <a href="_panel64_8h.html#a70e2e682a41f736d6ee8d907e0ddf1ac">More...</a><br /></td></tr>
 <tr class="separator:a70e2e682a41f736d6ee8d907e0ddf1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89648e71ca1352534e9256d10ad9b3d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a89648e71ca1352534e9256d10ad9b3d7">Panel_GetPixel</a> (int x, int y)</td></tr>
+<tr class="memdesc:a89648e71ca1352534e9256d10ad9b3d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pixel Value.  <a href="_panel64_8h.html#a89648e71ca1352534e9256d10ad9b3d7">More...</a><br /></td></tr>
+<tr class="separator:a89648e71ca1352534e9256d10ad9b3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Panel Driver for P2 P2. </p>
@@ -282,14 +285,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 
 </div>
 </div>
-<a id="a6aace3cd1f66db59384b997981c3b9b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6aace3cd1f66db59384b997981c3b9b4">&#9670;&nbsp;</a></span>Panel_Plot()</h2>
+<a id="a89648e71ca1352534e9256d10ad9b3d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89648e71ca1352534e9256d10ad9b3d7">&#9670;&nbsp;</a></span>Panel_GetPixel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Panel_Plot </td>
+          <td class="memname">int Panel_GetPixel </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -298,13 +301,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -314,12 +311,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
       </table>
 </div><div class="memdoc">
 
-<p>Plot point. </p>
+<p>Get pixel Value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>(0 - 63) </td></tr>
-    <tr><td class="paramname">y</td><td>(0 - 63) </td></tr>
-    <tr><td class="paramname">color</td><td>value </td></tr>
+    <tr><td class="paramname">x</td><td>point </td></tr>
+    <tr><td class="paramname">y</td><td>point </td></tr>
   </table>
   </dd>
 </dl>
@@ -372,6 +368,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">amount</td><td>to scroll </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a87d5cbd8d38ea5deb908e24150201474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87d5cbd8d38ea5deb908e24150201474">&#9670;&nbsp;</a></span>Panel_SetPixel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Panel_SetPixel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Pixel Color at point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>(0 - 63) </td></tr>
+    <tr><td class="paramname">y</td><td>(0 - 63) </td></tr>
+    <tr><td class="paramname">color</td><td>value </td></tr>
   </table>
   </dd>
 </dl>

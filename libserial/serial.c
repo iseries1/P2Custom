@@ -37,7 +37,8 @@ FILE *serial_open(int rxpin, int txpin, int baudrate)
     fd->flush = 0;
     fd->lseek = 0;
 
-    bit_mode = rxpin | (txpin << 8); // Save the pin config here
+    i = (rxpin & 0xff);
+    bit_mode = i | ((txpin & 0xff) << 8); // Save the pin config here
     fd->state = (bit_mode << 16) | _VFS_STATE_INUSE | _VFS_STATE_WROK;
 
     // calculate smartpin mode for 8 bits per character

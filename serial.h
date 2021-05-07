@@ -11,7 +11,7 @@
  * @param baudrate Bit value transmit rate, 9600, 115200, etc...
  * @returns FILE a pointer to file discripter
  */
-FILE* serial_open(int rxpin, int txpin, int baudrate) __fromfile("libserial/serial.c");
+FILE *serial_open(int rxpin, int txpin, int baudrate) __fromfile("libserial/serial.c");
 
 /**
  * @brief Close serial connection.  

@@ -31,7 +31,7 @@ void doAddress(int);
 void doColor(int, int);
 
 long Stack[50];
-volatile int Buffer[64][64];
+volatile char Buffer[64][64];
 int ForeGround;
 int BackGround;
 
@@ -706,7 +706,7 @@ unsigned int Panel_Color(int red, int green, int blue)
     return i;
 }
 
-void Panel_Plot(int x, int y, int color)
+void Panel_SetPixel(int x, int y, int color)
 {
     int i;
 
@@ -749,9 +749,9 @@ void Panel_WriteChar(int x, int y, int character)
       x1 = x + j;
       y1 = y + i;
       if ((v & 0x01) == 1)
-        Panel_Plot(x1, y1, ForeGround);
+        Panel_SetPixel(x1, y1, ForeGround);
       else
-        Panel_Plot(x1, y1, BackGround);
+        Panel_SetPixel(x1, y1, BackGround);
       v = v >> 2;
     }
   }
@@ -794,9 +794,9 @@ void Panel_WriteSChar(int x, int y, char character)
       for (int j=0;j<8;j++)
       {
         if ((v & 0x01) == 1)
-          Panel_Plot(x+j, y, ForeGround);
+          Panel_SetPixel(x+j, y, ForeGround);
         else
-          Panel_Plot(x+j, y, BackGround);
+          Panel_SetPixel(x+j, y, BackGround);
         v = v >> 1;
       }
       y++;
@@ -856,7 +856,7 @@ void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)
 
     for (x = x1; x <= x2; x++)
     {
-      Panel_Plot(x, y, color);
+      Panel_SetPixel(x, y, color);
       if (D > 0)
       {
         y = y + z;
@@ -969,6 +969,11 @@ void Panel_ScrollHorizontal(int amount)
   }
 }
 
+int Panel_GetPixel(int x, int y)
+{
+  return Buffer[x][y];
+}
+
 
 /*
   low level functions start here
@@ -992,8 +997,8 @@ void doRefresh(void *par)
     _dirh(PNOE);
     _dirh(PNLAT);
     _pinh(PNOE);
-    _pinh(PNLAT);
-    _pinl(PNCLK);
+    _pinl(PNLAT);
+    _pinh(PNCLK);
 
     while (1)
     {
@@ -1002,8 +1007,8 @@ void doRefresh(void *par)
             for (int j=0;j<64;j++)
             {
                 doColor(Buffer[j][i], Buffer[j][i+32]);
-                _pinh(PNCLK);
                 _pinl(PNCLK);
+                _pinh(PNCLK);
             }
             doAddress(i);
             _pinh(PNLAT);
@@ -1017,7 +1022,7 @@ void doRefresh(void *par)
 
 void doColor(int c1, int c2)
 {
-    if (c1 & 4)
+    if (c1 & 1)
         _pinh(PNR1);
     else
         _pinl(PNR1);
@@ -1027,12 +1032,12 @@ void doColor(int c1, int c2)
     else
         _pinl(PNG1);
 
-    if (c1 & 1)
+    if (c1 & 4)
         _pinh(PNB1);
     else
         _pinl(PNB1);
 
-    if (c2 & 4)
+    if (c2 & 1)
         _pinh(PNR2);
     else
         _pinl(PNR2);
@@ -1042,7 +1047,7 @@ void doColor(int c1, int c2)
     else
         _pinl(PNG2);
 
-    if (c2 & 1)
+    if (c2 & 4)
         _pinh(PNB2);
     else
         _pinl(PNB2);

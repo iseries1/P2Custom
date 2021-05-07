@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registers_838',['Registers',['../group__bme280_api_register.html',1,'']]]
+  ['registers_840',['Registers',['../group__bme280_api_register.html',1,'']]]
 ];

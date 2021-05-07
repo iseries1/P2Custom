@@ -22,12 +22,12 @@ void Panel_Start(void) __fromfile("libpanel64/panel64.c");
 unsigned int Panel_Color(char red, char green, char blue);
 
 /**
- * @brief Plot point
+ * @brief Set Pixel Color at point
  * @param x (0 - 63)
  * @param y (0 - 63)
  * @param color value
  */
-void Panel_Plot(int x, int y, int color);
+void Panel_SetPixel(int x, int y, int color);
 
 /**
  * @brief Set text color
@@ -99,3 +99,10 @@ void Panel_ScrollVertical(int amount);
  * @param amount to scroll
  */
 void Panel_ScrollHorizontal(int amount);
+
+/**
+ * @brief Get pixel Value
+ * @param x point
+ * @param y point
+ */
+int Panel_GetPixel(int x, int y);

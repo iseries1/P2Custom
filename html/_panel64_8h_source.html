@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.5</span>
+   &#160;<span id="projectnumber">1.6</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
   </td>
@@ -72,7 +72,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">   22</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">Panel_Color</a>(<span class="keywordtype">char</span> red, <span class="keywordtype">char</span> green, <span class="keywordtype">char</span> blue);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_panel64_8h.html#a6aace3cd1f66db59384b997981c3b9b4">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_panel64_8h.html#a6aace3cd1f66db59384b997981c3b9b4">Panel_Plot</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> color);</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">Panel_SetPixel</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> color);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">Panel_TextColor</a>(<span class="keywordtype">int</span> foreground, <span class="keywordtype">int</span> background);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
@@ -91,10 +91,13 @@ $(function() {
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="_panel64_8h.html#af5e8f4e57192fa99a7abb5927109ba47">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_panel64_8h.html#af5e8f4e57192fa99a7abb5927109ba47">Panel_ScrollVertical</a>(<span class="keywordtype">int</span> amount);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="_panel64_8h.html#a70e2e682a41f736d6ee8d907e0ddf1ac">  101</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_panel64_8h.html#a70e2e682a41f736d6ee8d907e0ddf1ac">Panel_ScrollHorizontal</a>(<span class="keywordtype">int</span> amount);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="_panel64_8h.html#a89648e71ca1352534e9256d10ad9b3d7">  108</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_panel64_8h.html#a89648e71ca1352534e9256d10ad9b3d7">Panel_GetPixel</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
 <div class="ttc" id="a_panel64_8h_html_a551b9c20ad6ca70092a38608a164cd27"><div class="ttname"><a href="_panel64_8h.html#a551b9c20ad6ca70092a38608a164cd27">Panel_WriteSChar</a></div><div class="ttdeci">void Panel_WriteSChar(int x, int y, char character)</div><div class="ttdoc">Write small Characters.</div></div>
-<div class="ttc" id="a_panel64_8h_html_a6aace3cd1f66db59384b997981c3b9b4"><div class="ttname"><a href="_panel64_8h.html#a6aace3cd1f66db59384b997981c3b9b4">Panel_Plot</a></div><div class="ttdeci">void Panel_Plot(int x, int y, int color)</div><div class="ttdoc">Plot point.</div></div>
 <div class="ttc" id="a_panel64_8h_html_a70e2e682a41f736d6ee8d907e0ddf1ac"><div class="ttname"><a href="_panel64_8h.html#a70e2e682a41f736d6ee8d907e0ddf1ac">Panel_ScrollHorizontal</a></div><div class="ttdeci">void Panel_ScrollHorizontal(int amount)</div><div class="ttdoc">Scroll Left/Right.</div></div>
 <div class="ttc" id="a_panel64_8h_html_a735147092059b8eeb13cafaec2b99a7d"><div class="ttname"><a href="_panel64_8h.html#a735147092059b8eeb13cafaec2b99a7d">Panel_WriteChar</a></div><div class="ttdeci">void Panel_WriteChar(int x, int y, int character)</div><div class="ttdoc">Write Character.</div></div>
+<div class="ttc" id="a_panel64_8h_html_a87d5cbd8d38ea5deb908e24150201474"><div class="ttname"><a href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">Panel_SetPixel</a></div><div class="ttdeci">void Panel_SetPixel(int x, int y, int color)</div><div class="ttdoc">Set Pixel Color at point.</div></div>
+<div class="ttc" id="a_panel64_8h_html_a89648e71ca1352534e9256d10ad9b3d7"><div class="ttname"><a href="_panel64_8h.html#a89648e71ca1352534e9256d10ad9b3d7">Panel_GetPixel</a></div><div class="ttdeci">int Panel_GetPixel(int x, int y)</div><div class="ttdoc">Get pixel Value.</div></div>
 <div class="ttc" id="a_panel64_8h_html_a9d8ff41bf9e32842c4d33b12398845b6"><div class="ttname"><a href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">Panel_TextColor</a></div><div class="ttdeci">void Panel_TextColor(int foreground, int background)</div><div class="ttdoc">Set text color.</div></div>
 <div class="ttc" id="a_panel64_8h_html_abdc517c9ff46811117959c9b827b3c82"><div class="ttname"><a href="_panel64_8h.html#abdc517c9ff46811117959c9b827b3c82">Panel_DrawLine</a></div><div class="ttdeci">void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)</div><div class="ttdoc">Draw line art.</div></div>
 <div class="ttc" id="a_panel64_8h_html_ac42fc0cd34b05d2fee56e8d5efcc7f3b"><div class="ttname"><a href="_panel64_8h.html#ac42fc0cd34b05d2fee56e8d5efcc7f3b">Panel_WriteSStr</a></div><div class="ttdeci">void Panel_WriteSStr(int x, int y, char *string)</div><div class="ttdoc">Write small text.</div></div>
