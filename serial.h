@@ -19,21 +19,60 @@ FILE *serial_open(int rxpin, int txpin, int baudrate) __fromfile("libserial/seri
  */
 int serial_close(FILE *device) __fromfile("libserial/serial.c");
 
-                         
+
+/**
+ * @brief Check if a character is available to be read
+ * @param device file descripter for serial connection.
+ * @return serial state 0 - no character has been received
+ */
+int serial_rxCheck(FILE *device);
+
 /**
  * @brief Receive a byte.  Waits until next byte is received.
  * @param device file descripter for serial connnection.
- * @returns receive byte 0 to 0xff or -1 if none available 
+ * @return receive byte 0 to 0xff or -1 if none available 
  */
-int  serial_rxChar(FILE *device)  __fromfile("libserial/serial.c");
-
+int  serial_rxChar(FILE *device);
 
 /**
  * @brief Send a byte.
  * @param device file descripter for serial connection.
  * @param txbyte The byte to send.
- * @returns status 0 if byte was send 
+ * @return status 0 if byte was send 
  */
-int serial_txChar(FILE *device, char txbyte) __fromfile("libserial/serial.c");
+int serial_txChar(FILE *device, char txbyte);
+
+/**
+ * @brief Put file character
+ * @param c byte to send
+ * @param device FILE descripter for serial connection
+ * @return status 0 if byte was sent
+ */
+int serial_putcf(int c, FILE *device);
+
+/**
+ * @brief Get file character
+ * @param device file descripter for serial connection
+ * @return character received
+ */
+int serial_getcf(FILE *device);
+
+/**
+ * @brief Read number of bytes from device
+ * @param device file descripter for serial connection
+ * @param buffer to hold results
+ * @param count number of bytes to read
+ * @return size number of bytes read
+ */
+ssize_t serial_read(FILE *device, void *buff, size_t count);
+
+/**
+ * @brief Write number of bytes to device
+ * @param device file descripter for serial connection
+ * @param buffer of data to write
+ * @param count of data to write from buffer
+ * @return size of data written to device
+ */
+ssize_t serial_write(FILE *device, const void *buff, size_t count);
 
 #endif

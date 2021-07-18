@@ -78,6 +78,17 @@ int serial_close(FILE *device)
     return 0;
 }
 
+int serial_rxCheck(FILE *device)
+{
+    int z = 0;
+    int rx_pin;
+
+    rx_pin = device->state >> 16;
+    rx_pin = rx_pin & 0xff;
+    z = _pinr(rx_pin);
+    return z;
+}
+
 int serial_rxChar(FILE *device)
 {
     int z = 0;

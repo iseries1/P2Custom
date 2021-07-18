@@ -17,7 +17,7 @@
 #define PNB 10
 #define PNE 11
 #define PNG2 12
-#define PNG1 14
+#define PNG1 13
 #define PNOE 40
 #define PNCLK 41
 #define PNC 42
@@ -29,6 +29,9 @@
 
 void doAddress(int);
 void doColor(int, int);
+void doRefresh(void*);
+void DrawLine(int, int, int, int, int);
+
 
 long Stack[50];
 volatile char Buffer[64][64];
@@ -691,7 +694,7 @@ void Panel_Start(void)
     _cogstart(doRefresh, NULL, Stack, 50);
 }
 
-unsigned int Panel_Color(int red, int green, int blue)
+unsigned int Panel_Color(char red, char green, char blue)
 {
     int i;
 
@@ -715,7 +718,7 @@ void Panel_SetPixel(int x, int y, int color)
     if ((y < 0) || (y > 63))
       return;
 
-    Buffer[x][y] = color;
+    Buffer[y][x] = color;
 }
 
 void Panel_TextColor(int foreground, int background)
@@ -891,7 +894,7 @@ void DrawLine(int x1, int y1, int x2, int y2, int color)
 
   for (y = y1; y <= y2; y++)
   {
-    Panel_Plot(x, y, color);
+    Panel_SetPixel(x, y, color);
     if (D > 0)
     {
       x = x + z;
@@ -903,10 +906,10 @@ void DrawLine(int x1, int y1, int x2, int y2, int color)
 
 void Panel_DrawBox(int x1, int y1, int x2, int y2, int color)
 {
-  SSD1306_drawLine(x1, y1, x2, y1, color);
-  SSD1306_drawLine(x1, y1, x1, y2, color);
-  SSD1306_drawLine(x2, y1, x2, y2, color);
-  SSD1306_drawLine(x1, y2, x2, y2, color);
+  Panel_DrawLine(x1, y1, x2, y1, color);
+  Panel_DrawLine(x1, y1, x1, y2, color);
+  Panel_DrawLine(x2, y1, x2, y2, color);
+  Panel_DrawLine(x1, y2, x2, y2, color);
 }
 
 void Panel_ScrollVertical(int amount)
@@ -971,7 +974,7 @@ void Panel_ScrollHorizontal(int amount)
 
 int Panel_GetPixel(int x, int y)
 {
-  return Buffer[x][y];
+  return Buffer[y][x];
 }
 
 
@@ -1006,7 +1009,7 @@ void doRefresh(void *par)
         {
             for (int j=0;j<64;j++)
             {
-                doColor(Buffer[j][i], Buffer[j][i+32]);
+                doColor(Buffer[i][j], Buffer[i+32][j]);
                 _pinl(PNCLK);
                 _pinh(PNCLK);
             }
