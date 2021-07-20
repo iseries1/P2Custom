@@ -85,8 +85,11 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
   <a href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">More...</a><br /></td></tr>
 <tr class="separator:ab49247b189705672bd6c3800a0763b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae16c9aa9181e2bb37297cb414baee236"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">serial_rxCheck</a> (FILE *device)</td></tr>
-<tr class="memdesc:ae16c9aa9181e2bb37297cb414baee236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a character is available to be read.  <a href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">More...</a><br /></td></tr>
+<tr class="memdesc:ae16c9aa9181e2bb37297cb414baee236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a character is available and return it.  <a href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">More...</a><br /></td></tr>
 <tr class="separator:ae16c9aa9181e2bb37297cb414baee236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271dc46b2f41e69441a36b11198e178e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">serial_rxReady</a> (FILE *device)</td></tr>
+<tr class="memdesc:a271dc46b2f41e69441a36b11198e178e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a byte is available to be read.  <a href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">More...</a><br /></td></tr>
+<tr class="separator:a271dc46b2f41e69441a36b11198e178e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09407a08bcd756a4f5e6981f66c071a8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">serial_rxChar</a> (FILE *device)</td></tr>
 <tr class="memdesc:a09407a08bcd756a4f5e6981f66c071a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a byte. Waits until next byte is received.  <a href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">More...</a><br /></td></tr>
 <tr class="separator:a09407a08bcd756a4f5e6981f66c071a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -138,7 +141,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connnection. </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connnection. </td></tr>
   </table>
   </dd>
 </dl>
@@ -164,7 +167,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <p>Get file character. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connection </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,7 +205,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">c</td><td>byte to send </td></tr>
-    <tr><td class="paramname">device</td><td>FILE descripter for serial connection </td></tr>
+    <tr><td class="paramname">device</td><td>FILE descriptor for serial connection </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,7 +248,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <p>Read number of bytes from device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connection </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection </td></tr>
     <tr><td class="paramname">buffer</td><td>to hold results </td></tr>
     <tr><td class="paramname">count</td><td>number of bytes to read </td></tr>
   </table>
@@ -274,7 +277,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <p>Receive a byte. Waits until next byte is received. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connnection. </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connnection. </td></tr>
   </table>
   </dd>
 </dl>
@@ -298,14 +301,41 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
       </table>
 </div><div class="memdoc">
 
-<p>Check if a character is available to be read. </p>
+<p>Check if a character is available and return it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connection. </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>serial state 0 - no character has been received </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>serial byte -1 if no character is available </dd></dl>
+
+</div>
+</div>
+<a id="a271dc46b2f41e69441a36b11198e178e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a271dc46b2f41e69441a36b11198e178e">&#9670;&nbsp;</a></span>serial_rxReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial_rxReady </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a byte is available to be read. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>status none zero if a byte is available </dd></dl>
 
 </div>
 </div>
@@ -338,7 +368,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <p>Send a byte. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connection. </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection. </td></tr>
     <tr><td class="paramname">txbyte</td><td>The byte to send. </td></tr>
   </table>
   </dd>
@@ -382,7 +412,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <p>Write number of bytes to device. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>file descripter for serial connection </td></tr>
+    <tr><td class="paramname">device</td><td>file descriptor for serial connection </td></tr>
     <tr><td class="paramname">buffer</td><td>of data to write </td></tr>
     <tr><td class="paramname">count</td><td>of data to write from buffer </td></tr>
   </table>

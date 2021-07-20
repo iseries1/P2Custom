@@ -78,7 +78,7 @@ int serial_close(FILE *device)
     return 0;
 }
 
-int serial_rxCheck(FILE *device)
+int serial_rxReady(FILE *device)
 {
     int z = 0;
     int rx_pin;
@@ -86,7 +86,25 @@ int serial_rxCheck(FILE *device)
     rx_pin = device->state >> 16;
     rx_pin = rx_pin & 0xff;
     z = _pinr(rx_pin);
+    
     return z;
+}
+
+int serial_rxCheck(FILE *device)
+{
+    int z = 0;
+    int rxbyte;
+    int rx_pin;
+
+    rx_pin = device->state >> 16;
+    rx_pin = rx_pin & 0xff;
+    z = _pinr(rx_pin);
+    if (z == 0)
+      return -1;
+    
+    rxbyte = _rdpin(rx_pin) >> 24; // shift down to byte
+    rxbyte = rxbyte & 0xff;
+    return rxbyte;
 }
 
 int serial_rxChar(FILE *device)
