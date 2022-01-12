@@ -34,7 +34,7 @@ void DrawLine(int, int, int, int, int);
 
 
 long Stack[50];
-volatile char Buffer[64][64];
+volatile char Buffer[64][128];
 int ForeGround;
 int BackGround;
 
@@ -713,7 +713,7 @@ void Panel_SetPixel(int x, int y, int color)
 {
     int i;
 
-    if ((x < 0) || (x > 63))
+    if ((x < 0) || (x > 127))
       return;
     if ((y < 0) || (y > 63))
       return;
@@ -1007,13 +1007,15 @@ void doRefresh(void *par)
     {
         for (int i=0;i<32;i++)
         {
-            for (int j=0;j<64;j++)
+            for (int j=0;j<128;j++)
             {
                 doColor(Buffer[i][j], Buffer[i+32][j]);
                 _pinl(PNCLK);
+                
                 _pinh(PNCLK);
             }
             doAddress(i);
+            _pinh(PNLAT);
             _pinh(PNLAT);
             _pinl(PNLAT);
             _pinl(PNOE);

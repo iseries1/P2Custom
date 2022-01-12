@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['wait_430',['Wait',['../newhaven_8h.html#a20f3764acaf2c58c4e58d8df2aa512f5',1,'newhaven.h']]],
-  ['writememory_431',['writeMemory',['../newhaven_8h.html#ab6d1f3619249635e1c9ce8b021bedfff',1,'newhaven.h']]],
-  ['writememory32_432',['writeMemory32',['../newhaven_8h.html#a06a676c7148c1f928dbf1ccc165d3986',1,'newhaven.h']]],
-  ['ws2812_2eh_433',['ws2812.h',['../ws2812_8h.html',1,'']]],
-  ['ws2812_5fset_434',['ws2812_set',['../ws2812_8h.html#a1cb60fff07cbaa75d83fc0d7dfd4008f',1,'ws2812.h']]]
+  ['wait_446',['Wait',['../newhaven_8h.html#a20f3764acaf2c58c4e58d8df2aa512f5',1,'newhaven.h']]],
+  ['writememory_447',['writeMemory',['../newhaven_8h.html#ab6d1f3619249635e1c9ce8b021bedfff',1,'newhaven.h']]],
+  ['writememory32_448',['writeMemory32',['../newhaven_8h.html#a06a676c7148c1f928dbf1ccc165d3986',1,'newhaven.h']]],
+  ['ws2812_2eh_449',['ws2812.h',['../ws2812_8h.html',1,'']]],
+  ['ws2812_5fset_450',['ws2812_set',['../ws2812_8h.html#a1cb60fff07cbaa75d83fc0d7dfd4008f',1,'ws2812.h']]]
 ];

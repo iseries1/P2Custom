@@ -1,0 +1,45 @@
+/**
+ * @brief Driver Library for PCA9685 LED/Servo driver
+ * @author Michael Burmeister
+ * @date November 14, 2021
+ * @version 1.0
+ * 
+*/
+
+#define PCA9685_MODE1 0x00
+#define PCA9685_MODE2 0x01
+#define PCA9685_SUBADR1 0x02
+#define PCA9685_SUBADR2 0x03
+#define PCA9685_SUBADR3 0x04
+#define PCA9685_ALLCALLADR 0x05
+#define PCA9685_LED0_ON_L 0x06
+#define PCA9685_LED0_ON_H 0x07
+#define PCA9685_LED0_OFF_L 0x08
+#define PCA9685_LED0_OFF_H 0x09
+
+#define PCA9685_ALLLED_ON_L 0xFA
+#define PCA9685_ALLLED_ON_H 0xFB
+#define PCA9685_ALLLED_OFF_L 0xFC
+#define PCA9685_ALLLED_OFF_H 0xFD
+
+#define PCA9685_PRESCALE 0xFE
+#define PCA9685_TESTMODE 0xFF
+
+#define MODE1_ALLCALL 0x01
+#define MODE1_SUB3 0x02
+#define MODE1_SUB2 0x04
+#define MODE1_SUB1 0x08
+#define MODE1_SLEEP 0x10
+#define MODE1_AUTOINC 0x20
+#define MODE1_EXTCLK 0x40
+#define MODE1_RESTART 0x80
+
+#define MODE2_OUTNE_0 0x01
+#define MODE2_OUTNE_1 0x02
+#define MODE2_OUTDRV 0x04
+#define MODE2_OUTCH 0x08
+#define MODE2_INVRT 0x10
+
+#define PCA9685_ADDRESS 0x40
+#define PCA9685_FREQ 25000000
+

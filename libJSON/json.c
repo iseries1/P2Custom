@@ -67,6 +67,8 @@ short json_getItem()
           strcpy(ItemPath[ItemLevel++], ItemE);
         break;
       case '\"':
+        if (quote == 0)
+          i = 0;
         quote = 1 - quote;
         break;
       case ':':
