@@ -19,17 +19,17 @@ void SSD1331_init(char DIN, char CLK, char CS, char DC, char RES) __fromfile("li
 /* @brief set rotation
  * @param rotation
  */
-void SSD1331_rotation(char rotation) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_rotation(char rotation);
 
 /* @brief clear screen
  */
-void SSD1331_cls(void) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_cls(void);
 
 /*
  * @brief Invert display
  * @param state 0=normal, 1=invert, 2=all on, 3=all off
  */
-void SSD1331_invert(short state) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_invert(short state);
 
 /* @brief build 565 rgb color value
  * @param red 5 bits
@@ -38,7 +38,7 @@ void SSD1331_invert(short state) __fromfile("libSSD1331/SSD1331.c");
  * @return color
  */
 
-unsigned short SSD1331_color(char red, char green, char blue) __fromfile("libSSD1331/SSD1331.c");
+unsigned short SSD1331_color(char red, char green, char blue);
 
 /*
  * @brief plot a point
@@ -46,14 +46,14 @@ unsigned short SSD1331_color(char red, char green, char blue) __fromfile("libSSD
  * @param y offset
  * @param color value
  */
-void SSD1331_plot(short x, short y, unsigned short color) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_plot(short x, short y, unsigned short color);
 
 /*
  * @brief set foreground and background
  * @param foreground
  * @param background
  */
-void SSD1331_textColor(unsigned short foreground, unsigned short background) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_textColor(unsigned short foreground, unsigned short background);
 
 /*
  * @brief write char
@@ -61,7 +61,7 @@ void SSD1331_textColor(unsigned short foreground, unsigned short background) __f
  * @param y offset
  * @param c character
  */
-void SSD1331_writeChar(char x, char y, char c) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_writeChar(char x, char y, char c);
 
 /*
  * @brief write string
@@ -69,7 +69,7 @@ void SSD1331_writeChar(char x, char y, char c) __fromfile("libSSD1331/SSD1331.c"
  * @param y offset
  * @param s pointer to string
  */
-void SSD1331_writeStr(char x, char y, char* s) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_writeStr(char x, char y, char* s);
 
 /*
  * @brief write small 5x7 char
@@ -77,7 +77,7 @@ void SSD1331_writeStr(char x, char y, char* s) __fromfile("libSSD1331/SSD1331.c"
  * @param y offset
  * @param c character
  */
-void SSD1331_writeSChar(char x, char y, char c) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_writeSChar(char x, char y, char c);
 
 /*
  * @brief write small 5x7 string
@@ -85,7 +85,7 @@ void SSD1331_writeSChar(char x, char y, char c) __fromfile("libSSD1331/SSD1331.c
  * @param y offset
  * @param c pointer to string
  */
-void SSD1331_writeSStr(char x, char y, char* c) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_writeSStr(char x, char y, char* c);
 
 /*
  * @brief draw line 
@@ -95,7 +95,7 @@ void SSD1331_writeSStr(char x, char y, char* c) __fromfile("libSSD1331/SSD1331.c
  * @param y1 end point
  * @param color
  */
-void SSD1331_drawLine(short x, short y, short x1, short y1, unsigned short color) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_drawLine(short x, short y, short x1, short y1, unsigned short color);
 
 /*
  * @brief draw a box
@@ -105,7 +105,7 @@ void SSD1331_drawLine(short x, short y, short x1, short y1, unsigned short color
  * @param y1 end point
  * @param color
  */
-void SSD1331_drawBox(short x, short y, short x1, short y1, unsigned short color) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_drawBox(short x, short y, short x1, short y1, unsigned short color);
 
 /*
  * @brief draw a box filled
@@ -116,13 +116,13 @@ void SSD1331_drawBox(short x, short y, short x1, short y1, unsigned short color)
  * @param color
  * @param fill color
  */
-void SSD1331_drawFilledBox(short x, short y, short x1, short y1, unsigned short color, unsigned short fill) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_drawFilledBox(short x, short y, short x1, short y1, unsigned short color, unsigned short fill);
 
 /*
  * @brief display on or off
  * @param state
  */
-void SSD1331_display(char state) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_display(char state);
 
 /*
  * @brief Scroll right
@@ -131,7 +131,7 @@ void SSD1331_display(char state) __fromfile("libSSD1331/SSD1331.c");
  * @param end row
  * @param speed 0, 1, 2, or 3 slowest
  */
-void SSD1331_scrollRight(char amount, char start, char end, char speed) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_scrollRight(char amount, char start, char end, char speed);
 
 /*
  * @brief Scroll left
@@ -140,23 +140,23 @@ void SSD1331_scrollRight(char amount, char start, char end, char speed) __fromfi
  * @param end row
  * @param speed 0, 1, 2, or 3 slowest
  */
-void SSD1331_scrollLeft(char amount, char start, char end, char speed) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_scrollLeft(char amount, char start, char end, char speed);
 
 /*
  * @brief Scroll up
  * @param amount 1 - 31
  * @param speed 0, 1, 2, or 3 slowest
  */
-void SSD1331_scrollUp(char amount, char speed) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_scrollUp(char amount, char speed);
 
 /*
  * @brief Scroll down
  * @param amount 1 - 31
  * @param speed 0, 1, 2, or 3 slowest
  */
-void SSD1331_scrollDown(char amount, char speed) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_scrollDown(char amount, char speed);
 
 /*
  * @brief Scroll stop
  */
-void SSD1331_scrollStop(void) __fromfile("libSSD1331/SSD1331.c");
+void SSD1331_scrollStop(void);

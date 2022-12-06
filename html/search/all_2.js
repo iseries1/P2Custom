@@ -1,7 +1,7 @@
 var searchData=
 [
   ['base64_2eh_6',['Base64.h',['../_base64_8h.html',1,'']]],
-  ['base64_5fdecode_7',['Base64_Decode',['../_base64_8h.html#afdb3ee6c9cc98dbb68aed326f8ff710e',1,'Base64.h']]],
+  ['base64_5fdecode_7',['Base64_Decode',['../_base64_8h.html#a6c87e31574514760f0599ab4da2836d9',1,'Base64.h']]],
   ['base64_5fencode_8',['Base64_Encode',['../_base64_8h.html#a67d3280af56b4adea248b6ce36a1539c',1,'Base64.h']]],
   ['begin_9',['BEGIN',['../newhaven_8h.html#aba103606560e3f2d948655840ced7a6a',1,'newhaven.h']]],
   ['bitmap_5fhandle_10',['BITMAP_HANDLE',['../newhaven_8h.html#a3ae9ce45fe938533e95fa4e312e0825c',1,'newhaven.h']]],
@@ -42,5 +42,20 @@ var searchData=
   ['bme680_5fset_5fregs_45',['bme680_set_regs',['../group___b_m_e680.html#ga5d1bad74f7ac28e75aca9d7de66fd2b4',1,'bme680.h']]],
   ['bme680_5fset_5fsensor_5fmode_46',['bme680_set_sensor_mode',['../group___b_m_e680.html#ga5ca765226e758e71c862553c7cc0b371',1,'bme680.h']]],
   ['bme680_5fset_5fsensor_5fsettings_47',['bme680_set_sensor_settings',['../group___b_m_e680.html#ga2fea1365b4fa1d33eef434769b16e811',1,'bme680.h']]],
-  ['bme680_5fsoft_5freset_48',['bme680_soft_reset',['../group___b_m_e680.html#ga7f0f1a4378bc6cd0a34acf62509cdec7',1,'bme680.h']]]
+  ['bme680_5fsoft_5freset_48',['bme680_soft_reset',['../group___b_m_e680.html#ga7f0f1a4378bc6cd0a34acf62509cdec7',1,'bme680.h']]],
+  ['bme68x_49',['BME68X',['../group__bme68x.html',1,'']]],
+  ['bme68x_2eh_50',['bme68x.h',['../bme68x_8h.html',1,'']]],
+  ['bme68x_5fget_5fconf_51',['bme68x_get_conf',['../group__bme68x_api_config.html',1,'']]],
+  ['bme68x_5fget_5fdata_52',['bme68x_get_data',['../group__bme68x_api_data.html',1,'']]],
+  ['bme68x_5fget_5fheatr_5fconf_53',['bme68x_get_heatr_conf',['../group__bme68x_api_config.html',1,'']]],
+  ['bme68x_5fget_5fmeas_5fdur_54',['bme68x_get_meas_dur',['../group__bme68x_api_config.html',1,'']]],
+  ['bme68x_5fget_5fop_5fmode_55',['bme68x_get_op_mode',['../group__bme68x_api_om.html',1,'']]],
+  ['bme68x_5fget_5fregs_56',['bme68x_get_regs',['../group__bme68x_api_register.html',1,'']]],
+  ['bme68x_5finit_57',['bme68x_init',['../group__bme68x_api_init.html',1,'']]],
+  ['bme68x_5fselftest_5fcheck_58',['bme68x_selftest_check',['../group__bme68x_api_system.html',1,'']]],
+  ['bme68x_5fset_5fconf_59',['bme68x_set_conf',['../group__bme68x_api_config.html',1,'']]],
+  ['bme68x_5fset_5fheatr_5fconf_60',['bme68x_set_heatr_conf',['../group__bme68x_api_config.html',1,'']]],
+  ['bme68x_5fset_5fop_5fmode_61',['bme68x_set_op_mode',['../group__bme68x_api_om.html',1,'']]],
+  ['bme68x_5fset_5fregs_62',['bme68x_set_regs',['../group__bme68x_api_register.html',1,'']]],
+  ['bme68x_5fsoft_5freset_63',['bme68x_soft_reset',['../group__bme68x_api_system.html',1,'']]]
 ];

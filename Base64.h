@@ -22,4 +22,4 @@ int Base64_Encode(uint8_t *from, char *to, int len) __fromfile("libBase64/Base64
  * @param to data buffer
  * @return to buffer length
  */
-int Base64_Decode(char *from, uint8_t *to) __fromfile("libBase64/Base64.c");
+int Base64_Decode(char *from, uint8_t *to);

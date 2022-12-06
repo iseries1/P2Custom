@@ -22,9 +22,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.8</span>
+   &#160;<span id="projectnumber">1.9</span>
    </div>
-   <div id="projectbrief">Custom Libraries to be used with FlexProp</div>
+   <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
  </tr>
  </tbody>
@@ -77,16 +77,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae8b2491f8417fe827bf720b4bddec2f6"><td class="memItemLeft" align="right" valign="top"><a id="ae8b2491f8417fe827bf720b4bddec2f6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#ae8b2491f8417fe827bf720b4bddec2f6">Panel_Start</a> (void) __fromfile(&quot;libpanel64/panel64.c&quot;)</td></tr>
-<tr class="memdesc:ae8b2491f8417fe827bf720b4bddec2f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">start panel display driver <br /></td></tr>
-<tr class="separator:ae8b2491f8417fe827bf720b4bddec2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f16faecdac11bfd378912bb6a9b80d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#aa4f16faecdac11bfd378912bb6a9b80d">Panel_Start</a> (int panels) __fromfile(&quot;libpanel64/panel64.c&quot;)</td></tr>
+<tr class="memdesc:aa4f16faecdac11bfd378912bb6a9b80d"><td class="mdescLeft">&#160;</td><td class="mdescRight">start panel display driver  <a href="_panel64_8h.html#aa4f16faecdac11bfd378912bb6a9b80d">More...</a><br /></td></tr>
+<tr class="separator:aa4f16faecdac11bfd378912bb6a9b80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae01176b12b8c590589a9f5988472bd6a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">Panel_Color</a> (char red, char green, char blue)</td></tr>
 <tr class="memdesc:ae01176b12b8c590589a9f5988472bd6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combine color value.  <a href="_panel64_8h.html#ae01176b12b8c590589a9f5988472bd6a">More...</a><br /></td></tr>
 <tr class="separator:ae01176b12b8c590589a9f5988472bd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d5cbd8d38ea5deb908e24150201474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">Panel_SetPixel</a> (int x, int y, int color)</td></tr>
 <tr class="memdesc:a87d5cbd8d38ea5deb908e24150201474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Pixel Color at point.  <a href="_panel64_8h.html#a87d5cbd8d38ea5deb908e24150201474">More...</a><br /></td></tr>
 <tr class="separator:a87d5cbd8d38ea5deb908e24150201474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdcebd45ea1921308d98d73a68c83a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#acdcebd45ea1921308d98d73a68c83a07">Panel_Clear</a> (int color)</td></tr>
+<tr class="memdesc:acdcebd45ea1921308d98d73a68c83a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear Panel with color.  <a href="_panel64_8h.html#acdcebd45ea1921308d98d73a68c83a07">More...</a><br /></td></tr>
+<tr class="separator:acdcebd45ea1921308d98d73a68c83a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d8ff41bf9e32842c4d33b12398845b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">Panel_TextColor</a> (int foreground, int background)</td></tr>
 <tr class="memdesc:a9d8ff41bf9e32842c4d33b12398845b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set text color.  <a href="_panel64_8h.html#a9d8ff41bf9e32842c4d33b12398845b6">More...</a><br /></td></tr>
 <tr class="separator:a9d8ff41bf9e32842c4d33b12398845b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,6 +126,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 <dl class="section date"><dt>Date</dt><dd>April 28, 2021 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="acdcebd45ea1921308d98d73a68c83a07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdcebd45ea1921308d98d73a68c83a07">&#9670;&nbsp;</a></span>Panel_Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Panel_Clear </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear Panel with color. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae01176b12b8c590589a9f5988472bd6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae01176b12b8c590589a9f5988472bd6a">&#9670;&nbsp;</a></span>Panel_Color()</h2>
 
@@ -409,9 +437,35 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pan
 <p>Set Pixel Color at point. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>(0 - 63) </td></tr>
+    <tr><td class="paramname">x</td><td>(0 - Width) </td></tr>
     <tr><td class="paramname">y</td><td>(0 - 63) </td></tr>
     <tr><td class="paramname">color</td><td>value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa4f16faecdac11bfd378912bb6a9b80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f16faecdac11bfd378912bb6a9b80d">&#9670;&nbsp;</a></span>Panel_Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Panel_Start </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>panels</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start panel display driver </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">panels</td><td>number of 64 panels </td></tr>
   </table>
   </dd>
 </dl>

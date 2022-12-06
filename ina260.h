@@ -66,7 +66,7 @@ enum _maskenable {
  * @brief open connection to INA260 device
  * @param clock pin number
  * @param data pin number
- * @return id manufactor id
+ * @return id - manufactor id (0x5449)
  */
 unsigned short INA260_open(char clock, char data) __fromfile("libina260/ina260.c");
   
@@ -74,19 +74,19 @@ unsigned short INA260_open(char clock, char data) __fromfile("libina260/ina260.c
  * @brief read current in milliamps
  * @return current
  */
-short INA260_getCurrent(void) __fromfile("libina260/ina260.c");
+short INA260_getCurrent(void);
 
 /**
  * @brief read voltage in hundredths
  * @return voltage
  */
-short INA260_getVoltage(void) __fromfile("libina260/ina260.c");
+short INA260_getVoltage(void);
 
 /**
  * @brief read power in milliwatts
  * @return power
  */
-short INA260_getPower(void) __fromfile("libina260/ina260.c");
+short INA260_getPower(void);
 
 /**
  * @brief config device
@@ -95,29 +95,30 @@ short INA260_getPower(void) __fromfile("libina260/ina260.c");
  * @param voltage conversion
  * @param average amount
  * @param reset device
+ *  Default is continous, no averaging.
  */
-void  INA260_setConfig(char mode, char current, char voltage, char average, char reset) __fromfile("libina260/ina260.c");
+void  INA260_setConfig(char mode, char current, char voltage, char average, char reset);
 
 /**
  * @brief read device configuration
  * @return config
  */
-unsigned short INA260_getConfig(void) __fromfile("libina260/ina260.c");
+unsigned short INA260_getConfig(void);
 
 /**
  * @brief mask enable register
  * @param mask value
  */
-void INA260_setMask(unsigned short mask) __fromfile("libina260/ina260.c");
+void INA260_setMask(unsigned short mask);
 
 /**
  * @brief get mask enable value
  * @return mask value
  */
-unsigned short INA260_getMask(void) __fromfile("libina260/ina260.c");
+unsigned short INA260_getMask(void);
 
 /**
  * @brief set alert limit value
  * @param alert value
  */
-void INA260_setAlert(unsigned short alert) __fromfile("libina260/ina260.c");
+void INA260_setAlert(unsigned short alert);

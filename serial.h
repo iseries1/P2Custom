@@ -38,7 +38,7 @@ int serial_rxReady(FILE *device);
  * @param device file descriptor for serial connnection.
  * @return receive byte 0 to 0xff or -1 if none available 
  */
-int  serial_rxChar(FILE *device);
+int serial_rxChar(FILE *device);
 
 /**
  * @brief Send a byte.

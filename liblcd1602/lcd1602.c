@@ -9,10 +9,11 @@
 #include "lcd1602.h"
 #include "LCD1602reg.h"
 #include <propeller.h>
+#include <string.h>
 #include "simpletools.h"
 
-int LCD1602_Read(int);
-void LCD1602_Write(int);
+int LCD1602_Read(void);
+int LCD1602_Write(int);
 void LCD1602_Nible(int);
 void LCD1602_Send(int, int);
 

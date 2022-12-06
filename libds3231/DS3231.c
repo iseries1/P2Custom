@@ -15,7 +15,7 @@
 int DS3231_BCD(int);
 int DS3231_Read(int);
 int DS3231_DECIMAL(int);
-int DS3231_Write(int);
+int DS3231_Write(int, int);
 
 short _MM[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 i2c *pbus;

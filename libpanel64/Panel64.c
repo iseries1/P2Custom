@@ -1,5 +1,5 @@
 /**
- * @brief Panel Driver for P2 P2
+ * @brief Panel 64 Driver for P2
  * @author Michael Burmeister
  * @date April 28, 2021
  * @version 1.0
@@ -7,6 +7,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <memory.h>
 #include <math.h>
 #include <propeller.h>
@@ -34,9 +35,12 @@ void DrawLine(int, int, int, int, int);
 
 
 long Stack[50];
-volatile char Buffer[64][128];
+volatile char PMem[256][256];
 int ForeGround;
 int BackGround;
+int Panels = 1;
+int Width = 64;
+int Height = 64;
 
 // font 5x7 in 8x8 format line by line
 long Font_57[] = {0x1f1f1f1f, 0x1f1f1f1f, //0x0
@@ -683,13 +687,16 @@ long PropellerFont[] = {0xffffffff,0xffffffff,0xffffffff,0xffffffff,0x000000ff,0
 
 
 
-void Panel_Start(void)
+void Panel_Start(int panels)
 {
 
     ForeGround = 7;
     BackGround = 0;
 
-    memset(Buffer, 0, sizeof(Buffer));
+    Panels = panels;
+    Width = Panels * 64;
+
+    memset(PMem, 0, sizeof(PMem));
 
     _cogstart(doRefresh, NULL, Stack, 50);
 }
@@ -709,16 +716,23 @@ unsigned int Panel_Color(char red, char green, char blue)
     return i;
 }
 
+void Panel_Clear(int color)
+{
+  for (int i=0;i<Width;i++)
+    for (int j=0;j<Height;j++)
+      PMem[j][i] = color;
+}
+
 void Panel_SetPixel(int x, int y, int color)
 {
     int i;
 
-    if ((x < 0) || (x > 127))
+    if ((x < 0) || (x >= Width))
       return;
-    if ((y < 0) || (y > 63))
+    if ((y < 0) || (y >= Height))
       return;
 
-    Buffer[y][x] = color;
+    PMem[y][x] = color;
 }
 
 void Panel_TextColor(int foreground, int background)
@@ -768,17 +782,11 @@ void Panel_WriteStr(int x, int y, char *string)
   
   x1 = x;
   i = 0;
-  while ((i < 8) && (string[i] > 0))
+  while (string[i] > 0)
   {
     v = string[i++];
     Panel_WriteChar(x, y, v);
-    if (i == 4)
-    {
-      y = y + 32;
-      x = x1;
-    }
-    else
-      x = x + 16;
+    x = x + 16;
   }
 }
 
@@ -814,17 +822,11 @@ void Panel_WriteSStr(int x, int y, char *string)
   
   x1 = x;
   i = 0;
-  while ((i < 64) && (string[i] > 0))
+  while (string[i] > 0)
   {
     v = string[i++];
     Panel_WriteSChar(x, y, v);
-    if (i == 10)
-    {
-      y = y + 8;
-      x = x1;
-    }
-    else
-      x = x + 6;
+    x = x + 6;
   }
 }
 
@@ -916,29 +918,25 @@ void Panel_ScrollVertical(int amount)
 {
   if (amount > 0)
   {
-    for (int i=0;i<64-amount;i++)
-    {
-      //memcpy(Buffer[i], Buffer[i+amount], 4*64)
-      for (int j=0;j<64;j++)
-        Buffer[j][i] = Buffer[j][i+amount];
-    }
+    for (int i=0;i<Width-amount;i++)
+      for (int j=0;j<Height;j++)
+        PMem[j][i] = PMem[j][i+amount];
 
-    for (int i=64-amount;i<64;i++)
-      for (int j=0;j<64;j++)
-        Buffer[j][i] = 0;
+    for (int i=Width-amount;i<Width;i++)
+      for (int j=0;j<Height;j++)
+        PMem[j][i] = 0;
   }
 
   if (amount < 0)
   {
     amount = -amount;
-    for (int i=63;i>amount;i--)
-    {
-      for (int j=0;j<64;j++)
-        Buffer[j][i] = Buffer[j][i-1];
-    }
+    for (int i=Width-1;i>amount;i--)
+      for (int j=0;j<Height;j++)
+        PMem[j][i] = PMem[j][i-1];
+
     for (int i=amount;i>0;i--)
-      for (int j=0;j<64;j++)
-        Buffer[j][i] = 0;
+      for (int j=0;j<Height;j++)
+        PMem[j][i] = 0;
   }
 }
 
@@ -946,35 +944,36 @@ void Panel_ScrollHorizontal(int amount)
 {
   if (amount > 0)
   {
-    for (int i=0;i<64-amount;i++)
-    {
-      //memcpy(Buffer[i], Buffer[i+amount], 4*64)
-      for (int j=0;j<64;j++)
-        Buffer[i][j] = Buffer[i+amount][j];
-    }
+    for (int i=0;i<Height-amount;i++)
+      for (int j=0;j<Width;j++)
+        PMem[i][j] = PMem[i+amount][j];
 
-    for (int i=64-amount;i<64;i++)
-      for (int j=0;j<64;j++)
-        Buffer[i][j] = 0;
+    for (int i=Height-amount;i<Height;i++)
+      for (int j=0;j<Width;j++)
+        PMem[i][j] = 0;
   }
 
   if (amount < 0)
   {
     amount = -amount;
-    for (int i=63;i>amount;i--)
-    {
-      for (int j=0;j<64;j++)
-        Buffer[i][j] = Buffer[i-1][j];
-    }
+    for (int i=Height-1;i>amount;i--)
+      for (int j=0;j<Width;j++)
+        PMem[i][j] = PMem[i-1][j];
+
     for (int i=amount;i>0;i--)
-      for (int j=0;j<64;j++)
-        Buffer[i][j] = 0;
+      for (int j=0;j<Width;j++)
+        PMem[i][j] = 0;
   }
 }
 
 int Panel_GetPixel(int x, int y)
 {
-  return Buffer[y][x];
+  if ((x < 0) || (x >= Width))
+    return -1;
+  if ((y < 0) || (y >= Height))
+    return -1;
+
+  return PMem[y][x];
 }
 
 
@@ -1005,11 +1004,11 @@ void doRefresh(void *par)
 
     while (1)
     {
-        for (int i=0;i<32;i++)
+        for (int i=0;i<Height/2;i++)
         {
-            for (int j=0;j<128;j++)
+            for (int j=0;j<Width;j++)
             {
-                doColor(Buffer[i][j], Buffer[i+32][j]);
+                doColor(PMem[i][j], PMem[i+32][j]);
                 _pinl(PNCLK);
                 
                 _pinh(PNCLK);

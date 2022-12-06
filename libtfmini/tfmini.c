@@ -20,7 +20,7 @@ static volatile int distance;
 static volatile int strength;
 static volatile int temperature;
 static char Buffer[32];
-static long Stack[40];
+static long Stack[50];
 
 int tfmini_open(int Rx, int Tx)
 {
@@ -80,11 +80,11 @@ void doTFmini(void *par)
     
   _s = serial_open(Buffer[0], Buffer[1], 115200);
   i = 0;
-  
+
   while (1)
   {
     Buffer[i++] = serial_rxChar(_s);
-    _pinl(56);
+
     if (i == 2)
     {
       if ((Buffer[0] != 0x59) || (Buffer[1] != 0x59))

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <propeller.h>
+#include <smartpins.h>
 #include "serial.h"
 
 FILE *serial_open(int rxpin, int txpin, int baudrate)
@@ -140,7 +141,7 @@ int serial_txChar(FILE *device, int txbyte)
       z = _pinr(tx_pin);
       if (z != 0)
         return 0;
-      usleep(1000);
+      usleep(50);
     }
 
     return -1;
@@ -158,10 +159,19 @@ int serial_getcf(FILE *device)
 
 ssize_t serial_read(FILE *device, void *buff, size_t count)
 {
-    unsigned char *b = (unsigned char*)buff;
+  unsigned int i;
+  int d;
+  unsigned char *b = (unsigned char*)buff;
 
-    b[0] = serial_rxChar(device);
-    return 1;
+    for (i=0;i<count;i++)
+    {
+      d = serial_rxChar(device);
+      if (d < 0)
+        return i;
+      b[i] = d;
+    }
+
+    return i;
 }
 
 ssize_t serial_write(FILE *device, const void *buff, size_t count)
@@ -173,12 +183,11 @@ ssize_t serial_write(FILE *device, const void *buff, size_t count)
     tx_pin = device->flags;
     tx_pin = tx_pin >> 8;
 
-    for (int i=0;i<count;i++)
+    for (unsigned int i=0;i<count;i++)
     {
       _wypin(tx_pin, b[i]);
-      z = _pinr(tx_pin);
-      if (z != 0)
-        return i;
+      while (z = _pinr(tx_pin) == 0)
+        sleep(50);
     }
 
     return count;

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['readid_771',['readID',['../newhaven_8h.html#a427cde9993ce25b61ae893d7295e459d',1,'newhaven.h']]],
-  ['readmemory_772',['readMemory',['../newhaven_8h.html#a13baca029bd0153fbe36fcaa839f63ee',1,'newhaven.h']]],
-  ['readmemory32_773',['readMemory32',['../newhaven_8h.html#af2b1e3b5a273146f0f11353f9a730489',1,'newhaven.h']]],
-  ['restore_5fcontext_774',['RESTORE_CONTEXT',['../newhaven_8h.html#adeb788f877219e4429cc8e4a8725bd06',1,'newhaven.h']]],
-  ['return_775',['RETURN',['../newhaven_8h.html#a7109bb41fb6dbd01aeaf611510ea80b8',1,'newhaven.h']]]
+  ['readid_855',['readID',['../newhaven_8h.html#a427cde9993ce25b61ae893d7295e459d',1,'newhaven.h']]],
+  ['readmemory_856',['readMemory',['../newhaven_8h.html#a13baca029bd0153fbe36fcaa839f63ee',1,'newhaven.h']]],
+  ['readmemory32_857',['readMemory32',['../newhaven_8h.html#af2b1e3b5a273146f0f11353f9a730489',1,'newhaven.h']]],
+  ['restore_5fcontext_858',['RESTORE_CONTEXT',['../newhaven_8h.html#adeb788f877219e4429cc8e4a8725bd06',1,'newhaven.h']]],
+  ['return_859',['RETURN',['../newhaven_8h.html#a7109bb41fb6dbd01aeaf611510ea80b8',1,'newhaven.h']]]
 ];

@@ -9,8 +9,9 @@
 
 /**
  * @brief start panel display driver
+ * @param panels number of 64 panels
  */
-void Panel_Start(void) __fromfile("libpanel64/panel64.c");
+void Panel_Start(int panels) __fromfile("libpanel64/panel64.c");
 
 /**
  * @brief Combine color value
@@ -23,11 +24,18 @@ unsigned int Panel_Color(char red, char green, char blue);
 
 /**
  * @brief Set Pixel Color at point
- * @param x (0 - 63)
+ * @param x (0 - Width)
  * @param y (0 - 63)
  * @param color value
  */
 void Panel_SetPixel(int x, int y, int color);
+
+/**
+ * @brief Clear Panel with color
+ * @param color value
+ *
+ */
+void Panel_Clear(int color);
 
 /**
  * @brief Set text color

@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 {
     int c;
     
-    Panel_Start();
+    Panel_Start(3);
 
     c = Panel_Color(1, 1, 0);
 

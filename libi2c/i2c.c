@@ -7,7 +7,6 @@
 */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <propeller.h>
 #include "i2c.h"
 
@@ -29,6 +28,8 @@ i2c_t *I2C_Init(int scl, int sda, int spd)
     	i = 0;
     i = scl | (sda << 8) | (i << 16);
     *x = (i2c_t)i;
+    _dirh(scl);
+    _dirh(sda);
     I2C_Stop(x);
     return x;
 }
@@ -126,7 +127,7 @@ int I2C_ReadByte(i2c_t *x, int ack)
     c = i &0xff;
 
 	_dirl(d);
-     usleep(s);
+    usleep(s);
 	b = 0;
 	for (i=0;i<8;i++)
 	{
@@ -172,7 +173,7 @@ int I2C_ReadData(i2c_t *x, char *data, int count)
     {
         data[i] = I2C_ReadByte(x, 0);
     }
-    data[i] = I2C_ReadByte(x, 1);
+    data[i++] = I2C_ReadByte(x, 1);
     return i;
 }
 
