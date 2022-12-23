@@ -31,11 +31,12 @@
 void doAddress(int);
 void doColor(int, int);
 void doRefresh(void*);
-void DrawLine(int, int, int, int, int);
+void DrawLine(int, int, int, int, int, int);
+void Plot(int, int, int, int, int, int);
 
 
 long Stack[50];
-volatile char PMem[256][256];
+volatile char PMem[64][384];
 int ForeGround;
 int BackGround;
 int Panels = 1;
@@ -690,11 +691,11 @@ long PropellerFont[] = {0xffffffff,0xffffffff,0xffffffff,0xffffffff,0x000000ff,0
 void Panel_Start(int panels)
 {
 
-    ForeGround = 7;
-    BackGround = 0;
+    ForeGround = 7; //white
+    BackGround = 0; //black
 
     Panels = panels;
-    Width = Panels * 64;
+    Width = 64;
 
     memset(PMem, 0, sizeof(PMem));
 
@@ -716,23 +717,34 @@ unsigned int Panel_Color(char red, char green, char blue)
     return i;
 }
 
-void Panel_Clear(int color)
+void Panel_Clear(int panel, int color)
 {
-  for (int i=0;i<Width;i++)
+  int p, s;
+
+  p = (Panels - panel) * Width;
+  s = p - 64;
+
+  for (int i=s;i<p;i++)
     for (int j=0;j<Height;j++)
       PMem[j][i] = color;
 }
 
-void Panel_SetPixel(int x, int y, int color)
+void Panel_SetPixel(int panel, int x, int y, int color)
 {
-    int i;
+  int i;
+  int p, s;
 
-    if ((x < 0) || (x >= Width))
-      return;
-    if ((y < 0) || (y >= Height))
-      return;
+  p = (Panels - panel) * Width;
+  s = p - 64;
 
-    PMem[y][x] = color;
+  if ((x < 0) || (x >= Width))
+    return;
+  if ((y < 0) || (y >= Height))
+    return;
+  if (panel >= Panels)
+    return;
+
+  PMem[y][x+s] = color;
 }
 
 void Panel_TextColor(int foreground, int background)
@@ -741,7 +753,7 @@ void Panel_TextColor(int foreground, int background)
     BackGround = background;
 }
 
-void Panel_WriteChar(int x, int y, int character)
+void Panel_WriteChar(int panel, int x, int y, int character)
 {
   long *base;
   int offset;
@@ -751,31 +763,73 @@ void Panel_WriteChar(int x, int y, int character)
   offset = character & 0xfe;
   base = &PropellerFont[offset*16];
 
-  if ((x < 0) || (y < 0))
-    return;
-
   offset = 0;
+  y1 = y;
   for (int i=0;i<32;i++)
   {
     v = base[offset++];
     if (character & 0x01)
       v = v >> 1;
   
+    y1++;
+    x1 = x;
     for (int j=0;j<16;j++)
     {
-      x1 = x + j;
-      y1 = y + i;
+      x1++;
       if ((v & 0x01) == 1)
-        Panel_SetPixel(x1, y1, ForeGround);
+        Panel_SetPixel(panel, x1, y1, ForeGround);
       else
-        Panel_SetPixel(x1, y1, BackGround);
+        Panel_SetPixel(panel, x1, y1, BackGround);
       v = v >> 2;
     }
   }
-
 }
 
-void Panel_WriteStr(int x, int y, char *string)
+void Panel_WriteXChar(int panel, int x, int y, int character)
+{
+  long *base;
+  int offset;
+  long v;
+  int x1, y1;
+
+  offset = character & 0xfe;
+  base = &PropellerFont[offset*16];
+
+  offset = 0;
+  y1 = y;
+  for (int i=0;i<32;i++)
+  {
+    v = base[offset++];
+    if (character & 0x01)
+      v = v >> 1;
+  
+    y1++;
+    y1++;
+    x1 = x;
+    for (int j=0;j<16;j++)
+    {
+      x1++;
+      x1++;
+      if ((v & 0x01) == 1)
+      {
+        Panel_SetPixel(panel, x1, y1, ForeGround);
+        Panel_SetPixel(panel, x1+1, y1, ForeGround);
+        Panel_SetPixel(panel, x1, y1+1, ForeGround);
+        Panel_SetPixel(panel, x1+1, y1+1, ForeGround);
+      }
+      else
+      {
+        Panel_SetPixel(panel, x1, y1, BackGround);
+        Panel_SetPixel(panel, x1+1, y1, BackGround);
+        Panel_SetPixel(panel, x1, y1+1, BackGround);
+        Panel_SetPixel(panel, x1+1, y1+1, BackGround);
+      }
+      v = v >> 2;
+    }
+  }
+}
+
+void Panel_WriteStr(int panel, int x, int y, char *string)
 {
   int i, v;
   char x1;
@@ -785,16 +839,15 @@ void Panel_WriteStr(int x, int y, char *string)
   while (string[i] > 0)
   {
     v = string[i++];
-    Panel_WriteChar(x, y, v);
+    Panel_WriteChar(panel, x, y, v);
     x = x + 16;
   }
 }
 
-void Panel_WriteSChar(int x, int y, char character)
+void Panel_WriteSChar(int panel, int x, int y, char character)
 {
   char t;
   long v;
-  int x1, y1;
 
   t = character * 2;
   for (int l=0;l<2;l++)
@@ -805,9 +858,9 @@ void Panel_WriteSChar(int x, int y, char character)
       for (int j=0;j<8;j++)
       {
         if ((v & 0x01) == 1)
-          Panel_SetPixel(x+j, y, ForeGround);
+          Panel_SetPixel(panel, x+j, y, ForeGround);
         else
-          Panel_SetPixel(x+j, y, BackGround);
+          Panel_SetPixel(panel, x+j, y, BackGround);
         v = v >> 1;
       }
       y++;
@@ -815,7 +868,7 @@ void Panel_WriteSChar(int x, int y, char character)
   }
 }
 
-void Panel_WriteSStr(int x, int y, char *string)
+void Panel_WriteSStr(int panel, int x, int y, char *string)
 {
   int i, v;
   char x1;
@@ -825,12 +878,12 @@ void Panel_WriteSStr(int x, int y, char *string)
   while (string[i] > 0)
   {
     v = string[i++];
-    Panel_WriteSChar(x, y, v);
+    Panel_WriteSChar(panel, x, y, v);
     x = x + 6;
   }
 }
 
-void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)
+void Panel_DrawLine(int panel, int x1, int y1, int x2, int y2, int color)
 {
   int dx, dy, D, x, y, z;
 
@@ -852,7 +905,7 @@ void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)
 
     if (dx < dy)
     {
-      DrawLine(x1, y1, x2, y2, color);
+      DrawLine(panel, x1, y1, x2, y2, color);
       return;
     }
 
@@ -861,7 +914,7 @@ void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)
 
     for (x = x1; x <= x2; x++)
     {
-      Panel_SetPixel(x, y, color);
+      Panel_SetPixel(panel, x, y, color);
       if (D > 0)
       {
         y = y + z;
@@ -871,7 +924,7 @@ void Panel_DrawLine(int x1, int y1, int x2, int y2, int color)
     }
 }
 
-void DrawLine(int x1, int y1, int x2, int y2, int color)
+void DrawLine(int panel, int x1, int y1, int x2, int y2, int color)
 {
   int dx, dy, D, x, y, z;
 
@@ -896,7 +949,7 @@ void DrawLine(int x1, int y1, int x2, int y2, int color)
 
   for (y = y1; y <= y2; y++)
   {
-    Panel_SetPixel(x, y, color);
+    Panel_SetPixel(panel, x, y, color);
     if (D > 0)
     {
       x = x + z;
@@ -906,23 +959,66 @@ void DrawLine(int x1, int y1, int x2, int y2, int color)
   }
 }
 
-void Panel_DrawBox(int x1, int y1, int x2, int y2, int color)
+void Panel_DrawBox(int panel, int x1, int y1, int x2, int y2, int color)
 {
-  Panel_DrawLine(x1, y1, x2, y1, color);
-  Panel_DrawLine(x1, y1, x1, y2, color);
-  Panel_DrawLine(x2, y1, x2, y2, color);
-  Panel_DrawLine(x1, y2, x2, y2, color);
+  Panel_DrawLine(panel, x1, y1, x2, y1, color);
+  Panel_DrawLine(panel, x1, y1, x1, y2, color);
+  Panel_DrawLine(panel, x2, y1, x2, y2, color);
+  Panel_DrawLine(panel, x1, y2, x2, y2, color);
 }
 
-void Panel_ScrollVertical(int amount)
+void Panel_DrawCircle(int panel, int x, int y, int radius, int color)
 {
+  int p;
+  int x1, y1;
+
+  for (int i=1;i<radius;i++)
+  {
+    p = 3 - 2 * i;
+    x1 = 0;
+    y1 = i;
+    Plot(panel, x, y, x1, y1, color);
+    while (x1 < y1)
+    {
+      x1++;
+      if (p < 0)
+        p = p + 4 * x1 + 6;
+      else
+      {
+        y1--;
+        p = p + 4 * (x1 - y1) + 10;
+      }
+      Plot(panel, x, y, x1, y1, color);
+    }
+  }
+}
+
+void Plot(int p, int cx, int cy, int x, int y, int color)
+{
+  Panel_SetPixel(p, cx+x, cy+y, color);
+  Panel_SetPixel(p, cx-x, cy+y, color);
+  Panel_SetPixel(p, cx+x, cy-y, color);
+  Panel_SetPixel(p, cx-x, cy-y, color);
+  Panel_SetPixel(p, cx+y, cy+x, color);
+  Panel_SetPixel(p, cx-y, cy+x, color);
+  Panel_SetPixel(p, cx+y, cy-x, color);
+  Panel_SetPixel(p, cx-y, cy-x, color);
+}
+
+void Panel_ScrollVertical(int panel, int amount)
+{
+  int p, s;
+
+  p = (Panels - panel) * Width;
+  s = p - 64;
+
   if (amount > 0)
   {
-    for (int i=0;i<Width-amount;i++)
+    for (int i=s;i<p-amount;i++)
       for (int j=0;j<Height;j++)
         PMem[j][i] = PMem[j][i+amount];
 
-    for (int i=Width-amount;i<Width;i++)
+    for (int i=p-amount;i<p;i++)
       for (int j=0;j<Height;j++)
         PMem[j][i] = 0;
   }
@@ -930,26 +1026,31 @@ void Panel_ScrollVertical(int amount)
   if (amount < 0)
   {
     amount = -amount;
-    for (int i=Width-1;i>amount;i--)
+    for (int i=p-1;i>amount+s;i--)
       for (int j=0;j<Height;j++)
         PMem[j][i] = PMem[j][i-1];
 
-    for (int i=amount;i>0;i--)
+    for (int i=amount+p;i>s;i--)
       for (int j=0;j<Height;j++)
         PMem[j][i] = 0;
   }
 }
 
-void Panel_ScrollHorizontal(int amount)
+void Panel_ScrollHorizontal(int panel, int amount)
 {
+  int p, s;
+
+  p = (Panels - panel) * Width;
+  s = p - 64;
+
   if (amount > 0)
   {
     for (int i=0;i<Height-amount;i++)
-      for (int j=0;j<Width;j++)
+      for (int j=s;j<p;j++)
         PMem[i][j] = PMem[i+amount][j];
 
     for (int i=Height-amount;i<Height;i++)
-      for (int j=0;j<Width;j++)
+      for (int j=s;j<p;j++)
         PMem[i][j] = 0;
   }
 
@@ -957,20 +1058,22 @@ void Panel_ScrollHorizontal(int amount)
   {
     amount = -amount;
     for (int i=Height-1;i>amount;i--)
-      for (int j=0;j<Width;j++)
+      for (int j=s;j<p;j++)
         PMem[i][j] = PMem[i-1][j];
 
     for (int i=amount;i>0;i--)
-      for (int j=0;j<Width;j++)
+      for (int j=s;j<p;j++)
         PMem[i][j] = 0;
   }
 }
 
-int Panel_GetPixel(int x, int y)
+int Panel_GetPixel(int panel, int x, int y)
 {
   if ((x < 0) || (x >= Width))
     return -1;
   if ((y < 0) || (y >= Height))
+    return -1;
+  if (panel >= Panels)
     return -1;
 
   return PMem[y][x];
@@ -1006,7 +1109,7 @@ void doRefresh(void *par)
     {
         for (int i=0;i<Height/2;i++)
         {
-            for (int j=0;j<Width;j++)
+            for (int j=0;j<Width*Panels;j++)
             {
                 doColor(PMem[i][j], PMem[i+32][j]);
                 _pinl(PNCLK);

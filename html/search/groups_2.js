@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_20read_20out_969',['Data Read out',['../group__bme68x_api_data.html',1,'']]]
+  ['data_20read_20out_973',['Data Read out',['../group__bme68x_api_data.html',1,'']]]
 ];
