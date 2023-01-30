@@ -62,7 +62,7 @@ void Panel_WriteChar(int panel, int x, int y, int character);
  * @param y (0 - 63)
  * @param character to write
  */
-void Panel_WriteXStr(int panel, int x, int y, int character);
+void Panel_WriteXChar(int panel, int x, int y, int character);
 
 /**
  * @brief Write String

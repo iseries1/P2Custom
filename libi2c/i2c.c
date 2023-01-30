@@ -184,15 +184,19 @@ int I2C_In(i2c_t *x, int address, int reg, int size, char *data, int count)
 
     address = address << 1;
     address = address & 0xfe;
-    I2C_Start(x);
-    if (I2C_WriteByte(x, address))
-	    return 0;
-    buffer[0] = reg >> 24;
-    buffer[1] = (reg >> 16) & 0xff;
-    buffer[2] = (reg >> 8) & 0xff;
-    buffer[3] = reg & 0xff;
-    i = 4 - size;
-    i = I2C_WriteData(x, &buffer[i], size);
+
+    if (size > 0)
+    {
+        I2C_Start(x);
+        if (I2C_WriteByte(x, address))
+	        return 0;
+        buffer[0] = reg >> 24;
+        buffer[1] = (reg >> 16) & 0xff;
+        buffer[2] = (reg >> 8) & 0xff;
+        buffer[3] = reg & 0xff;
+        i = 4 - size;
+        i = I2C_WriteData(x, &buffer[i], size);
+    }
     address = address | 0x01;
     I2C_Start(x);
     if (I2C_WriteByte(x, address))
@@ -217,7 +221,8 @@ int I2C_Out(i2c_t *x, int address, int reg, int size, char *data, int count)
     buffer[2] = (reg >> 8) & 0xff;
     buffer[3] = reg & 0xff;
     i = 4 - size;
-    i = I2C_WriteData(x, &buffer[i], size);
+    if (i < 4)
+        i = I2C_WriteData(x, &buffer[i], size);
     i = I2C_WriteData(x, data, count);
     I2C_Stop(x);
     return i;

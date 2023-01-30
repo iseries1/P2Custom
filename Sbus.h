@@ -37,8 +37,8 @@ uint16_t Sbus_GetScaled(int channel);
 /**
  * @brief Set Scaled Channel values
  * @param channel number 1 to 16
- * @param minium channel pwm
- * @param maxium channel pwm
+ * @param cmin channel pwm
+ * @param cmax channel pwm
  */
 void Sbus_SetScaled(int channel, uint16_t cmin, uint16_t cmax);
 

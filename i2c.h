@@ -82,7 +82,7 @@ int I2C_ReadData(i2c_t *x, char *data, int count);
  * @param x i2c device
  * @param address address of device
  * @param reg register to access
- * @param size register size in bytes
+ * @param size register size in bytes (0 - No Register)
  * @param data pointer to data buffer
  * @param count data bytes to read
  * @return amount read
@@ -94,7 +94,7 @@ int I2C_In(i2c_t *x, int address, int reg, int size, char *data, int count);
  * @param x i2c device
  * @param address address of device
  * @param reg register to access
- * @param size register size in bytes
+ * @param size register size in bytes (0 - No Register)
  * @param data pointer to data to write
  * @param count data bytes to write
  * @return amount written
