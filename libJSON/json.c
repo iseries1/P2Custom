@@ -181,6 +181,7 @@ void json_putStr(char *item, char *value)
   }
   ItemData[ItemPointer++] = Quote;
   ItemData[ItemPointer] = jEnd;
+  ItemData[ItemPointer+1] = 0;
 }
 
 void json_putDec(char *item, char *value)
@@ -202,6 +203,8 @@ void json_putDec(char *item, char *value)
   strcpy(&ItemData[ItemPointer], value);
   ItemPointer += strlen(value);
   ItemData[ItemPointer] = jEnd;
+  ItemData[ItemPointer+1] = 0;
+
 }
 
 void json_putArray(char* item)
@@ -231,6 +234,8 @@ void json_putArray(char* item)
     ItemData[ItemPointer++] = ' ';
     ItemData[ItemPointer++] = '[';
     ItemData[ItemPointer] = jEnd;
+    ItemData[ItemPointer+1] = 0;
+
 }
 
 void json_putObject(char* item)
@@ -239,6 +244,7 @@ void json_putObject(char* item)
     {
         ItemData[ItemPointer++] = jEnd;
         ItemData[ItemPointer] = jEnd;
+        ItemData[ItemPointer+1] = 0;
         return;
     }
 
@@ -258,6 +264,7 @@ void json_putObject(char* item)
     ItemData[ItemPointer++] = ':';
     ItemData[ItemPointer++] = ' ';
     ItemData[ItemPointer] = jEnd;
+    ItemData[ItemPointer+1] = 0;
 }
 
 void json_putMore()
@@ -266,5 +273,58 @@ void json_putMore()
     ItemData[ItemPointer++] = ',';
     ItemData[ItemPointer++] = ' ';
     ItemData[ItemPointer] = jEnd;
+    ItemData[ItemPointer+1] = 0;
     quote = 0;
+}
+
+void json_putItem(char* item)
+{
+  
+  if (quote != 0)
+  {
+      if (item == NULL)
+      {
+        ItemData[ItemPointer++] = ']';
+        ItemData[ItemPointer] = jEnd;
+        ItemData[ItemPointer+1] = 0;
+        quote = 0;
+        return;
+      }
+      ItemData[ItemPointer++] = ',';
+      ItemData[ItemPointer++] = ' ';
+  }
+  
+  ItemData[ItemPointer++] = Quote;
+  strcpy(&ItemData[ItemPointer], item);
+  ItemPointer += strlen(item);
+  ItemData[ItemPointer++] = Quote;
+  ItemData[ItemPointer] = ' ';
+  ItemData[ItemPointer+1] = 0;
+  quote = 1;
+}
+
+void json_putBool(char* item, int state)
+{
+  if (quote == 0)
+    ItemData[ItemPointer++] = jStart;
+  else
+  {
+      ItemData[ItemPointer++] = ',';
+      ItemData[ItemPointer++] = ' ';
+  }
+  
+  quote = 1;
+  ItemData[ItemPointer++] = Quote;
+  strcpy(&ItemData[ItemPointer], item);
+  ItemPointer += strlen(item);
+  ItemData[ItemPointer++] = Quote;
+  ItemData[ItemPointer++] = ':';
+  if (state == 0)
+    strcpy(&ItemData[ItemPointer], "false");
+  else
+    strcpy(&ItemData[ItemPointer], "true ");
+
+  ItemPointer += 5;
+  ItemData[ItemPointer] = jEnd;
+  ItemData[ItemPointer+1] = 0;
 }

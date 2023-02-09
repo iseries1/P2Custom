@@ -241,6 +241,14 @@ void ICM20948_SetBank(int bank);
 void ICM20948_WriteMemory(short addr, char *data);
 
 /**
+ * @brief Write Small Memory Data
+ * @param addr - starting address
+ * @param data - array to write
+ * @param size - number of bytes
+*/
+void ICM20948_WriteMemorySize(short addr, char *data, short size);
+
+/**
  * @brief Read Memory Data
  * @param addr - address to start reading 0x00 - 0xff
  * @param data - array of 16 bytes of data

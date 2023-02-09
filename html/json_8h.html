@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.9</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -97,14 +97,20 @@ Functions</h2></td></tr>
 <tr class="separator:abefae747dfd85f3f5b579e3c641bc888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d52794656ce95e5b28625de53e1cced"><td class="memItemLeft" align="right" valign="top"><a id="a0d52794656ce95e5b28625de53e1cced"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a0d52794656ce95e5b28625de53e1cced">json_putMore</a> (void)</td></tr>
-<tr class="memdesc:a0d52794656ce95e5b28625de53e1cced"><td class="mdescLeft">&#160;</td><td class="mdescRight">put more items <br /></td></tr>
+<tr class="memdesc:a0d52794656ce95e5b28625de53e1cced"><td class="mdescLeft">&#160;</td><td class="mdescRight">put more items in the array <br /></td></tr>
 <tr class="separator:a0d52794656ce95e5b28625de53e1cced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf928379a72d88eb1ea2e7232cccead6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#adf928379a72d88eb1ea2e7232cccead6">json_putItem</a> (char *item)</td></tr>
+<tr class="memdesc:adf928379a72d88eb1ea2e7232cccead6"><td class="mdescLeft">&#160;</td><td class="mdescRight">put item only no value use NULL to end array  <a href="json_8h.html#adf928379a72d88eb1ea2e7232cccead6">More...</a><br /></td></tr>
+<tr class="separator:adf928379a72d88eb1ea2e7232cccead6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66aaa184ea8a582a1ef0600ba0979d5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json_8h.html#a66aaa184ea8a582a1ef0600ba0979d5c">json_putBool</a> (char *item, int state)</td></tr>
+<tr class="memdesc:a66aaa184ea8a582a1ef0600ba0979d5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">put boolean value  <a href="json_8h.html#a66aaa184ea8a582a1ef0600ba0979d5c">More...</a><br /></td></tr>
+<tr class="separator:a66aaa184ea8a582a1ef0600ba0979d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Convert Json data to values. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Burmeister </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>December 29, 2018 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.5 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.6 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a73eddc55b32f20dd62757b2f8f911549"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73eddc55b32f20dd62757b2f8f911549">&#9670;&nbsp;</a></span>json_find()</h2>
@@ -185,6 +191,43 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json
 
 </div>
 </div>
+<a id="a66aaa184ea8a582a1ef0600ba0979d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66aaa184ea8a582a1ef0600ba0979d5c">&#9670;&nbsp;</a></span>json_putBool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void json_putBool </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put boolean value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>value </td></tr>
+    <tr><td class="paramname">state</td><td>0 - false, 1 - true </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0e83302f1da9bac0b03b28c94e127b07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e83302f1da9bac0b03b28c94e127b07">&#9670;&nbsp;</a></span>json_putDec()</h2>
 
@@ -216,6 +259,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="json
   <table class="params">
     <tr><td class="paramname">item</td><td>Item name </td></tr>
     <tr><td class="paramname">value</td><td>decimal value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adf928379a72d88eb1ea2e7232cccead6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf928379a72d88eb1ea2e7232cccead6">&#9670;&nbsp;</a></span>json_putItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void json_putItem </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>item</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>put item only no value use NULL to end array </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>value or data </td></tr>
   </table>
   </dd>
 </dl>

@@ -8,50 +8,11 @@
 */
 
 #define INA260_I2CADDR 0x40
-#define INA260_CONFIG  0x00
-#define INA260_CURRENT 0x01
-#define INA260_VOLTAGE 0x02
-#define INA260_POWER   0x03
-#define INA260_ALERTEN 0x04
-#define INA260_ALERTV  0x05
-#define INA260_MFGID   0xFE
-#define INA260_DIEID   0xFF
 
-enum _mode {
-  INA260_SHUTDOWN,
-  INA260_CURRENT_TRIGGERED,
-  INA260_VOLTAGE_TRIGGERED,
-  INA260_BOTH_TRIGGERED,
-  INA260_POWERDOWN,
-  INA260_CURRENT_CONTINOUS,
-  INA260_VOLTAGE_CONTINOUS,
-  INA260_BOTH_CONTINUOUS
-}; // INA260_MODES;
 
-// in microseconds
-enum _conversion {
-  INA260_140,
-  INA260_204,
-  INA260_332,
-  INA260_588,
-  INA260_1100,
-  INA260_2116,
-  INA260_4156,
-  INA260_8244
-}; // INA260_CONVERSION;  
-
-// average items
-enum _average {
-  INA260_AVG1,
-  INA260_AVG4,
-  INA260_AVG16,
-  INA260_AVG128,
-  INA260_AVG256,
-  INA260_AVG512,
-  INA260_AVG1024
-}; // INA260_AVERAGE;
-
-// Mask/Enable
+/**
+ * @brief Mask Flags
+ */
 enum _maskenable {
   INA260_OVERCURRENTLIMT = 1 << 15,
   INA260_UNDERCURRENTLIMT = 1 << 14,
@@ -89,21 +50,84 @@ short INA260_getVoltage(void);
 short INA260_getPower(void);
 
 /**
- * @brief config device
- * @param mode of operation
- * @param current conversion
- * @param voltage conversion
- * @param average amount
- * @param reset device
- *  Default is continous, no averaging.
- */
-void  INA260_setConfig(char mode, char current, char voltage, char average, char reset);
+ * @brief set mode value
+ * @param mode
+ * 0 - Shutdown
+ * 1 - Current Triggered
+ * 2 - Voltage Triggered
+ * 3 - Both Triggered
+ * 4 - Shutdown
+ * 5 - Continues Current
+ * 6 - Continues Voltage
+ * 7 - Continues Both (default)
+*/
+void INA260_setMode(int mode);
 
 /**
- * @brief read device configuration
- * @return config
+ * @brief get mode value
+ * @return mode 0 - 7
+*/
+int INA260_getMode(void);
+
+/**
+ * @brief config current conversion time
+ * @param time value
+ * 0 -> 140us
+ * 1 -> 204us
+ * 2 -> 332us
+ * 3 -> 588us
+ * 4 -> 1.1ms
+ * 5 -> 2.1ms
+ * 6 -> 4.1ms
+ * 7 -> 8.2ms
  */
-unsigned short INA260_getConfig(void);
+void INA260_configCurrent(int time);
+
+/**
+ * @brief get current config time
+ * @return value 0 - 7
+*/
+int INA260_getConfigCurrent(void);
+
+/**
+ * @brief config voltage conversion time
+ * @param time value
+ * 0 -> 140us
+ * 1 -> 204us
+ * 2 -> 332us
+ * 3 -> 588us
+ * 4 -> 1.1ms
+ * 5 -> 2.1ms
+ * 6 -> 4.1ms
+ * 7 -> 8.2ms
+*/
+void INA260_configVoltage(int time);
+
+/**
+ * @brief get voltage config time
+ * @return value 0 - 7
+*/
+int INA260_getConfigVoltage(void);
+
+/**
+ * @brief config averaging
+ * @param number of samples
+ * 0 -> 1
+ * 1 -> 4
+ * 2 -> 16
+ * 3 -> 64
+ * 4 -> 128
+ * 5 -> 256
+ * 6 -> 512
+ * 7 -> 1024
+*/
+void INA260_configAveraging(int number);
+
+/**
+ * @brief get config averaging
+ * @return value 0 - 7 values averaged
+*/
+int INA260_getConfigAveraging(void);
 
 /**
  * @brief mask enable register
@@ -121,4 +145,15 @@ unsigned short INA260_getMask(void);
  * @brief set alert limit value
  * @param alert value
  */
-void INA260_setAlert(unsigned short alert);
+void INA260_setAlert(int alert);
+
+/**
+ * @brief get alert limit value
+ * @return alert value
+*/
+int INA260_getAlert(void);
+
+/**
+ * @brief reset device to default
+ */
+void INA260_reset(void);

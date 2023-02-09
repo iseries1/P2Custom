@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.9</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -172,6 +172,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icm2
 <tr class="memitem:a4a8f6ff30f5be9ba882b9617ef547a04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icm20948_8h.html#a4a8f6ff30f5be9ba882b9617ef547a04">ICM20948_WriteMemory</a> (short addr, char *data)</td></tr>
 <tr class="memdesc:a4a8f6ff30f5be9ba882b9617ef547a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write Memory Data.  <a href="icm20948_8h.html#a4a8f6ff30f5be9ba882b9617ef547a04">More...</a><br /></td></tr>
 <tr class="separator:a4a8f6ff30f5be9ba882b9617ef547a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9013ed012c2c9b747a8581519ac708b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icm20948_8h.html#ad9013ed012c2c9b747a8581519ac708b">ICM20948_WriteMemorySize</a> (short addr, char *data, short size)</td></tr>
+<tr class="memdesc:ad9013ed012c2c9b747a8581519ac708b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write Small Memory Data.  <a href="icm20948_8h.html#ad9013ed012c2c9b747a8581519ac708b">More...</a><br /></td></tr>
+<tr class="separator:ad9013ed012c2c9b747a8581519ac708b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a940317adda44a1364644ed2e887cfec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icm20948_8h.html#a940317adda44a1364644ed2e887cfec5">ICM20948_ReadMemory</a> (short addr, char *data)</td></tr>
 <tr class="memdesc:a940317adda44a1364644ed2e887cfec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read Memory Data.  <a href="icm20948_8h.html#a940317adda44a1364644ed2e887cfec5">More...</a><br /></td></tr>
 <tr class="separator:a940317adda44a1364644ed2e887cfec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1229,6 +1232,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="icm2
   <table class="params">
     <tr><td class="paramname">addr</td><td>- starting address 0x00 - 0xff </td></tr>
     <tr><td class="paramname">data</td><td>- 16 bytes of data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9013ed012c2c9b747a8581519ac708b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9013ed012c2c9b747a8581519ac708b">&#9670;&nbsp;</a></span>ICM20948_WriteMemorySize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ICM20948_WriteMemorySize </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write Small Memory Data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>- starting address </td></tr>
+    <tr><td class="paramname">data</td><td>- array to write </td></tr>
+    <tr><td class="paramname">size</td><td>- number of bytes </td></tr>
   </table>
   </dd>
 </dl>

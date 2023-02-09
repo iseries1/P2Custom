@@ -180,14 +180,14 @@ ssize_t serial_write(FILE *device, const void *buff, size_t count)
     int tx_pin;
     const unsigned char *b = (const unsigned char*)buff;
 
-    tx_pin = device->flags;
+    tx_pin = device->state >> 16;
     tx_pin = tx_pin >> 8;
 
-    for (unsigned int i=0;i<count;i++)
+    for (int i=0;i < count;i++)
     {
       _wypin(tx_pin, b[i]);
       while (z = _pinr(tx_pin) == 0)
-        sleep(50);
+        usleep(50);
     }
 
     return count;

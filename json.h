@@ -3,7 +3,7 @@
  * @brief Convert Json data to values
  * @author Michael Burmeister
  * @date December 29, 2018
- * @version 1.5
+ * @version 1.6
  * 
 */
 
@@ -51,7 +51,19 @@ void json_putArray(char* item);
 void json_putObject(char* item);
 
 /**
- * @brief put more items
+ * @brief put more items in the array
  */
 void json_putMore(void);
 
+/**
+ * @brief put item only no value use NULL to end array
+ * @param item value or data
+ */
+void json_putItem(char* item);
+
+/**
+ * @brief put boolean value
+ * @param item value
+ * @param state 0 - false, 1 - true
+ */
+void json_putBool(char* item, int state);

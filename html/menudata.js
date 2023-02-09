@@ -72,4 +72,5 @@ var menudata={children:[
 {text:"s",url:"globals_func_s.html#index_s"},
 {text:"t",url:"globals_func_t.html#index_t"},
 {text:"v",url:"globals_func_v.html#index_v"},
-{text:"w",url:"globals_func_w.html#index_w"}]}]}]}]}
+{text:"w",url:"globals_func_w.html#index_w"}]},
+{text:"Enumerations",url:"globals_enum.html"}]}]}]}

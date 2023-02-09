@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">1.9</span>
+   &#160;<span id="projectnumber">2.0</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -82,72 +82,10 @@ Macros</h2></td></tr>
 <tr class="memitem:afd7915184e4094b6e07e4c85ed10cc46"><td class="memItemLeft" align="right" valign="top"><a id="afd7915184e4094b6e07e4c85ed10cc46"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_I2CADDR</b>&#160;&#160;&#160;0x40</td></tr>
 <tr class="separator:afd7915184e4094b6e07e4c85ed10cc46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a905fc0e836ae1cf7f2d63c763deca063"><td class="memItemLeft" align="right" valign="top"><a id="a905fc0e836ae1cf7f2d63c763deca063"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_CONFIG</b>&#160;&#160;&#160;0x00</td></tr>
-<tr class="separator:a905fc0e836ae1cf7f2d63c763deca063"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7345901cea404b07d4c298d505cf085a"><td class="memItemLeft" align="right" valign="top"><a id="a7345901cea404b07d4c298d505cf085a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_CURRENT</b>&#160;&#160;&#160;0x01</td></tr>
-<tr class="separator:a7345901cea404b07d4c298d505cf085a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a090a0bce6011811ac761690d249a597c"><td class="memItemLeft" align="right" valign="top"><a id="a090a0bce6011811ac761690d249a597c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_VOLTAGE</b>&#160;&#160;&#160;0x02</td></tr>
-<tr class="separator:a090a0bce6011811ac761690d249a597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c1bf7abd811995d556d4985c52a5749"><td class="memItemLeft" align="right" valign="top"><a id="a0c1bf7abd811995d556d4985c52a5749"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_POWER</b>&#160;&#160;&#160;0x03</td></tr>
-<tr class="separator:a0c1bf7abd811995d556d4985c52a5749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0188a79c731033fb69cd32a4481a74c5"><td class="memItemLeft" align="right" valign="top"><a id="a0188a79c731033fb69cd32a4481a74c5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_ALERTEN</b>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a0188a79c731033fb69cd32a4481a74c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d9270031df7c69e461ef0ce366b8f35"><td class="memItemLeft" align="right" valign="top"><a id="a4d9270031df7c69e461ef0ce366b8f35"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_ALERTV</b>&#160;&#160;&#160;0x05</td></tr>
-<tr class="separator:a4d9270031df7c69e461ef0ce366b8f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01d50687d6914a7c89fd879ff931b0c2"><td class="memItemLeft" align="right" valign="top"><a id="a01d50687d6914a7c89fd879ff931b0c2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_MFGID</b>&#160;&#160;&#160;0xFE</td></tr>
-<tr class="separator:a01d50687d6914a7c89fd879ff931b0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43919ab85357c33f462fcfa1b536fef9"><td class="memItemLeft" align="right" valign="top"><a id="a43919ab85357c33f462fcfa1b536fef9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>INA260_DIEID</b>&#160;&#160;&#160;0xFF</td></tr>
-<tr class="separator:a43919ab85357c33f462fcfa1b536fef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a47fee6bde6c02f718872a60b664b99ed"><td class="memItemLeft" align="right" valign="top"><a id="a47fee6bde6c02f718872a60b664b99ed"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>_mode</b> { <br />
-&#160;&#160;<b>INA260_SHUTDOWN</b>
-, <b>INA260_CURRENT_TRIGGERED</b>
-, <b>INA260_VOLTAGE_TRIGGERED</b>
-, <b>INA260_BOTH_TRIGGERED</b>
-, <br />
-&#160;&#160;<b>INA260_POWERDOWN</b>
-, <b>INA260_CURRENT_CONTINOUS</b>
-, <b>INA260_VOLTAGE_CONTINOUS</b>
-, <b>INA260_BOTH_CONTINUOUS</b>
-<br />
- }</td></tr>
-<tr class="separator:a47fee6bde6c02f718872a60b664b99ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a107cfc94285ff1fc836aa304ddf923f3"><td class="memItemLeft" align="right" valign="top"><a id="a107cfc94285ff1fc836aa304ddf923f3"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>_conversion</b> { <br />
-&#160;&#160;<b>INA260_140</b>
-, <b>INA260_204</b>
-, <b>INA260_332</b>
-, <b>INA260_588</b>
-, <br />
-&#160;&#160;<b>INA260_1100</b>
-, <b>INA260_2116</b>
-, <b>INA260_4156</b>
-, <b>INA260_8244</b>
-<br />
- }</td></tr>
-<tr class="separator:a107cfc94285ff1fc836aa304ddf923f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade5292eed505dcc118494620a12d9b01"><td class="memItemLeft" align="right" valign="top"><a id="ade5292eed505dcc118494620a12d9b01"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>_average</b> { <br />
-&#160;&#160;<b>INA260_AVG1</b>
-, <b>INA260_AVG4</b>
-, <b>INA260_AVG16</b>
-, <b>INA260_AVG128</b>
-, <br />
-&#160;&#160;<b>INA260_AVG256</b>
-, <b>INA260_AVG512</b>
-, <b>INA260_AVG1024</b>
-<br />
- }</td></tr>
-<tr class="separator:ade5292eed505dcc118494620a12d9b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc80f914432e6bc8edfcad3023fc0835"><td class="memItemLeft" align="right" valign="top"><a id="afc80f914432e6bc8edfcad3023fc0835"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>_maskenable</b> { <br />
+<tr class="memitem:afc80f914432e6bc8edfcad3023fc0835"><td class="memItemLeft" align="right" valign="top"><a id="afc80f914432e6bc8edfcad3023fc0835"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#afc80f914432e6bc8edfcad3023fc0835">_maskenable</a> { <br />
 &#160;&#160;<b>INA260_OVERCURRENTLIMT</b> = 1 &lt;&lt; 15
 , <b>INA260_UNDERCURRENTLIMT</b> = 1 &lt;&lt; 14
 , <b>INA260_OVERVOLTAGE</b> = 1 &lt;&lt; 13
@@ -158,6 +96,7 @@ Enumerations</h2></td></tr>
 , <b>INA260_LATCHMODE</b> = 1
 <br />
  }</td></tr>
+<tr class="memdesc:afc80f914432e6bc8edfcad3023fc0835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask Flags. <br /></td></tr>
 <tr class="separator:afc80f914432e6bc8edfcad3023fc0835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -174,21 +113,46 @@ Functions</h2></td></tr>
 <tr class="memitem:a3ce03c3599d1c43e1d08b7f7841be572"><td class="memItemLeft" align="right" valign="top">short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">INA260_getPower</a> (void)</td></tr>
 <tr class="memdesc:a3ce03c3599d1c43e1d08b7f7841be572"><td class="mdescLeft">&#160;</td><td class="mdescRight">read power in milliwatts  <a href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">More...</a><br /></td></tr>
 <tr class="separator:a3ce03c3599d1c43e1d08b7f7841be572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e83319165918c6dc9fa511064c7a50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a21e83319165918c6dc9fa511064c7a50">INA260_setConfig</a> (char mode, char current, char voltage, char average, char reset)</td></tr>
-<tr class="memdesc:a21e83319165918c6dc9fa511064c7a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">config device  <a href="ina260_8h.html#a21e83319165918c6dc9fa511064c7a50">More...</a><br /></td></tr>
-<tr class="separator:a21e83319165918c6dc9fa511064c7a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0923de2e992a19d23ce39f40c33fc28a"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a0923de2e992a19d23ce39f40c33fc28a">INA260_getConfig</a> (void)</td></tr>
-<tr class="memdesc:a0923de2e992a19d23ce39f40c33fc28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">read device configuration  <a href="ina260_8h.html#a0923de2e992a19d23ce39f40c33fc28a">More...</a><br /></td></tr>
-<tr class="separator:a0923de2e992a19d23ce39f40c33fc28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646a10942c55c176eb136c26f4c3d057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">INA260_setMode</a> (int mode)</td></tr>
+<tr class="memdesc:a646a10942c55c176eb136c26f4c3d057"><td class="mdescLeft">&#160;</td><td class="mdescRight">set mode value  <a href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">More...</a><br /></td></tr>
+<tr class="separator:a646a10942c55c176eb136c26f4c3d057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad16876fb30b7f455c946b67128bf51"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">INA260_getMode</a> (void)</td></tr>
+<tr class="memdesc:a2ad16876fb30b7f455c946b67128bf51"><td class="mdescLeft">&#160;</td><td class="mdescRight">get mode value  <a href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">More...</a><br /></td></tr>
+<tr class="separator:a2ad16876fb30b7f455c946b67128bf51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99cab9a4710ffae09c3f1759a7490ad2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">INA260_configCurrent</a> (int time)</td></tr>
+<tr class="memdesc:a99cab9a4710ffae09c3f1759a7490ad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">config current conversion time  <a href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">More...</a><br /></td></tr>
+<tr class="separator:a99cab9a4710ffae09c3f1759a7490ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e915856c02886ef538ee790e04624d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">INA260_getConfigCurrent</a> (void)</td></tr>
+<tr class="memdesc:a2e915856c02886ef538ee790e04624d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get current config time  <a href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">More...</a><br /></td></tr>
+<tr class="separator:a2e915856c02886ef538ee790e04624d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cd8024abb2870a21b6070a89c99830"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">INA260_configVoltage</a> (int time)</td></tr>
+<tr class="memdesc:a45cd8024abb2870a21b6070a89c99830"><td class="mdescLeft">&#160;</td><td class="mdescRight">config voltage conversion time  <a href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">More...</a><br /></td></tr>
+<tr class="separator:a45cd8024abb2870a21b6070a89c99830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3728f556eb2ad836561fd1de397028ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">INA260_getConfigVoltage</a> (void)</td></tr>
+<tr class="memdesc:a3728f556eb2ad836561fd1de397028ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">get voltage config time  <a href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">More...</a><br /></td></tr>
+<tr class="separator:a3728f556eb2ad836561fd1de397028ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59297f79429fa26a6ac55d574d74d6b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">INA260_configAveraging</a> (int number)</td></tr>
+<tr class="memdesc:a59297f79429fa26a6ac55d574d74d6b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">config averaging  <a href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">More...</a><br /></td></tr>
+<tr class="separator:a59297f79429fa26a6ac55d574d74d6b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1bed70ff7d64f5055e67203ab892bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">INA260_getConfigAveraging</a> (void)</td></tr>
+<tr class="memdesc:a0f1bed70ff7d64f5055e67203ab892bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">get config averaging  <a href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">More...</a><br /></td></tr>
+<tr class="separator:a0f1bed70ff7d64f5055e67203ab892bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f90f29e328ef015ea0d8de65e4eb1b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">INA260_setMask</a> (unsigned short mask)</td></tr>
 <tr class="memdesc:a0f90f29e328ef015ea0d8de65e4eb1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">mask enable register  <a href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">More...</a><br /></td></tr>
 <tr class="separator:a0f90f29e328ef015ea0d8de65e4eb1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94454b95fa141f814750295e76ead2a8"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">INA260_getMask</a> (void)</td></tr>
 <tr class="memdesc:a94454b95fa141f814750295e76ead2a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get mask enable value  <a href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">More...</a><br /></td></tr>
 <tr class="separator:a94454b95fa141f814750295e76ead2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b29aee99605383eec330a63bf6f5a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#ab6b29aee99605383eec330a63bf6f5a2">INA260_setAlert</a> (unsigned short alert)</td></tr>
-<tr class="memdesc:ab6b29aee99605383eec330a63bf6f5a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">set alert limit value  <a href="ina260_8h.html#ab6b29aee99605383eec330a63bf6f5a2">More...</a><br /></td></tr>
-<tr class="separator:ab6b29aee99605383eec330a63bf6f5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242d884508a3edcb489cf3cacb0043be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">INA260_setAlert</a> (int alert)</td></tr>
+<tr class="memdesc:a242d884508a3edcb489cf3cacb0043be"><td class="mdescLeft">&#160;</td><td class="mdescRight">set alert limit value  <a href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">More...</a><br /></td></tr>
+<tr class="separator:a242d884508a3edcb489cf3cacb0043be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ea8c38c86a73b19a5229218e37e6dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">INA260_getAlert</a> (void)</td></tr>
+<tr class="memdesc:ac9ea8c38c86a73b19a5229218e37e6dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">get alert limit value  <a href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">More...</a><br /></td></tr>
+<tr class="separator:ac9ea8c38c86a73b19a5229218e37e6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658b04902da910d77c94fd5d12c89c55"><td class="memItemLeft" align="right" valign="top"><a id="a658b04902da910d77c94fd5d12c89c55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">INA260_reset</a> (void)</td></tr>
+<tr class="memdesc:a658b04902da910d77c94fd5d12c89c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset device to default <br /></td></tr>
+<tr class="separator:a658b04902da910d77c94fd5d12c89c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>INA260 Adafruit power driver. </p>
@@ -196,14 +160,92 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>June 23, 2019 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0923de2e992a19d23ce39f40c33fc28a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0923de2e992a19d23ce39f40c33fc28a">&#9670;&nbsp;</a></span>INA260_getConfig()</h2>
+<a id="a59297f79429fa26a6ac55d574d74d6b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59297f79429fa26a6ac55d574d74d6b4">&#9670;&nbsp;</a></span>INA260_configAveraging()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned short INA260_getConfig </td>
+          <td class="memname">void INA260_configAveraging </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>config averaging </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>of samples 0 -&gt; 1 1 -&gt; 4 2 -&gt; 16 3 -&gt; 64 4 -&gt; 128 5 -&gt; 256 6 -&gt; 512 7 -&gt; 1024 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a99cab9a4710ffae09c3f1759a7490ad2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99cab9a4710ffae09c3f1759a7490ad2">&#9670;&nbsp;</a></span>INA260_configCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INA260_configCurrent </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>config current conversion time </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>value 0 -&gt; 140us 1 -&gt; 204us 2 -&gt; 332us 3 -&gt; 588us 4 -&gt; 1.1ms 5 -&gt; 2.1ms 6 -&gt; 4.1ms 7 -&gt; 8.2ms </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45cd8024abb2870a21b6070a89c99830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45cd8024abb2870a21b6070a89c99830">&#9670;&nbsp;</a></span>INA260_configVoltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INA260_configVoltage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>config voltage conversion time </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>value 0 -&gt; 140us 1 -&gt; 204us 2 -&gt; 332us 3 -&gt; 588us 4 -&gt; 1.1ms 5 -&gt; 2.1ms 6 -&gt; 4.1ms 7 -&gt; 8.2ms </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9ea8c38c86a73b19a5229218e37e6dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ea8c38c86a73b19a5229218e37e6dc">&#9670;&nbsp;</a></span>INA260_getAlert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int INA260_getAlert </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -212,8 +254,71 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>read device configuration </p>
-<dl class="section return"><dt>Returns</dt><dd>config </dd></dl>
+<p>get alert limit value </p>
+<dl class="section return"><dt>Returns</dt><dd>alert value </dd></dl>
+
+</div>
+</div>
+<a id="a0f1bed70ff7d64f5055e67203ab892bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1bed70ff7d64f5055e67203ab892bd">&#9670;&nbsp;</a></span>INA260_getConfigAveraging()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int INA260_getConfigAveraging </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get config averaging </p>
+<dl class="section return"><dt>Returns</dt><dd>value 0 - 7 values averaged </dd></dl>
+
+</div>
+</div>
+<a id="a2e915856c02886ef538ee790e04624d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e915856c02886ef538ee790e04624d3">&#9670;&nbsp;</a></span>INA260_getConfigCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int INA260_getConfigCurrent </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get current config time </p>
+<dl class="section return"><dt>Returns</dt><dd>value 0 - 7 </dd></dl>
+
+</div>
+</div>
+<a id="a3728f556eb2ad836561fd1de397028ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3728f556eb2ad836561fd1de397028ab">&#9670;&nbsp;</a></span>INA260_getConfigVoltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int INA260_getConfigVoltage </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get voltage config time </p>
+<dl class="section return"><dt>Returns</dt><dd>value 0 - 7 </dd></dl>
 
 </div>
 </div>
@@ -256,6 +361,27 @@ Functions</h2></td></tr>
 
 <p>get mask enable value </p>
 <dl class="section return"><dt>Returns</dt><dd>mask value </dd></dl>
+
+</div>
+</div>
+<a id="a2ad16876fb30b7f455c946b67128bf51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad16876fb30b7f455c946b67128bf51">&#9670;&nbsp;</a></span>INA260_getMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int INA260_getMode </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>get mode value </p>
+<dl class="section return"><dt>Returns</dt><dd>mode 0 - 7 </dd></dl>
 
 </div>
 </div>
@@ -339,8 +465,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab6b29aee99605383eec330a63bf6f5a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6b29aee99605383eec330a63bf6f5a2">&#9670;&nbsp;</a></span>INA260_setAlert()</h2>
+<a id="a242d884508a3edcb489cf3cacb0043be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a242d884508a3edcb489cf3cacb0043be">&#9670;&nbsp;</a></span>INA260_setAlert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +474,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void INA260_setAlert </td>
           <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>alert</em></td><td>)</td>
           <td></td>
         </tr>
@@ -359,64 +485,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">alert</td><td>value </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a21e83319165918c6dc9fa511064c7a50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e83319165918c6dc9fa511064c7a50">&#9670;&nbsp;</a></span>INA260_setConfig()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void INA260_setConfig </td>
-          <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>mode</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>current</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>voltage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>average</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>reset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>config device </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mode</td><td>of operation </td></tr>
-    <tr><td class="paramname">current</td><td>conversion </td></tr>
-    <tr><td class="paramname">voltage</td><td>conversion </td></tr>
-    <tr><td class="paramname">average</td><td>amount </td></tr>
-    <tr><td class="paramname">reset</td><td>device Default is continous, no averaging. </td></tr>
   </table>
   </dd>
 </dl>
@@ -443,6 +511,32 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mask</td><td>value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a646a10942c55c176eb136c26f4c3d057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646a10942c55c176eb136c26f4c3d057">&#9670;&nbsp;</a></span>INA260_setMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void INA260_setMode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set mode value </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mode</td><td>0 - Shutdown 1 - Current Triggered 2 - Voltage Triggered 3 - Both Triggered 4 - Shutdown 5 - Continues Current 6 - Continues Voltage 7 - Continues Both (default) </td></tr>
   </table>
   </dd>
 </dl>

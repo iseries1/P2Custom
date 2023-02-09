@@ -1069,6 +1069,11 @@ void Panel_ScrollHorizontal(int panel, int amount)
 
 int Panel_GetPixel(int panel, int x, int y)
 {
+  int p, s;
+
+  p = (Panels - panel) * Width;
+  s = p - 64;
+
   if ((x < 0) || (x >= Width))
     return -1;
   if ((y < 0) || (y >= Height))
@@ -1076,7 +1081,7 @@ int Panel_GetPixel(int panel, int x, int y)
   if (panel >= Panels)
     return -1;
 
-  return PMem[y][x];
+  return PMem[y][x+s];
 }
 
 

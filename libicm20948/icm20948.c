@@ -41,7 +41,7 @@ int ICM20948_Init(int icmclk, int icmdta)
     ICM20948_I2CMaster(0);
     ICM20948_DMP(0);
     ICM20948_FIFO(0);
-    ICM20948_Power(0); // full power
+    ICM20948_EnableLowPower(0); // full power
 
 }
 
@@ -413,6 +413,16 @@ void ICM20948_WriteMemory(short addr, char *data)
     i = I2C_Out(icm, icm_addr, ICM_MEM_RW, 1, data, 16);
 }
 
+void ICM20948_WriteMemorySize(short addr, char *data, short size)
+{
+    int i;
+
+    _Buffer[0] = addr;
+    i = I2C_Out(icm, icm_addr, ICM_MEM_START, 1, _Buffer, 1);
+
+    i = I2C_Out(icm, icm_addr, ICM_MEM_RW, 1, data, size);
+}
+
 void ICM20948_ReadMemory(short addr, char *data)
 {
     int i;
@@ -475,6 +485,18 @@ void ICM20948_DMPEnable(int enable)
     ICM20948_ResetFifo();
     ICM20948_SetDMPAddress(0x1000);
     ICM20948_SetHW(0x48);
-
+    ICM20948_ReadMemory(0x1e0, _Buffer);
+    _Buffer[0] = 0x04;
+    _Buffer[1] = 0x00;
+    _Buffer[2] = 0x00;
+    _Buffer[3] = 0x00;
+    ICM20948_WriteMemory(0x1e0, _Buffer);
+    ICM20948_ReadMemory(0x4f0, _Buffer);
+    _Buffer[4] = 0x00;
+    _Buffer[5] = 0x04;
+    _Buffer[6] = 0x00;
+    _Buffer[7] = 0x00;
+    ICM20948_WriteMemory(0x4f0, _Buffer);
+    
 }
 
