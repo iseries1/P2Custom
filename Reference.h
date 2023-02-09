@@ -4,6 +4,8 @@
  *  <a href="myblink_8h.html">Sample Blink Library.</a><br>
  *  <a href="as5048a_8h.html">Magnetic Rotary Encoder.</a><br>
  *  <a href="_base64_8h.html">Base64 Encoder/Decoder Library.</a><br>
+ *  <a href="bh1750_8h.html">BH1750 Light Sensor Driver.</a><br>
+ *  <a href="blueio_8h.html">Blues Wireless Driver.</a><br>
  *  <a href="bme280_8h.html">BME280 Digital Humidity, Pressure and Temperature sensor.</a><br>
  *  <a href="bme680_8h.html">BME680 Digital Environmental Sensor.</a><br>
  *  <a href="_d_s1822_8h.html">DS1822 One Wire Temperature Driver.</a><br>
