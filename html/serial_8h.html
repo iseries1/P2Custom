@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -70,15 +70,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Open a serial connection.  
+<p>Serial Driver.  
 <a href="#details">More...</a></p>
 
 <p><a href="serial_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a843029134415263eee1ea815ad52f2e4"><td class="memItemLeft" align="right" valign="top"><a id="a843029134415263eee1ea815ad52f2e4"></a>
-FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (int rxpin, int txpin, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="memitem:a843029134415263eee1ea815ad52f2e4"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">serial_open</a> (int rxpin, int txpin, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
+<tr class="memdesc:a843029134415263eee1ea815ad52f2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a serial connection.  <a href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">More...</a><br /></td></tr>
 <tr class="separator:a843029134415263eee1ea815ad52f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab49247b189705672bd6c3800a0763b1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">serial_close</a> (FILE *device) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
 <tr class="memdesc:ab49247b189705672bd6c3800a0763b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close serial connection. <br  />
@@ -110,16 +110,10 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <tr class="separator:a501c1b27c737cc2b7777c33ecacc377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Open a serial connection. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rxpin</td><td>Serial input pin, receives serial data. </td></tr>
-    <tr><td class="paramname">txpin</td><td>Serial output pin, transmits serial data. </td></tr>
-    <tr><td class="paramname">baudrate</td><td>Bit value transmit rate, 9600, 115200, etc... </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>FILE a pointer to file discripter </dd></dl>
+<div class="textblock"><p>Serial Driver. </p>
+<dl class="section author"><dt>Author</dt><dd>Michael Burmeister </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Feburary 13, 2021 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab49247b189705672bd6c3800a0763b1e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab49247b189705672bd6c3800a0763b1e">&#9670;&nbsp;</a></span>serial_close()</h2>
@@ -172,6 +166,51 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>character received </dd></dl>
+
+</div>
+</div>
+<a id="a843029134415263eee1ea815ad52f2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843029134415263eee1ea815ad52f2e4">&#9670;&nbsp;</a></span>serial_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* serial_open </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rxpin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>txpin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>baudrate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Open a serial connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rxpin</td><td>Serial input pin, receives serial data. </td></tr>
+    <tr><td class="paramname">txpin</td><td>Serial output pin, transmits serial data. </td></tr>
+    <tr><td class="paramname">baudrate</td><td>Bit value transmit rate, 9600, 115200, etc... </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>FILE a pointer to file discripter </dd></dl>
 
 </div>
 </div>
@@ -249,7 +288,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>file descriptor for serial connection </td></tr>
-    <tr><td class="paramname">buffer</td><td>to hold results </td></tr>
+    <tr><td class="paramname">buff</td><td>to hold results </td></tr>
     <tr><td class="paramname">count</td><td>number of bytes to read </td></tr>
   </table>
   </dd>
@@ -413,7 +452,7 @@ FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>serial_open</b> (in
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>file descriptor for serial connection </td></tr>
-    <tr><td class="paramname">buffer</td><td>of data to write </td></tr>
+    <tr><td class="paramname">buff</td><td>of data to write </td></tr>
     <tr><td class="paramname">count</td><td>of data to write from buffer </td></tr>
   </table>
   </dd>

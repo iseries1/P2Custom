@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -68,59 +68,46 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="ina260_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define INA260_I2CADDR 0x40</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="ina260_8h.html#afc80f914432e6bc8edfcad3023fc0835">   16</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="ina260_8h.html#afc80f914432e6bc8edfcad3023fc0835">_maskenable</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  INA260_OVERCURRENTLIMT = 1 &lt;&lt; 15,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  INA260_UNDERCURRENTLIMT = 1 &lt;&lt; 14,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  INA260_OVERVOLTAGE = 1 &lt;&lt; 13,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  INA260_UNDERVOLTAGE = 1 &lt;&lt; 12,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  INA260_OVERPOWER = 1 &lt;&lt; 11,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  INA260_CONVERSIONREADY = 1 &lt;&lt; 10,</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  INA260_LATCHMODE = 1</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}; <span class="comment">// INA260_MASKENABLE;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="ina260_8h.html#a1a241cb0c76e6b6d372c59f912df0bc1">   32</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a1a241cb0c76e6b6d372c59f912df0bc1">INA260_open</a>(<span class="keywordtype">char</span> clock, <span class="keywordtype">char</span> data) __fromfile(<span class="stringliteral">&quot;libina260/ina260.c&quot;</span>);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="ina260_8h.html#abf9f1585b3e5d6e7ea873d0a78b7c789">   38</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#abf9f1585b3e5d6e7ea873d0a78b7c789">INA260_getCurrent</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">   44</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">INA260_getVoltage</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">   50</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">INA260_getPower</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">INA260_setMode</a>(<span class="keywordtype">int</span> mode);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">   70</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">INA260_getMode</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">INA260_configCurrent</a>(<span class="keywordtype">int</span> time);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">   90</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">INA260_getConfigCurrent</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">  104</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">INA260_configVoltage</a>(<span class="keywordtype">int</span> time);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">  110</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">INA260_getConfigVoltage</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">  124</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">INA260_configAveraging</a>(<span class="keywordtype">int</span> number);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">  130</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">INA260_getConfigAveraging</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">  136</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">INA260_setMask</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> mask);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">  142</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">INA260_getMask</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">  148</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">INA260_setAlert</a>(<span class="keywordtype">int</span> alert);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">  154</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">INA260_getAlert</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">  159</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">INA260_reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="aina260_8h_html_a05e14aca4d4aaf47eeb073bf41d69ac0"><div class="ttname"><a href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">INA260_getVoltage</a></div><div class="ttdeci">short INA260_getVoltage(void)</div><div class="ttdoc">read voltage in hundredths</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="ina260_8h.html#a2f72a607aebbe4a196c390a7f58f743e">   17</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a2f72a607aebbe4a196c390a7f58f743e">INA260_open</a>(<span class="keywordtype">char</span> clk, <span class="keywordtype">char</span> data) __fromfile(<span class="stringliteral">&quot;libina260/ina260.c&quot;</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="ina260_8h.html#abf9f1585b3e5d6e7ea873d0a78b7c789">   23</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#abf9f1585b3e5d6e7ea873d0a78b7c789">INA260_getCurrent</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">   29</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">INA260_getVoltage</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">   35</a></span>&#160;<span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">INA260_getPower</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a646a10942c55c176eb136c26f4c3d057">INA260_setMode</a>(<span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">   55</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">INA260_getMode</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">   69</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">INA260_configCurrent</a>(<span class="keywordtype">int</span> time);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">   75</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">INA260_getConfigCurrent</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">   89</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">INA260_configVoltage</a>(<span class="keywordtype">int</span> time);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">   95</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">INA260_getConfigVoltage</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">  109</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a59297f79429fa26a6ac55d574d74d6b4">INA260_configAveraging</a>(<span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">  115</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">INA260_getConfigAveraging</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">INA260_setMask</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> mask);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">  133</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="ina260_8h.html#a94454b95fa141f814750295e76ead2a8">INA260_getMask</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">  139</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">INA260_setAlert</a>(<span class="keywordtype">int</span> alert);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">  145</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">INA260_getAlert</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">  150</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">INA260_reset</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="aina260_8h_html_a05e14aca4d4aaf47eeb073bf41d69ac0"><div class="ttname"><a href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">INA260_getVoltage</a></div><div class="ttdeci">short INA260_getVoltage(void)</div><div class="ttdoc">read voltage in millivolts</div></div>
 <div class="ttc" id="aina260_8h_html_a0f1bed70ff7d64f5055e67203ab892bd"><div class="ttname"><a href="ina260_8h.html#a0f1bed70ff7d64f5055e67203ab892bd">INA260_getConfigAveraging</a></div><div class="ttdeci">int INA260_getConfigAveraging(void)</div><div class="ttdoc">get config averaging</div></div>
 <div class="ttc" id="aina260_8h_html_a0f90f29e328ef015ea0d8de65e4eb1b2"><div class="ttname"><a href="ina260_8h.html#a0f90f29e328ef015ea0d8de65e4eb1b2">INA260_setMask</a></div><div class="ttdeci">void INA260_setMask(unsigned short mask)</div><div class="ttdoc">mask enable register</div></div>
-<div class="ttc" id="aina260_8h_html_a1a241cb0c76e6b6d372c59f912df0bc1"><div class="ttname"><a href="ina260_8h.html#a1a241cb0c76e6b6d372c59f912df0bc1">INA260_open</a></div><div class="ttdeci">unsigned short INA260_open(char clock, char data) __fromfile(&quot;libina260/ina260.c&quot;)</div><div class="ttdoc">open connection to INA260 device</div></div>
 <div class="ttc" id="aina260_8h_html_a242d884508a3edcb489cf3cacb0043be"><div class="ttname"><a href="ina260_8h.html#a242d884508a3edcb489cf3cacb0043be">INA260_setAlert</a></div><div class="ttdeci">void INA260_setAlert(int alert)</div><div class="ttdoc">set alert limit value</div></div>
 <div class="ttc" id="aina260_8h_html_a2ad16876fb30b7f455c946b67128bf51"><div class="ttname"><a href="ina260_8h.html#a2ad16876fb30b7f455c946b67128bf51">INA260_getMode</a></div><div class="ttdeci">int INA260_getMode(void)</div><div class="ttdoc">get mode value</div></div>
 <div class="ttc" id="aina260_8h_html_a2e915856c02886ef538ee790e04624d3"><div class="ttname"><a href="ina260_8h.html#a2e915856c02886ef538ee790e04624d3">INA260_getConfigCurrent</a></div><div class="ttdeci">int INA260_getConfigCurrent(void)</div><div class="ttdoc">get current config time</div></div>
+<div class="ttc" id="aina260_8h_html_a2f72a607aebbe4a196c390a7f58f743e"><div class="ttname"><a href="ina260_8h.html#a2f72a607aebbe4a196c390a7f58f743e">INA260_open</a></div><div class="ttdeci">unsigned short INA260_open(char clk, char data) __fromfile(&quot;libina260/ina260.c&quot;)</div><div class="ttdoc">open connection to INA260 device</div></div>
 <div class="ttc" id="aina260_8h_html_a3728f556eb2ad836561fd1de397028ab"><div class="ttname"><a href="ina260_8h.html#a3728f556eb2ad836561fd1de397028ab">INA260_getConfigVoltage</a></div><div class="ttdeci">int INA260_getConfigVoltage(void)</div><div class="ttdoc">get voltage config time</div></div>
 <div class="ttc" id="aina260_8h_html_a3ce03c3599d1c43e1d08b7f7841be572"><div class="ttname"><a href="ina260_8h.html#a3ce03c3599d1c43e1d08b7f7841be572">INA260_getPower</a></div><div class="ttdeci">short INA260_getPower(void)</div><div class="ttdoc">read power in milliwatts</div></div>
 <div class="ttc" id="aina260_8h_html_a45cd8024abb2870a21b6070a89c99830"><div class="ttname"><a href="ina260_8h.html#a45cd8024abb2870a21b6070a89c99830">INA260_configVoltage</a></div><div class="ttdeci">void INA260_configVoltage(int time)</div><div class="ttdoc">config voltage conversion time</div></div>
@@ -131,7 +118,6 @@ $(function() {
 <div class="ttc" id="aina260_8h_html_a99cab9a4710ffae09c3f1759a7490ad2"><div class="ttname"><a href="ina260_8h.html#a99cab9a4710ffae09c3f1759a7490ad2">INA260_configCurrent</a></div><div class="ttdeci">void INA260_configCurrent(int time)</div><div class="ttdoc">config current conversion time</div></div>
 <div class="ttc" id="aina260_8h_html_abf9f1585b3e5d6e7ea873d0a78b7c789"><div class="ttname"><a href="ina260_8h.html#abf9f1585b3e5d6e7ea873d0a78b7c789">INA260_getCurrent</a></div><div class="ttdeci">short INA260_getCurrent(void)</div><div class="ttdoc">read current in milliamps</div></div>
 <div class="ttc" id="aina260_8h_html_ac9ea8c38c86a73b19a5229218e37e6dc"><div class="ttname"><a href="ina260_8h.html#ac9ea8c38c86a73b19a5229218e37e6dc">INA260_getAlert</a></div><div class="ttdeci">int INA260_getAlert(void)</div><div class="ttdoc">get alert limit value</div></div>
-<div class="ttc" id="aina260_8h_html_afc80f914432e6bc8edfcad3023fc0835"><div class="ttname"><a href="ina260_8h.html#afc80f914432e6bc8edfcad3023fc0835">_maskenable</a></div><div class="ttdeci">_maskenable</div><div class="ttdoc">Mask Flags.</div><div class="ttdef"><b>Definition:</b> ina260.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

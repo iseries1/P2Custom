@@ -49,7 +49,11 @@
 #define ICM_I2C_MASTER     0x01
 
 #define ICM_GYRO_CONFIG    0x01
+#define ICM_GYRO_OFFSET    0x03
 #define ICM_ACCEL_CONFIG   0x14
+#define ICM_ACCEL_OFFSETX  0x14
+#define ICM_ACCEL_OFFSETY  0x17
+#define ICM_ACCEL_OFFSETZ  0x1A
 #define ICM_DMP_ADDR       0x50
 
 #define ICM_MAG_ID         0x01

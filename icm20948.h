@@ -18,16 +18,10 @@ int ICM20948_Init(int icmclk, int icmdta) __fromfile("libicm20948/icm20948.c");
 /**
  * @brief Set Mode of Operation
  * @param mode 
- * 1 - Sleep
- * 2 - Low Power
- * 3 - Low Noise
- * 4 - Gyro Mode
- * 5 - Mag Mode
- * 6 - Accel & Gyro Mode
- * 7 - Accel & Mag Mode
- * 8 - 9 Axis Mode
+ * 0 - Stream
+ * 1 - One Shot
  */
-void ICM20948_Mode(int mode);
+void ICM20948_FifoMode(int mode);
 
 /**
  * @brief Enable DMP
@@ -40,6 +34,36 @@ void ICM20948_DMP(int enable);
  * @param enable 0 - off, 1 - on
  */
 void ICM20948_FIFO(int enable);
+
+/**
+ * @brief Set Fifo Data
+ * @param data
+ * 1 -> Temperature,
+ * 2 -> GyroX, 
+ * 4 -> GyroY,
+ * 8 -> GyroZ, 
+ * 16 -> Accelerometer
+ * 256 -> Slave 0
+ * 512 -> Slave 1
+ * 1024 -> Slave 2
+ * 2048 -> Slave 3
+*/
+void ICM20948_SetFifoData(int data);
+
+/**
+ * @brief Fifo Count
+ * @return count
+*/
+short ICM20948_FifoCount(void);
+
+/**
+ * @brief Read Fifo Data
+ * @param count of data to read
+ * @param buffer to hold data
+ * @return number of bytes read
+ * remember data is two bytes
+*/
+short ICM20948_ReadFifo(int count, char *buffer);
 
 /**
  * @brief Enable I2C Master
@@ -93,20 +117,26 @@ void ICM20948_ByPass(int mode);
 int ICM20948_Delay(void);
 
 /**
+ * @brief Get Data Ready
+ * @return ready 0 - No, 1 - 3 data
+*/
+int ICM20948_DataReady(void);
+
+/**
  * @brief Get Accel Values
- * @param x - *x
- * @param y - *y
- * @param z - *z
+ * @param x - address to short
+ * @param y - address to short
+ * @param z - address to short
  */
-void ICM20948_Accel(int *x, int *y, int *z);
+void ICM20948_Accel(short *x, short *y, short *z);
 
 /**
  * @brief Get Gyro Values
- * @param x - *x
- * @param y - *y
- * @param z - *z
+ * @param x - address to short
+ * @param y - address to short
+ * @param z - address to short
  */
-void ICM20948_Gyro(int *x, int *y, int *z);
+void ICM20948_Gyro(short *x, short *y, short *z);
 
 /**
  * @brief Get Temperature
@@ -140,12 +170,44 @@ void ICM20948_ResetFifo(void);
 void ICM20948_ConfigGyro(int filter, int range, int enable);
 
 /**
+ * @brief Gyro Offsets
+ * @param x - address to short
+ * @param y - address to short
+ * @param z - address to short
+*/
+void ICM20948_GyroOffsets(short *x, short *y, short *z);
+
+/**
+ * @brief Set Gyro Offsets
+ * @param x value
+ * @param y value
+ * @param z value
+*/
+void ICM20948_SetGyroOffsets(short x, short y, short z);
+
+/**
  * @brief Config Accelerometer
  * @param filter 0 - 7
  * @param range 0 - 2g, 1 - 4g, 2 - 8g, 3 - 16g
  * @param enable filter
  */
 void ICM20948_ConfigAccel(int filter, int range, int enable);
+
+/**
+ * @brief Accelerometer Offsets
+ * @param x - address to short
+ * @param y - address to short
+ * @param z - address to short
+*/
+void ICM20948_AccelOffsets(short *x, short *y, short *z);
+
+/**
+ * @brief Set Accelerometer Offsets
+ * @param x
+ * @param y
+ * @param z
+*/
+void ICM20948_SetAccelOffsets(short x, short y, short z);
 
 /**
  * @brief Set DMP Address
@@ -190,7 +252,7 @@ int ICM20948_MagWhoAmI(void);
  * @param z - *z
  * @return status data overflow
  */
-int ICM20948_Mag(int *x, int *y, int *z);
+int ICM20948_Mag(short *x, short *y, short *z);
 
 /**
  * @brief Get Mag Control

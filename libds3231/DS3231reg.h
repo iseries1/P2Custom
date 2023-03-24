@@ -6,7 +6,7 @@
  * 
 */
 
-#define DS3231_ADDRESS 0xd0
+#define DS3231_ADDRESS 0x68
 #define DS3231_SECONDS 0x00
 #define DS3231_MINUTES 0x01
 #define DS3231_HOUR 0x02

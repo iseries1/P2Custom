@@ -32,6 +32,7 @@
  *  <a href="step_8h.html">Step Motor Driver (A4988).</a><br>
  *  <a href="_stepper_8h.html">Stepper Motor Driver (A4988).</a><br>
  *  <a href="tfmini_8h.html">TFMINI distance driver.</a><br>
+ *  <a href="wioe5_8h.html">Weo-E5 LoraWan Driver.</a><br>
  *  <a href="ws2812_8h.html">WS2812B LED Driver</a><br>
  */
 

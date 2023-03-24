@@ -18,13 +18,13 @@ void INA260_Write(int, int);
 unsigned char _INA260;
 i2c_t *_INA260C;
 
-unsigned short INA260_open(char clock, char data)
+unsigned short INA260_open(char clk, char data)
 {
   int i;
   
   _INA260 = INA260_I2CADDR;
 
-  _INA260C = I2C_Init(clock, data, I2C_STD);
+  _INA260C = I2C_Init(clk, data, I2C_STD);
   
   i = INA260_Read(INA260_MFGID);
 
@@ -48,7 +48,7 @@ short INA260_getVoltage(void)
   v = INA260_Read(INA260_VOLTAGE);
   v = v * 125;
   
-  return v/1000;
+  return v/100;
 }
 
 short INA260_getPower(void)
@@ -157,8 +157,11 @@ int INA260_getConfigAveraging(void)
 
 void INA260_setMask(unsigned short mask)
 {
+  int v;
 
-  INA260_Write(INA260_ALERTEN, mask);
+  v = 1 << (mask + 10);
+
+  INA260_Write(INA260_ALERTEN, v);
 }
 
 int INA260_getMask(void)

@@ -5,9 +5,10 @@
  * @version 1.0
  */
 
-#define DEBUG
+//#define DEBUG
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <propeller.h>
 #include "blueio.h"
@@ -16,8 +17,9 @@
 
 
 void Blueio_IO(void *);
+int Blueio_Return(void);
 
-const char crlf[] = "\r\n";
+
 FILE *bsr;
 int brecv;
 int btrans;
@@ -39,7 +41,7 @@ int Blueio_Init(int receive, int transmit)
     btrans = transmit;
 
     i = cogstart(Blueio_IO, NULL, bstack, 50);
-    _waitms(100);
+    _waitms(1000);
 
     if (i < 1)
         return -1;
@@ -53,10 +55,11 @@ int Blueio_Request(char *request)
 {
     json_init(_XCmd);
     json_putStr("req", request);
-    strcat(_XCmd, crlf);
 
     _trans = strlen(_XCmd);
-
+#ifdef DEBUG
+    printf("request: %s\n", _XCmd);
+#endif
     return _trans;
 }
 
@@ -75,46 +78,33 @@ int Blueio_Receive(char *buffer)
     return i;
 }
 
-int Blueio_Ready(void)
-{
-    return _Ready;
-}
-
 void Blueio_Sync(void)
 {
     int s;
 
     Blueio_Request("hub.sync");
-    for (int i=0;i<10;i++)
-    {
-        s = Blueio_Ready();
-        if (s != 0)
-        {
-            s = Blueio_Receive(_XCmd);
-            return;
-        }
-        _waitms(1000);
-    }
+
+    Blueio_Return();
 }
 
 int Blueio_Status(void)
 {
     int s;
+    char *x;
 
     Blueio_Request("hub.sync.status");
-    for (int i=0;i<10;i++)
-    {
-        if (Blueio_Ready() != 0)
-        {
-            s = Blueio_Receive(_XCmd);
-#ifdef DEBUG
-            printf("status:%s\n", _XCmd);
-#endif
-            return 0;
-        }
-        _waitms(1000);
-    }
 
+    s = Blueio_Return();
+    if (s > 0)
+    {
+#ifdef DEBUG
+        printf("status:%s\n", _XCmd);
+#endif
+        json_init(_XCmd);
+        x = json_find("completed");
+        return atoi(x);
+    }
+    return -1;
 }
 
 int Blueio_Version(void)
@@ -124,21 +114,17 @@ int Blueio_Version(void)
 
     version = 0;
     Blueio_Request("card.version");
-    for (int i=0;i<10;i++)
-    {
-        if (Blueio_Ready() != 0)
-        {
-            status = Blueio_Receive(_XCmd);
-            json_init(_XCmd);
-            version = atoi(json_find("body.ver_major"));
-            version = version * 10 + atoi(json_find("body.ver_minor"));
-            version = version * 10 + atoi(json_find("body.ver_patch"));
-            return version;
-        }
-        _waitms(1000);
-    }
 
-    return version;
+    status = Blueio_Return();
+    if (status > 0)
+    {
+        json_init(_XCmd);
+        version = atoi(json_find("body.ver_major"));
+        version = version * 10 + atoi(json_find("body.ver_minor"));
+        version = version * 10 + atoi(json_find("body.ver_patch"));
+        return version;
+    }
+    return 0;
 }
 
 int Blueio_Add(char *note)
@@ -159,25 +145,23 @@ int Blueio_Add(char *note)
 #ifdef DEBUG
     printf("Add:%s\n", _XCmd);
 #endif
-    for (i=0;i<10;i++)
+
+    i = Blueio_Return();
+    if (i > 0)
     {
-        if (Blueio_Ready() != 0)
-        {
-            i = Blueio_Receive(_XCmd);
-            json_init(_XCmd);
-            x = json_find("total");
-            if (x == NULL)
-                return 0;
-            else
-                return atoi(x);
-        }
-        _waitms(1000);
+        json_init(_XCmd);
+        x = json_find("total");
+        if (x == NULL)
+            return 0;
+        else
+            return atoi(x);
     }
     return -1;
 }
 
 int Blueio_Check(void)
 {
+    int i;
     char *x;
 
     json_init(_XCmd);
@@ -185,29 +169,25 @@ int Blueio_Check(void)
     json_putArray("files");
     json_putItem("data.qi");
     json_putItem(NULL);
-    strcat(_XCmd, crlf);
     _trans = strlen(_XCmd);
 #ifdef DEBUG
     printf("Check:%s\n", _XCmd);
 #endif
-    for (int i=0;i<10;i++)
-    {
-        if (Blueio_Ready() != 0)
-        {
-            i = Blueio_Receive(_XCmd);
-            json_init(_XCmd);
-            x = json_find("total");
-            if (x == NULL)
-                return 0;
-            else
-                return atoi(x);
-        }
-        _waitms(1000);
-    }
 
+    i = Blueio_Return();
+    if (i > 0)
+    {
+        json_init(_XCmd);
+        x = json_find("total");
+        if (x == NULL)
+            return 0;
+        else
+            return atoi(x);
+    }
+    return i;
 }
 
-int Blueio_Get(char *data, int remove)
+int Blueio_GetData(char *data, int remove)
 {
     int i;
 
@@ -216,22 +196,110 @@ int Blueio_Get(char *data, int remove)
     json_putStr("file", "data.qi");
     if (remove != 0)
         json_putBool("delete", 1);
-    strcat(_XCmd, crlf);
     _trans = strlen(_XCmd);
 #ifdef DEBUG
     printf("Get:%s\n", _XCmd);
 #endif
-    for (i=0;i<10;i++)
+
+    i = Blueio_Return();
+    return i;
+}
+
+void Blueio_SetAttn(int mode, int time)
+{
+    int i;
+    char *x;
+
+    json_init(_XCmd);
+    json_putStr("req", "card.attn");
+    if (mode == 1)
+        json_put("mode", "arm");
+    if (mode == 2)
+        json_putStr("mode", "sleep");
+    if (mode == 3)
+        json_putStr("mode", "disarm");
+    json_putDec("seconds", itoa(time));
+    _trans = strlen(_XCmd);
+#ifdef DEBUG
+    printf("Attn:%s\n", _XCmd);
+#endif
+
+    i = Blueio_Return();
+    if (i > 0)
     {
-        if (Blueio_Ready() != 0)
-        {
-            i = Blueio_Receive(data);
-            return i;
-        }
-        _waitms(1000);
+        json_init(_XCmd);
+    }
+}
+
+float Blueio_GetVoltage(void)
+{
+    int i;
+    char *x;
+
+    json_init(_XCmd);
+    json_putStr("req", "card.voltage");
+    _trans = strlen(_XCmd);
+#ifdef DEBUG
+    printf("Voltage:%s\n", _XCmd);
+#endif
+
+    i = Blueio_Return();
+    if (i > 0)
+    {
+        json_init(_XCmd);
+        x = json_find("value");
+        return atof(x);
     }
     return 0;
 }
+
+float Blueio_GetTemperature(void)
+{
+    int i;
+    char *x;
+
+    json_init(_XCmd);
+    json_putStr("req", "card.temp");
+    _trans = strlen(_XCmd);
+#ifdef DEBUG
+    printf("Temp:%s\n", _XCmd);
+#endif
+
+    i = Blueio_Return();
+    if (i > 0)
+    {
+        json_init(_XCmd);
+        x = json_find("value");
+        return atof(x);
+    }
+    return 0;
+}
+
+int Blueio_GetTime(void)
+{
+    int i;
+    char *x;
+
+    json_init(_XCmd);
+    json_putStr("req", "card.time");
+    _trans = strlen(_XCmd);
+#ifdef DEBUG
+    printf("Time:%s\n", _XCmd);
+#endif
+
+    i = Blueio_Return();
+    if (i > 0)
+    {
+#ifdef DEBUG
+        printf("T:%s\n", _XCmd);
+#endif
+        json_init(_XCmd);
+        x = json_find("time");
+        return atoi(x);
+    }
+    return 0;
+}
+
 
 /* Background send receive code */
 void Blueio_IO(void *par)
@@ -266,8 +334,28 @@ void Blueio_IO(void *par)
                 _waitms(300);
             }
             i = serial_write(bsr, &_XCmd[i], _trans);
+            serial_txChar(bsr, '\r');
+            serial_txChar(bsr, '\n');
             _trans = 0;
         }
         usleep(50);
     }
 }
+
+/* wait 30 seconds for return data */
+int Blueio_Return()
+{
+    int i;
+
+    for (i=0;i<30;i++)
+    {
+        if (_Ready != 0)
+        {
+            i = Blueio_Receive(_XCmd);
+            return i;
+        }
+        _waitms(1000);
+    }
+    return 0;
+}
+

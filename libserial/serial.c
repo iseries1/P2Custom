@@ -183,7 +183,7 @@ ssize_t serial_write(FILE *device, const void *buff, size_t count)
     tx_pin = device->state >> 16;
     tx_pin = tx_pin >> 8;
 
-    for (int i=0;i < count;i++)
+    for (unsigned int i=0;i < count;i++)
     {
       _wypin(tx_pin, b[i]);
       while (z = _pinr(tx_pin) == 0)

@@ -6,6 +6,7 @@
  * 
 */
 
+#define INA260_I2CADDR 0x40
 #define INA260_CONFIG  0x00
 #define INA260_CURRENT 0x01
 #define INA260_VOLTAGE 0x02

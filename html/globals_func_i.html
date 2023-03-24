@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -97,7 +97,10 @@ $(function() {
 : <a class="el" href="i2c_8h.html#adfb0e25bc88be7f913597dbd648680cc">i2c.h</a>
 </li>
 <li>ICM20948_Accel()
-: <a class="el" href="icm20948_8h.html#aa5cc8e1b370d05fc933e995f93779b64">icm20948.h</a>
+: <a class="el" href="icm20948_8h.html#a50fa24876eabdc7f4dec1c938128173b">icm20948.h</a>
+</li>
+<li>ICM20948_AccelOffsets()
+: <a class="el" href="icm20948_8h.html#a3ae55b7494204c8b172a9da938c5159e">icm20948.h</a>
 </li>
 <li>ICM20948_ByPass()
 : <a class="el" href="icm20948_8h.html#a789c1925ba7d8fc429671f40ceedae2d">icm20948.h</a>
@@ -107,6 +110,9 @@ $(function() {
 </li>
 <li>ICM20948_ConfigGyro()
 : <a class="el" href="icm20948_8h.html#ad034e25d8907dd4e43be9fd2d02fbd1b">icm20948.h</a>
+</li>
+<li>ICM20948_DataReady()
+: <a class="el" href="icm20948_8h.html#a5272a6e216a50bdfd09859e3daffedc1">icm20948.h</a>
 </li>
 <li>ICM20948_Delay()
 : <a class="el" href="icm20948_8h.html#a67597c6d6f9aa52ceab10144f681bd16">icm20948.h</a>
@@ -123,8 +129,17 @@ $(function() {
 <li>ICM20948_FIFO()
 : <a class="el" href="icm20948_8h.html#afa4c9ce224b84771743ab5e7359ce33b">icm20948.h</a>
 </li>
+<li>ICM20948_FifoCount()
+: <a class="el" href="icm20948_8h.html#ab4457440f983456017978b5c259877f3">icm20948.h</a>
+</li>
+<li>ICM20948_FifoMode()
+: <a class="el" href="icm20948_8h.html#a91a52c3acfe48f9ad5b34a7c71401c2e">icm20948.h</a>
+</li>
 <li>ICM20948_Gyro()
-: <a class="el" href="icm20948_8h.html#a973ab44dd88265cd7c401edebc7621e2">icm20948.h</a>
+: <a class="el" href="icm20948_8h.html#a2893504e13aa1a6257de10728a0304f8">icm20948.h</a>
+</li>
+<li>ICM20948_GyroOffsets()
+: <a class="el" href="icm20948_8h.html#a4325abaf3f17897deb96115407203ec7">icm20948.h</a>
 </li>
 <li>ICM20948_I2CMaster()
 : <a class="el" href="icm20948_8h.html#ac8ff626a026c44a44d8d107fb9730c0d">icm20948.h</a>
@@ -145,7 +160,7 @@ $(function() {
 : <a class="el" href="icm20948_8h.html#a7e40fd287f7bd6cc425fc514dd3d574b">icm20948.h</a>
 </li>
 <li>ICM20948_Mag()
-: <a class="el" href="icm20948_8h.html#af1d8f3ee5da240af1fbfb43195b871e5">icm20948.h</a>
+: <a class="el" href="icm20948_8h.html#aa6be83908bd8849d7ac7c630836c36e6">icm20948.h</a>
 </li>
 <li>ICM20948_MagCtrl()
 : <a class="el" href="icm20948_8h.html#a04ac676d1188341a6105a670f7cc33f5">icm20948.h</a>
@@ -159,8 +174,8 @@ $(function() {
 <li>ICM20948_MagWhoAmI()
 : <a class="el" href="icm20948_8h.html#a39f41ff77eefd39fbd07ab1178dc7820">icm20948.h</a>
 </li>
-<li>ICM20948_Mode()
-: <a class="el" href="icm20948_8h.html#a51501b152f591394b0302f89ebffd8bd">icm20948.h</a>
+<li>ICM20948_ReadFifo()
+: <a class="el" href="icm20948_8h.html#af44d2475a88c64eb6ed3077fa5c2c0f7">icm20948.h</a>
 </li>
 <li>ICM20948_ReadMemory()
 : <a class="el" href="icm20948_8h.html#a940317adda44a1364644ed2e887cfec5">icm20948.h</a>
@@ -171,6 +186,9 @@ $(function() {
 <li>ICM20948_ResetFifo()
 : <a class="el" href="icm20948_8h.html#a7074d9371e771e231effd66f474345a2">icm20948.h</a>
 </li>
+<li>ICM20948_SetAccelOffsets()
+: <a class="el" href="icm20948_8h.html#a28a2b4d4e7145297aa8da0417f0dfbf0">icm20948.h</a>
+</li>
 <li>ICM20948_SetBank()
 : <a class="el" href="icm20948_8h.html#a0a8f3a4bef4ef88bc69f4ab5b07820a7">icm20948.h</a>
 </li>
@@ -180,8 +198,14 @@ $(function() {
 <li>ICM20948_SetDMPAddress()
 : <a class="el" href="icm20948_8h.html#aa428478111c2cd47708aa6ce679682d9">icm20948.h</a>
 </li>
+<li>ICM20948_SetFifoData()
+: <a class="el" href="icm20948_8h.html#ad2100c6c5ed36f51952de81fc4604f08">icm20948.h</a>
+</li>
 <li>ICM20948_SetFIFOPriority()
 : <a class="el" href="icm20948_8h.html#a7c1dc78a8a18aee2733015acc646b6bd">icm20948.h</a>
+</li>
+<li>ICM20948_SetGyroOffsets()
+: <a class="el" href="icm20948_8h.html#ac70e9b0430365c972ce81cd429d9950e">icm20948.h</a>
 </li>
 <li>ICM20948_SetHW()
 : <a class="el" href="icm20948_8h.html#a144a75636680a3e001934cfa995faf8d">icm20948.h</a>
@@ -241,7 +265,7 @@ $(function() {
 : <a class="el" href="ina260_8h.html#a05e14aca4d4aaf47eeb073bf41d69ac0">ina260.h</a>
 </li>
 <li>INA260_open()
-: <a class="el" href="ina260_8h.html#a1a241cb0c76e6b6d372c59f912df0bc1">ina260.h</a>
+: <a class="el" href="ina260_8h.html#a2f72a607aebbe4a196c390a7f58f743e">ina260.h</a>
 </li>
 <li>INA260_reset()
 : <a class="el" href="ina260_8h.html#a658b04902da910d77c94fd5d12c89c55">ina260.h</a>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -68,37 +68,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="serial_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef __SERIAL_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define __SERIAL_H</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;FILE *serial_open(<span class="keywordtype">int</span> rxpin, <span class="keywordtype">int</span> txpin, <span class="keywordtype">int</span> baudrate) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">   20</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">serial_close</a>(FILE *device) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">   27</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">serial_rxCheck</a>(FILE *device);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef __SERIAL_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define __SERIAL_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">   21</a></span>&#160;FILE *<a class="code" href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">serial_open</a>(<span class="keywordtype">int</span> rxpin, <span class="keywordtype">int</span> txpin, <span class="keywordtype">int</span> baudrate) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">   27</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">serial_close</a>(FILE *device) __fromfile(<span class="stringliteral">&quot;libserial/serial.c&quot;</span>);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">   34</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">serial_rxReady</a>(FILE *device);</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">   34</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">serial_rxCheck</a>(FILE *device);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">   41</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">serial_rxChar</a>(FILE *device);</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">   41</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">serial_rxReady</a>(FILE *device);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="serial_8h.html#a0af65b9280de990927db1e916d95b798">   49</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a0af65b9280de990927db1e916d95b798">serial_txChar</a>(FILE *device, <span class="keywordtype">char</span> txbyte);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="serial_8h.html#a6317d484022555c5dadcb1c023eb7a1d">   57</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a6317d484022555c5dadcb1c023eb7a1d">serial_putcf</a>(<span class="keywordtype">int</span> c, FILE *device);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="serial_8h.html#a9bd5daaf4e4aa85fb0d2dbc615f55cfa">   64</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a9bd5daaf4e4aa85fb0d2dbc615f55cfa">serial_getcf</a>(FILE *device);</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">   48</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">serial_rxChar</a>(FILE *device);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="serial_8h.html#a0af65b9280de990927db1e916d95b798">   56</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a0af65b9280de990927db1e916d95b798">serial_txChar</a>(FILE *device, <span class="keywordtype">char</span> txbyte);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="serial_8h.html#a6317d484022555c5dadcb1c023eb7a1d">   64</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a6317d484022555c5dadcb1c023eb7a1d">serial_putcf</a>(<span class="keywordtype">int</span> c, FILE *device);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="serial_8h.html#a03e754c7c0a020d285a3150c3bf57284">   73</a></span>&#160;ssize_t <a class="code" href="serial_8h.html#a03e754c7c0a020d285a3150c3bf57284">serial_read</a>(FILE *device, <span class="keywordtype">void</span> *buff, <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">   82</a></span>&#160;ssize_t <a class="code" href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">serial_write</a>(FILE *device, <span class="keyword">const</span> <span class="keywordtype">void</span> *buff, <span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="serial_8h.html#a9bd5daaf4e4aa85fb0d2dbc615f55cfa">   71</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="serial_8h.html#a9bd5daaf4e4aa85fb0d2dbc615f55cfa">serial_getcf</a>(FILE *device);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="serial_8h.html#a03e754c7c0a020d285a3150c3bf57284">   80</a></span>&#160;ssize_t <a class="code" href="serial_8h.html#a03e754c7c0a020d285a3150c3bf57284">serial_read</a>(FILE *device, <span class="keywordtype">void</span> *buff, <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">   89</a></span>&#160;ssize_t <a class="code" href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">serial_write</a>(FILE *device, <span class="keyword">const</span> <span class="keywordtype">void</span> *buff, <span class="keywordtype">size_t</span> count);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aserial_8h_html_a03e754c7c0a020d285a3150c3bf57284"><div class="ttname"><a href="serial_8h.html#a03e754c7c0a020d285a3150c3bf57284">serial_read</a></div><div class="ttdeci">ssize_t serial_read(FILE *device, void *buff, size_t count)</div><div class="ttdoc">Read number of bytes from device.</div></div>
 <div class="ttc" id="aserial_8h_html_a09407a08bcd756a4f5e6981f66c071a8"><div class="ttname"><a href="serial_8h.html#a09407a08bcd756a4f5e6981f66c071a8">serial_rxChar</a></div><div class="ttdeci">int serial_rxChar(FILE *device)</div><div class="ttdoc">Receive a byte. Waits until next byte is received.</div></div>
 <div class="ttc" id="aserial_8h_html_a0af65b9280de990927db1e916d95b798"><div class="ttname"><a href="serial_8h.html#a0af65b9280de990927db1e916d95b798">serial_txChar</a></div><div class="ttdeci">int serial_txChar(FILE *device, char txbyte)</div><div class="ttdoc">Send a byte.</div></div>
 <div class="ttc" id="aserial_8h_html_a271dc46b2f41e69441a36b11198e178e"><div class="ttname"><a href="serial_8h.html#a271dc46b2f41e69441a36b11198e178e">serial_rxReady</a></div><div class="ttdeci">int serial_rxReady(FILE *device)</div><div class="ttdoc">Check if a byte is available to be read.</div></div>
 <div class="ttc" id="aserial_8h_html_a501c1b27c737cc2b7777c33ecacc377b"><div class="ttname"><a href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">serial_write</a></div><div class="ttdeci">ssize_t serial_write(FILE *device, const void *buff, size_t count)</div><div class="ttdoc">Write number of bytes to device.</div></div>
 <div class="ttc" id="aserial_8h_html_a6317d484022555c5dadcb1c023eb7a1d"><div class="ttname"><a href="serial_8h.html#a6317d484022555c5dadcb1c023eb7a1d">serial_putcf</a></div><div class="ttdeci">int serial_putcf(int c, FILE *device)</div><div class="ttdoc">Put file character.</div></div>
+<div class="ttc" id="aserial_8h_html_a843029134415263eee1ea815ad52f2e4"><div class="ttname"><a href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">serial_open</a></div><div class="ttdeci">FILE * serial_open(int rxpin, int txpin, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</div><div class="ttdoc">Open a serial connection.</div></div>
 <div class="ttc" id="aserial_8h_html_a9bd5daaf4e4aa85fb0d2dbc615f55cfa"><div class="ttname"><a href="serial_8h.html#a9bd5daaf4e4aa85fb0d2dbc615f55cfa">serial_getcf</a></div><div class="ttdeci">int serial_getcf(FILE *device)</div><div class="ttdoc">Get file character.</div></div>
 <div class="ttc" id="aserial_8h_html_ab49247b189705672bd6c3800a0763b1e"><div class="ttname"><a href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">serial_close</a></div><div class="ttdeci">int serial_close(FILE *device) __fromfile(&quot;libserial/serial.c&quot;)</div><div class="ttdoc">Close serial connection.</div></div>
 <div class="ttc" id="aserial_8h_html_ae16c9aa9181e2bb37297cb414baee236"><div class="ttname"><a href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">serial_rxCheck</a></div><div class="ttdeci">int serial_rxCheck(FILE *device)</div><div class="ttdoc">Check if a character is available and return it.</div></div>

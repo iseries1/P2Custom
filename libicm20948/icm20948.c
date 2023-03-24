@@ -37,15 +37,16 @@ int ICM20948_Init(int icmclk, int icmdta)
     if (_Buffer[0] != ICM_DEV_WHO_AM_I)
         return -1;
     
-    ICM20948_Mode(8); // 9 Axis Mode
-    ICM20948_I2CMaster(0);
-    ICM20948_DMP(0);
-    ICM20948_FIFO(0);
+    ICM20948_Reset();
+    ICM20948_Sleep(0);
     ICM20948_EnableLowPower(0); // full power
-
+    //ICM20948_I2CMaster(0);
+    //ICM20948_DMP(0);
+    //ICM20948_FIFO(0);
+    return 0;
 }
 
-void ICM20948_Mode(int mode)
+void ICM20948_FifoMode(int mode)
 {
     int i;
 
@@ -83,6 +84,37 @@ void ICM20948_FIFO(int enable)
     i = I2C_Out(icm, icm_addr, ICM_USER_CTRL, 1, _Buffer, 1);
 }
 
+void ICM20948_SetFifoData(int data)
+{
+    int i;
+
+    _Buffer[0] = data >> 8;
+    _Buffer[1] = data;
+
+    i = I2C_Out(icm, icm_addr, ICM_FIFO_EN_1, 1, _Buffer, 2);
+}
+
+short ICM20948_FifoCount(void)
+{
+    int i;
+    short v;
+
+    i = I2C_In(icm, icm_addr, ICM_FIFO_COUNT, 1, _Buffer, 2);
+
+    v = _Buffer[0] << 8 | _Buffer[1];
+
+    return v;
+}
+
+short ICM20948_ReadFifo(int count, char *buffer)
+{
+    int i;
+
+    i = I2C_In(icm, icm_addr, ICM_FIFO_RW, 1, buffer, count);
+
+    return i;
+}
+
 void ICM20948_I2CMaster(int enable)
 {
     int i;
@@ -105,19 +137,24 @@ void ICM20948_Reset()
     _Buffer[0] = _Buffer[0] | 0x80;
 
     i = I2C_Out(icm, icm_addr, ICM_PWR_MGMT_1, 1, _Buffer, 1);
+    _waitms(1000);
 }
 
 void ICM20948_Sleep(int mode)
 {
     int i;
 
+    _Buffer[0] = 0;
+
     i = I2C_In(icm, icm_addr, ICM_PWR_MGMT_1, 1, _Buffer, 1);
 
     _Buffer[0] = _Buffer[0] & 0x3f;
+
     if (mode)
         _Buffer[0] = _Buffer[0] | 0x40;
     
     i = I2C_Out(icm, icm_addr, ICM_PWR_MGMT_1, 1, _Buffer, 1);
+    _waitms(500);
 }
 
 void ICM20948_EnableLowPower(int mode)
@@ -175,7 +212,18 @@ int ICM20948_Delay(void)
     return i;
 }
 
-void ICM20948_Accel(int *x, int *y, int *z)
+int ICM20948_DataReady(void)
+{
+    int i;
+
+    i = I2C_In(icm, icm_addr, ICM_DATA_RDY, 1, _Buffer, 1);
+
+    i = _Buffer[0] &0x03;
+
+    return i;
+}
+
+void ICM20948_Accel(short *x, short *y, short *z)
 {
     int i;
 
@@ -187,16 +235,15 @@ void ICM20948_Accel(int *x, int *y, int *z)
 
 }
 
-void ICM20948_Gyro(int *x, int *y, int *z)
+void ICM20948_Gyro(short *x, short *y, short *z)
 {
     int i;
 
     i = I2C_In(icm, icm_addr, ICM_GYRO_XOUT, 1, _Buffer, 6);
 
-    *x = _Buffer[0] << 8 | _Buffer[1];
+    *x = (_Buffer[0] << 8) | _Buffer[1];
     *y = _Buffer[2] << 8 | _Buffer[3];
     *z = _Buffer[4] << 8 | _Buffer[5];
-
 }
 
 int ICM20948_Temp(void)
@@ -232,7 +279,7 @@ void ICM20948_ResetFifo(void)
 
     _Buffer[0] = 0x1f;
     i = I2C_Out(icm, icm_addr, ICM_FIFO_RST, 1, _Buffer, 1);
-
+    
     _Buffer[0] = 0x1e;
     i = I2C_Out(icm, icm_addr, ICM_FIFO_RST, 1, _Buffer, 1);
 }
@@ -246,6 +293,41 @@ void ICM20948_ConfigGyro(int filter, int range, int enable)
     _Buffer[0] = filter << 3 | range << 1 | enable;
 
     i = I2C_Out(icm, icm_addr, ICM_GYRO_CONFIG, 1, _Buffer, 1);
+
+    ICM20948_SetBank(0);
+}
+
+void ICM20948_GyroOffsets(short *x, short *y, short *z)
+{
+    int i;
+
+    ICM20948_SetBank(2);
+
+    i = I2C_In(icm, icm_addr, ICM_GYRO_OFFSET, 1, _Buffer, 6);
+
+    *x = _Buffer[0] << 8 | _Buffer[1];
+    *y = _Buffer[2] << 8 | _Buffer[3];
+    *z = _Buffer[4] << 8 | _Buffer[5];
+
+    ICM20948_SetBank(0);
+}
+
+void ICM20948_SetGyroOffsets(short x, short y, short z)
+{
+    int i;
+
+    ICM20948_SetBank(2);
+
+    _Buffer[0] = x >> 8;
+    _Buffer[1] = x;
+    _Buffer[2] = y >> 8;
+    _Buffer[3] = y;
+    _Buffer[4] = z >> 8;
+    _Buffer[5] = z;
+
+    i = I2C_Out(icm, icm_addr, ICM_GYRO_OFFSET, 1, _Buffer, 6);
+
+    ICM20948_SetBank(0);
 }
 
 void ICM20948_ConfigAccel(int filter, int range, int enable)
@@ -257,6 +339,45 @@ void ICM20948_ConfigAccel(int filter, int range, int enable)
     _Buffer[0] = filter << 3 | range << 1 | enable;
 
     i = I2C_Out(icm, icm_addr, ICM_ACCEL_CONFIG, 1, _Buffer, 1);
+
+    ICM20948_SetBank(0);
+}
+
+void ICM20948_AccelOffsets(short *x, short *y, short *z)
+{
+    int i;
+
+    ICM20948_SetBank(1);
+
+    i = I2C_In(icm, icm_addr, ICM_ACCEL_OFFSETX, 1, _Buffer, 2);
+    i = I2C_In(icm, icm_addr, ICM_ACCEL_OFFSETY, 1, &_Buffer[2], 2);
+    i = I2C_In(icm, icm_addr, ICM_ACCEL_OFFSETZ, 1, &_Buffer[4], 2);
+
+    *x = _Buffer[0] << 8 | _Buffer[1];
+    *y = _Buffer[2] << 8 | _Buffer[3];
+    *z = _Buffer[4] << 8 | _Buffer[5];
+
+    ICM20948_SetBank(0);
+}
+
+void ICM20948_SetAccelOffsets(short x, short y, short z)
+{
+    int i;
+
+    ICM20948_SetBank(1);
+
+    _Buffer[0] = x >> 8;
+    _Buffer[1] = x;
+    _Buffer[2] = y >> 8;
+    _Buffer[3] = y;
+    _Buffer[4] = z >> 8;
+    _Buffer[5] = z;
+
+    i = I2C_Out(icm, icm_addr, ICM_ACCEL_OFFSETX, 1, _Buffer, 2);
+    i = I2C_Out(icm, icm_addr, ICM_ACCEL_OFFSETY, 1, &_Buffer[2], 2);
+    i = I2C_Out(icm, icm_addr, ICM_ACCEL_OFFSETZ, 1, &_Buffer[4], 2);
+
+    ICM20948_SetBank(0);
 }
 
 void ICM20948_SetDMPAddress(int addr)
@@ -345,6 +466,8 @@ int ICM20948_Mag(short *x, short *y, short *z)
 {
     int i;
 
+    memset(_Buffer, 0, 6);
+
     i = I2C_In(icm, mag_addr, ICM_MAG_XOUT, 1, _Buffer, 6);
 
     *x = _Buffer[1] << 8 | _Buffer[0];
@@ -360,6 +483,8 @@ int ICM20948_Mag(short *x, short *y, short *z)
 int ICM20948_MagCtrl(void)
 {
     int i;
+
+    _Buffer[0] = 0;
 
     i = I2C_In(icm, mag_addr, ICM_MAG_CTRL2, 1, _Buffer, 1);
 

@@ -100,6 +100,8 @@ short json_getItem()
         Parse = 0;
         break;
       case ',':
+        if (quote != 0)
+          break;
         if (i == 0)
         {
           if (ItemArray > 0)
@@ -235,7 +237,6 @@ void json_putArray(char* item)
     ItemData[ItemPointer++] = '[';
     ItemData[ItemPointer] = jEnd;
     ItemData[ItemPointer+1] = 0;
-
 }
 
 void json_putObject(char* item)

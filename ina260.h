@@ -7,29 +7,14 @@
  * 
 */
 
-#define INA260_I2CADDR 0x40
 
-
-/**
- * @brief Mask Flags
- */
-enum _maskenable {
-  INA260_OVERCURRENTLIMT = 1 << 15,
-  INA260_UNDERCURRENTLIMT = 1 << 14,
-  INA260_OVERVOLTAGE = 1 << 13,
-  INA260_UNDERVOLTAGE = 1 << 12,
-  INA260_OVERPOWER = 1 << 11,
-  INA260_CONVERSIONREADY = 1 << 10,
-  INA260_LATCHMODE = 1
-}; // INA260_MASKENABLE;
-  
 /**
  * @brief open connection to INA260 device
- * @param clock pin number
+ * @param clk pin number
  * @param data pin number
  * @return id - manufactor id (0x5449)
  */
-unsigned short INA260_open(char clock, char data) __fromfile("libina260/ina260.c");
+unsigned short INA260_open(char clk, char data) __fromfile("libina260/ina260.c");
   
 /**
  * @brief read current in milliamps
@@ -38,7 +23,7 @@ unsigned short INA260_open(char clock, char data) __fromfile("libina260/ina260.c
 short INA260_getCurrent(void);
 
 /**
- * @brief read voltage in hundredths
+ * @brief read voltage in millivolts
  * @return voltage
  */
 short INA260_getVoltage(void);
@@ -131,7 +116,13 @@ int INA260_getConfigAveraging(void);
 
 /**
  * @brief mask enable register
- * @param mask value
+ * @param mask values
+ * 0 -> Conversion ready
+ * 1 -> Power over Limit
+ * 2 -> Voltage under limit
+ * 3 -> Voltage over limit
+ * 4 -> Current under limit
+ * 5 -> Current over limit
  */
 void INA260_setMask(unsigned short mask);
 

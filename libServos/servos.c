@@ -18,12 +18,7 @@ void Servo_Enable(int pin, int position, int refresh)
     int freq = _clkfreq / 1000000;
     freq |= refresh << 16;
     
-    _dirl(pin);
-    _pinh(pin);
-    _wrpin(pin, P_OE | P_PWM_SAWTOOTH);
-    _wxpin(pin, freq);
-    _dirh(pin);
-    _wypin(pin, position);
+    _pinstart(pin, P_OE | P_PWM_SAWTOOTH, freq, position);
 }
 
 void Servo_Set(int pin, int position)
