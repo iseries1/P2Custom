@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['panel64_2eh_659',['Panel64.h',['../_panel64_8h.html',1,'']]]
+  ['newhaven_2eh_767',['newhaven.h',['../newhaven_8h.html',1,'']]],
+  ['nextion_2eh_768',['nextion.h',['../nextion_8h.html',1,'']]]
 ];

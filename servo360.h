@@ -76,3 +76,10 @@ int Servo360_Status(int servo);
  * @param enable 0 - disable, 1 - enable
  */
 void Servo360_Enable(int servo, int enable);
+
+/**
+ * @brief Set Slow Motor Angle Movement
+ * @param servo number
+ * @param enable 0 - disable, 1 - enable slow
+ */
+void Servo360_Slow(int servo, int enable);

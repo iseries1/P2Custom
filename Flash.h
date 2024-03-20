@@ -22,14 +22,14 @@ flash_t* Flash_Init(int MOSI, int MISO, int CLK, int CS) __fromfile("libflash/fl
  * @brief Flash reset
  * @param x flash pointer
  */
-void Flash_Reset(flash_t *x) __fromfile("libflash/flash.c");
+void Flash_Reset(flash_t *x);
 
 /**
  * @brief Flash busy
  * @param x flash pointer
  * @return status 0 - not busy 1 - busy
  */
-int Flash_Busy(flash_t *x) __fromfile("libflash/flash.c");
+int Flash_Busy(flash_t *x);
 
 /**
  * @brief Flash read
@@ -39,7 +39,7 @@ int Flash_Busy(flash_t *x) __fromfile("libflash/flash.c");
  * @param len number of bytes to read
  * @return bytes number of bytes read
  */
-int Flash_Read(flash_t *x, int address, char *buffer, int len) __fromfile("libflash/flash.c");
+int Flash_Read(flash_t *x, int address, char *buffer, int len);
 
 /**
  * @brief Flash write
@@ -49,12 +49,12 @@ int Flash_Read(flash_t *x, int address, char *buffer, int len) __fromfile("libfl
  * @param len number of bytes to write
  * @return bytes number of bytes written
  */
-int Flash_Write(flash_t *x, int address, char *buffer, int len) __fromfile("libflash/flash.c");
+int Flash_Write(flash_t *x, int address, char *buffer, int len);
 
 /**
  * @brief Flash erase
  * @param x flash pointer
- * @param address address to start erase
- * @param len number of bytes to erase
+ * @param address to start erase
+ * @param len number of bytes to erase (4096, 32768, 65536)
  */
-void Flash_Erase(flash_t *x, int address, int len) __fromfile("libflash/flash.c");
+void Flash_Erase(flash_t *x, int address, int len);

@@ -10,16 +10,16 @@
 /**
  * @brief Enable servo output on pin
  * @param pin pin number to use
- * @param position default position (1500)
- * @param refresh output time 20 miliseconds
+ * @param position rate in microseconds (1500)
+ * @param refresh rate in microseconds (20000)
  */
 void Servo_Enable(int pin, int position, int refresh) __fromfile("libServos/Servos.c");
 
 
 /**
  * @brief set servo output value
- * @param pin pin number to change
- * @param position 400-2400 typical
+ * @param pin number to change
+ * @param position rate in microseconds 400-2400 typical
  */
 void Servo_Set(int pin, int position);
 
@@ -36,3 +36,9 @@ void Servo_SetHighLow(int high, int low);
  * @param angle angle 0 - 180
  */
 void Servo_SetAngle(int pin, int angle);
+
+/**
+ * @brief disable servo pin
+ * @param pin number to disable
+ */
+void Servo_Disable(int pin);

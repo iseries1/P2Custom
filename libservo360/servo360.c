@@ -40,11 +40,13 @@ int Servo360_Start(int servo, int feedback)
         Servo360[i].Servo = -256;
 
     _cogstart(DoServos, NULL, Stack, 100);
+    _waitms(500);
     return Servo360_Add(servo, feedback);
 }
 
 void DoServos(void *par)
 {
+
     while (1)
     {
         for (int i=0;i<9;i++)
@@ -89,7 +91,6 @@ void DoChange()
 void UpdatePosition(int servo)
 {
     int d, t;
-    int a;
 
     d = Servo360[servo].TargetAngle + Servo360[servo].TargetTurns * 360;
     t = Servo360[servo].Angle + Servo360[servo].Turns * 360;
@@ -102,17 +103,19 @@ void UpdatePosition(int servo)
         return;
     }
 
-    if (d > 210)
-        d = 210;
-    if (d < -210)
-        d = -210;
+    if (d > 250)
+        d = 250;
+    if (d < -250)
+        d = -250;
 
-    if ((d > -40) && (d < 40))
+    d = d * Servo360[servo].Enable;
+
+    if (abs(d) < 35)
     {
         if (d < 0)
-            d = -40;
+            d = -35;
         else
-            d = 40;
+            d = 35;
     }
 
     Servo360[servo].PWM = 1500 - d;
@@ -190,12 +193,13 @@ int Servo360_Add(int servo, int feedback)
 void Servo360_Remove(int servo)
 {
     Servo360[servo].Feedback = Servo360[servo].Feedback - 255;
-    return;
 }
 
 int Servo360_Angle(int servo)
 {
-    return Servo360[servo].Angle;
+    int i;
+    i = Servo360[servo].Turns * 360;
+    return Servo360[servo].Angle + i;
 }
 
 void Servo360_SetAngle(int servo, int angle)
@@ -235,14 +239,25 @@ int Servo360_Status(int servo)
 
 void Servo360_Enable(int servo, int enable)
 {
-    Servo360[servo].Enable = enable;
     
     if (!enable)
+    {
         Servo360[servo].PWM = 0;
+        Servo360[servo].Enable = 0;
+    }
     else
     {
         Servo360[servo].PWM = 1500;
         Servo360[servo].TargetAngle = Servo360[servo].Angle;
         Servo360[servo].TargetTurns = Servo360[servo].Turns;
+        Servo360[servo].Enable = 2;
     }
+}
+
+void Servo360_Slow(int servo, int enable)
+{
+    if (enable)
+        Servo360[servo].Enable = 1;
+    else
+        Servo360[servo].Enable = 2;
 }

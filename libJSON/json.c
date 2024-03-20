@@ -63,7 +63,7 @@ short json_getItem()
     switch (ItemData[ItemPointer])
     {
       case '{':
-        if (ItemE[0] > 0)
+        if ((ItemE[0] > 0) && (quote == 0))
           strcpy(ItemPath[ItemLevel++], ItemE);
         break;
       case '\"':
@@ -93,6 +93,8 @@ short json_getItem()
         }                    
         break;
       case '}':
+        if (quote != 0)
+          break;
         if (ItemLevel > Arrays[ItemArray])
           ItemLevel--;
         strcpy(ItemValue, ItemT);
@@ -133,7 +135,7 @@ short json_getItem()
   return 1;    
 }
 
-void json_putStr(char *item, char *value)
+int json_putStr(char *item, char *value)
 {
   int i;
   
@@ -184,9 +186,10 @@ void json_putStr(char *item, char *value)
   ItemData[ItemPointer++] = Quote;
   ItemData[ItemPointer] = jEnd;
   ItemData[ItemPointer+1] = 0;
+  return ItemPointer+1;
 }
 
-void json_putDec(char *item, char *value)
+int json_putDec(char *item, char *value)
 {
   if (quote == 0)
     ItemData[ItemPointer++] = jStart;
@@ -206,17 +209,18 @@ void json_putDec(char *item, char *value)
   ItemPointer += strlen(value);
   ItemData[ItemPointer] = jEnd;
   ItemData[ItemPointer+1] = 0;
-
+  return ItemPointer+1;
 }
 
-void json_putArray(char* item)
+int json_putArray(char* item)
 {
     if (item == NULL)
     {
         ItemData[ItemPointer++] = jEnd;
         ItemData[ItemPointer++] = ']';
         ItemData[ItemPointer] = jEnd;
-        return;
+        ItemData[ItemPointer+1] = 0;
+        return ItemPointer+1;
     }
 
     if (Quote == 0)
@@ -237,16 +241,17 @@ void json_putArray(char* item)
     ItemData[ItemPointer++] = '[';
     ItemData[ItemPointer] = jEnd;
     ItemData[ItemPointer+1] = 0;
+    return ItemPointer+1;
 }
 
-void json_putObject(char* item)
+int json_putObject(char* item)
 {
     if (item == NULL)
     {
         ItemData[ItemPointer++] = jEnd;
         ItemData[ItemPointer] = jEnd;
         ItemData[ItemPointer+1] = 0;
-        return;
+        return ItemPointer+1;
     }
 
     if (quote == 0)
@@ -266,9 +271,10 @@ void json_putObject(char* item)
     ItemData[ItemPointer++] = ' ';
     ItemData[ItemPointer] = jEnd;
     ItemData[ItemPointer+1] = 0;
+    return ItemPointer+1;
 }
 
-void json_putMore()
+int json_putMore()
 {
     ItemData[ItemPointer++] = jEnd;
     ItemData[ItemPointer++] = ',';
@@ -276,9 +282,10 @@ void json_putMore()
     ItemData[ItemPointer] = jEnd;
     ItemData[ItemPointer+1] = 0;
     quote = 0;
+    return ItemPointer+1;
 }
 
-void json_putItem(char* item)
+int json_putItem(char* item)
 {
   
   if (quote != 0)
@@ -289,7 +296,7 @@ void json_putItem(char* item)
         ItemData[ItemPointer] = jEnd;
         ItemData[ItemPointer+1] = 0;
         quote = 0;
-        return;
+        return ItemPointer+1;
       }
       ItemData[ItemPointer++] = ',';
       ItemData[ItemPointer++] = ' ';
@@ -302,9 +309,10 @@ void json_putItem(char* item)
   ItemData[ItemPointer] = ' ';
   ItemData[ItemPointer+1] = 0;
   quote = 1;
+  return ItemPointer+1;
 }
 
-void json_putBool(char* item, int state)
+int json_putBool(char* item, int state)
 {
   if (quote == 0)
     ItemData[ItemPointer++] = jStart;
@@ -328,4 +336,5 @@ void json_putBool(char* item, int state)
   ItemPointer += 5;
   ItemData[ItemPointer] = jEnd;
   ItemData[ItemPointer+1] = 0;
+  return ItemPointer+1;
 }

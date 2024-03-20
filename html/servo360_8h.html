@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.1</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -107,6 +107,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c3365757b0fb7316d00bce28c16674f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="servo360_8h.html#a3c3365757b0fb7316d00bce28c16674f">Servo360_Enable</a> (int servo, int enable)</td></tr>
 <tr class="memdesc:a3c3365757b0fb7316d00bce28c16674f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/Disable Servo.  <a href="servo360_8h.html#a3c3365757b0fb7316d00bce28c16674f">More...</a><br /></td></tr>
 <tr class="separator:a3c3365757b0fb7316d00bce28c16674f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46bb4f2d3ab16e36373ac9e69e2e680"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="servo360_8h.html#aa46bb4f2d3ab16e36373ac9e69e2e680">Servo360_Slow</a> (int servo, int enable)</td></tr>
+<tr class="memdesc:aa46bb4f2d3ab16e36373ac9e69e2e680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Slow Motor Angle Movement.  <a href="servo360_8h.html#aa46bb4f2d3ab16e36373ac9e69e2e680">More...</a><br /></td></tr>
+<tr class="separator:aa46bb4f2d3ab16e36373ac9e69e2e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Driver for Servo 360. </p>
@@ -332,6 +335,43 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">servo</td><td>number </td></tr>
     <tr><td class="paramname">pwm</td><td>value 1000-2000 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa46bb4f2d3ab16e36373ac9e69e2e680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46bb4f2d3ab16e36373ac9e69e2e680">&#9670;&nbsp;</a></span>Servo360_Slow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Servo360_Slow </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>servo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Slow Motor Angle Movement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">servo</td><td>number </td></tr>
+    <tr><td class="paramname">enable</td><td>0 - disable, 1 - enable slow </td></tr>
   </table>
   </dd>
 </dl>

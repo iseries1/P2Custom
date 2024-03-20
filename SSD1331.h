@@ -8,6 +8,7 @@
 */
 
 /**
+ * @brief Initilize oled driver
  * @param DIN data in
  * @param CLK clock pin
  * @param CS chip select
@@ -17,7 +18,8 @@
 void SSD1331_init(char DIN, char CLK, char CS, char DC, char RES) __fromfile("libSSD1331/SSD1331.c");
 
 /**
- * @param rotation
+ * @brief Set screen rotation
+ * @param rotation 0 - upright 1 - upside down
  */
 void SSD1331_rotation(char rotation);
 
@@ -32,12 +34,12 @@ void SSD1331_cls(void);
 void SSD1331_invert(short state);
 
 /**
- *  @param red 5 bits
- *  @param green 6 bits
- *  @param blue 5 bits
- *  @return color
+ * @brief Build color value
+ * @param red 5 bits
+ * @param green 6 bits
+ * @param blue 5 bits
+ * @return color
  */
-
 unsigned short SSD1331_color(char red, char green, char blue);
 
 /**

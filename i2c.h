@@ -27,7 +27,7 @@ i2c_t *I2C_Init(int scl, int sda, int spd) __fromfile("libi2c/i2c.c");
  * @brief Poll i2c device
  * @param x i2c device
  * @param address 7 bit address of device
- * @return status 0 - not found, 1 - found
+ * @return status 0 - found, 1 - not found
  */
 int I2C_Poll(i2c_t *x, int address);
 

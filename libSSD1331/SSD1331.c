@@ -867,7 +867,6 @@ void SSD1331_writeSChar(char x, char y, char c)
   for (int l=0;l<2;l++)
   {
     v = Font_57[t++];
-    printf("%x ", v);
     for (int i=0;i<4;i++)
     {
       for (int j=0;j<8;j++)

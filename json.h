@@ -24,15 +24,17 @@ char *json_find(char *element);
  * @brief put string element and value
  * @param item Item name
  * @param value Item value
+ * @return length of json
  */
-void json_putStr(char *item, char *value);
+int json_putStr(char *item, char *value);
 
 /**
  * @brief put integer value
  * @param item Item name
  * @param value decimal value
+ * @return length of json
  */
-void json_putDec(char *item, char *value);
+int json_putDec(char *item, char *value);
 
 /**
  * @brief put array of objects (start of array)
@@ -41,29 +43,34 @@ void json_putDec(char *item, char *value);
  * function and then end the array here with no
  * item name
  * @param item object array or NULL for end
+ * @return length of json
  */
-void json_putArray(char* item);
+int json_putArray(char* item);
 
 /**
  * @brief put object values
  * @param item object name NULL for end of object
+ * @return length of json
  */
-void json_putObject(char* item);
+int json_putObject(char* item);
 
 /**
  * @brief put more items in the array
+ * @return length of json
  */
-void json_putMore(void);
+int json_putMore(void);
 
 /**
  * @brief put item only no value use NULL to end array
  * @param item value or data
+ * @param length of json
  */
-void json_putItem(char* item);
+int json_putItem(char* item);
 
 /**
  * @brief put boolean value
  * @param item value
  * @param state 0 - false, 1 - true
+ * @return length of json
  */
-void json_putBool(char* item, int state);
+int json_putBool(char* item, int state);

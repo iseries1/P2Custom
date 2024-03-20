@@ -10,6 +10,7 @@
 #include <propeller.h>
 #include "i2c.h"
 
+//#define CLKSTR
 
 i2c_t *I2C_Init(int scl, int sda, int spd)
 {
@@ -19,7 +20,7 @@ i2c_t *I2C_Init(int scl, int sda, int spd)
 	i = 10;
     x = malloc(sizeof(int));
     if (spd == I2C_STD)
-    	i = 10;
+    	i = 100;
     if (spd == I2C_FAST)
     	i = 2;
     if (spd == I2C_FASTP)
@@ -37,7 +38,10 @@ i2c_t *I2C_Init(int scl, int sda, int spd)
 int I2C_Poll(i2c_t *x, int address)
 {
     int ack;
-    
+
+    address = address << 1;
+    address = address & 0xfe;
+
     I2C_Start(x);
     ack = I2C_WriteByte(x, address);
     return ack;
@@ -105,8 +109,12 @@ int I2C_WriteByte(i2c_t *x, int b)
         _pinl(c);
     }
 	_dirl(d); // float answer
-     usleep(s);
+    usleep(s);
+    _dirl(c);
+#ifdef CLKSTR
+    while (_pinr(c) == 0);
 	_pinh(c);
+#endif
 	usleep(s);
 	d = _pinr(d); //ACK=low
 	_pinl(c);
@@ -144,6 +152,10 @@ int I2C_ReadByte(i2c_t *x, int ack)
 	else
 		_dirh(d);
     usleep(s);
+#ifdef CLKSTR
+    _dirl(c);
+    while (_pinr(c) == 0);
+#endif
 	_pinh(c);
 	usleep(s);
 	_pinl(c);
@@ -213,6 +225,7 @@ int I2C_Out(i2c_t *x, int address, int reg, int size, char *data, int count)
 
     address = address << 1;
     address = address & 0xfe;
+
     I2C_Start(x);
     if (I2C_WriteByte(x, address))
 	    return 0;

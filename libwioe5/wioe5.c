@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <propeller.h>
 #include "serial.h"
+#include "wioe5.h"
 
 void WIOE5_IO(void *);
 void WIOE5_Parse(void);
@@ -27,7 +28,9 @@ char _RTN[][5] = {"+AT:", "+VER", "+RES", "+MSG", "+CMS", "+POR", "+ADR", "+DR:"
 FILE *_wio;
 char _WData[512];
 char _WCmd[512];
-long _wstack[50];
+char _Data[512];
+volatile int _Bytes;
+long _wstack[100];
 volatile int _hd;
 volatile int _tl;
 volatile int _wtx;
@@ -48,7 +51,10 @@ int WIOE5_Init(int rx, int tx)
     _Wx = tx;
     _Wr = rx;
 
-    i = cogstart(WIOE5_IO, NULL, _wstack, 50);
+    memset(_Data, 0, sizeof(_Data));
+    _Bytes = 0;
+
+    i = cogstart(WIOE5_IO, NULL, _wstack, 100);
     _waitms(500);
 
     WIOE5_Request("AT");
@@ -175,13 +181,14 @@ int WIOE5_Join(void)
     return i;
 }
 
-void WIOE5_Send(char *message)
+int WIOE5_Send(char *message)
 {
     int i;
 
-    strcpy(_WCmd, "at+msg=\"");
-    strcat(_WCmd, message);
-    strcat(_WCmd, "\"");
+    if (message == NULL)
+        strcpy(_WCmd, "at+msg");
+    else
+        sprintf(_WCmd, "at+msg=\"%s\"", message);
 
     i = WIOE5_Request(_WCmd);
 }
@@ -190,9 +197,11 @@ int WIOE5_SendConfirmed(char *message)
 {
     int i;
 
-    strcpy(_WCmd, "at+cmsg=\"");
-    strcat(_WCmd, message);
-    strcat(_WCmd, "\"");
+    if (message == NULL)
+        strcpy(_WCmd, "at+cmsg");
+    else
+        sprintf(_WCmd, "at+cmsg=\"%s\"", message);
+
     i = WIOE5_Request(_WCmd);
 
     return i;
@@ -202,9 +211,11 @@ int WIOE5_SendHex(char *message)
 {
     int i;
 
-    strcpy(_WCmd, "at+msghex=\"");
-    strcat(_WCmd, message);
-    strcat(_WCmd, "\"");
+    if (message == NULL)
+        strcpy(_WCmd, "at+msghex");
+    else
+        sprintf(_WCmd, "at+msghex=\"%s\"", message);
+
     i = WIOE5_Request(_WCmd);
     return i;
 }
@@ -213,13 +224,12 @@ int WIOE5_SendConfirmedHex(char *message)
 {
     int i;
 
-    strcpy(_WCmd, "at+cmsghex=\"");
-    strcat(_WCmd, message);
-    strcat(_WCmd, "\"");
+    if (message == NULL)
+        strcpy(_WCmd, "at+cmsghex");
+    else
+        sprintf(_WCmd, "at+cmsghex=\"%s\"", message);
 
     i = WIOE5_Request(_WCmd);
-    if (i > 40)
-        return 0;
 
     return i;
 }
@@ -329,6 +339,12 @@ char WIOE5_GetMemory(char address)
     return Val;
 }
 
+char *WIOE5_GetData(void)
+{
+    _Bytes = 0;
+    return _Data;
+}
+
 
 /**
  * Background serial interface tasks
@@ -351,7 +367,10 @@ void WIOE5_IO(void *par)
         {
             _WData[_hd] = serial_rxChar(_wio);
             if (_WData[_hd++] == '\n')
+            {
+                _hd = _hd & 511;
                 WIOE5_Parse();
+            }
 
             _hd = _hd & 511;
         }
@@ -403,9 +422,15 @@ void WIOE5_Process(int i)
     case 3:
     case 4:
     case 5: if (_WCmd[7] == 'D')
-                _Rdy = 1;
+                if (_Bytes > 0)
+                    _Rdy = _Bytes;
+                else
+                    _Rdy = 1;
             if (_WCmd[7] == 'P')
-                _Rdy = -1;
+            {
+                strcpy(_Data, _WCmd);
+                _Bytes = ConvertHex(_Data);
+            }
             if (_WCmd[7] == 'N')
                 _Rdy = -1;
         break;

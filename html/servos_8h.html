@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.1</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -89,6 +89,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a27707a99046fa6fe979ef3db42ca7ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="servos_8h.html#a27707a99046fa6fe979ef3db42ca7ae2">Servo_SetAngle</a> (int pin, int angle)</td></tr>
 <tr class="memdesc:a27707a99046fa6fe979ef3db42ca7ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">set servo angle  <a href="servos_8h.html#a27707a99046fa6fe979ef3db42ca7ae2">More...</a><br /></td></tr>
 <tr class="separator:a27707a99046fa6fe979ef3db42ca7ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7365dd564f5e21dd2d5bf483aebecf67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="servos_8h.html#a7365dd564f5e21dd2d5bf483aebecf67">Servo_Disable</a> (int pin)</td></tr>
+<tr class="memdesc:a7365dd564f5e21dd2d5bf483aebecf67"><td class="mdescLeft">&#160;</td><td class="mdescRight">disable servo pin  <a href="servos_8h.html#a7365dd564f5e21dd2d5bf483aebecf67">More...</a><br /></td></tr>
+<tr class="separator:a7365dd564f5e21dd2d5bf483aebecf67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Servo library driver. </p>
@@ -96,6 +99,32 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>January 8, 2021 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a7365dd564f5e21dd2d5bf483aebecf67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7365dd564f5e21dd2d5bf483aebecf67">&#9670;&nbsp;</a></span>Servo_Disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Servo_Disable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>disable servo pin </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>number to disable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a2122ac2c0af0a99e77b64b244d303127"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2122ac2c0af0a99e77b64b244d303127">&#9670;&nbsp;</a></span>Servo_Enable()</h2>
 
@@ -132,8 +161,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pin</td><td>pin number to use </td></tr>
-    <tr><td class="paramname">position</td><td>default position (1500) </td></tr>
-    <tr><td class="paramname">refresh</td><td>output time 20 miliseconds </td></tr>
+    <tr><td class="paramname">position</td><td>rate in microseconds (1500) </td></tr>
+    <tr><td class="paramname">refresh</td><td>rate in microseconds (20000) </td></tr>
   </table>
   </dd>
 </dl>
@@ -169,8 +198,8 @@ Functions</h2></td></tr>
 <p>set servo output value </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pin</td><td>pin number to change </td></tr>
-    <tr><td class="paramname">position</td><td>400-2400 typical </td></tr>
+    <tr><td class="paramname">pin</td><td>number to change </td></tr>
+    <tr><td class="paramname">position</td><td>rate in microseconds 400-2400 typical </td></tr>
   </table>
   </dd>
 </dl>

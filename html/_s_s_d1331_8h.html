@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.1</span>
+   &#160;<span id="projectnumber">2.2</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -78,8 +78,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9377e40f9ccb430962e282276d63f7cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_d1331_8h.html#a9377e40f9ccb430962e282276d63f7cc">SSD1331_init</a> (char DIN, char CLK, char CS, char DC, char RES) __fromfile(&quot;libSSD1331/SSD1331.c&quot;)</td></tr>
+<tr class="memdesc:a9377e40f9ccb430962e282276d63f7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initilize oled driver.  <a href="_s_s_d1331_8h.html#a9377e40f9ccb430962e282276d63f7cc">More...</a><br /></td></tr>
 <tr class="separator:a9377e40f9ccb430962e282276d63f7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae26c8adb09662aff273f5dd67b0384e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_d1331_8h.html#aae26c8adb09662aff273f5dd67b0384e">SSD1331_rotation</a> (char rotation)</td></tr>
+<tr class="memdesc:aae26c8adb09662aff273f5dd67b0384e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set screen rotation.  <a href="_s_s_d1331_8h.html#aae26c8adb09662aff273f5dd67b0384e">More...</a><br /></td></tr>
 <tr class="separator:aae26c8adb09662aff273f5dd67b0384e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf41447069f368077f23fd0fbf62b7a6"><td class="memItemLeft" align="right" valign="top"><a id="adf41447069f368077f23fd0fbf62b7a6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_d1331_8h.html#adf41447069f368077f23fd0fbf62b7a6">SSD1331_cls</a> (void)</td></tr>
@@ -89,6 +91,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s
 <tr class="memdesc:aeb9b95fd442a31c681aa9607e077d906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invert display.  <a href="_s_s_d1331_8h.html#aeb9b95fd442a31c681aa9607e077d906">More...</a><br /></td></tr>
 <tr class="separator:aeb9b95fd442a31c681aa9607e077d906"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab65de6625ee3e127c62490f0920d2505"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_d1331_8h.html#ab65de6625ee3e127c62490f0920d2505">SSD1331_color</a> (char red, char green, char blue)</td></tr>
+<tr class="memdesc:ab65de6625ee3e127c62490f0920d2505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build color value.  <a href="_s_s_d1331_8h.html#ab65de6625ee3e127c62490f0920d2505">More...</a><br /></td></tr>
 <tr class="separator:ab65de6625ee3e127c62490f0920d2505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a956f209d5257a9dfccc327a2b1e835f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_d1331_8h.html#a956f209d5257a9dfccc327a2b1e835f2">SSD1331_plot</a> (short x, short y, unsigned short color)</td></tr>
 <tr class="memdesc:a956f209d5257a9dfccc327a2b1e835f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot a point  <a href="_s_s_d1331_8h.html#a956f209d5257a9dfccc327a2b1e835f2">More...</a><br /></td></tr>
@@ -174,6 +177,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Build color value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">red</td><td>5 bits </td></tr>
@@ -436,6 +441,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initilize oled driver. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">DIN</td><td>data in </td></tr>
@@ -534,9 +541,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set screen rotation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rotation</td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td>0 - upright 1 - upside down </td></tr>
   </table>
   </dd>
 </dl>

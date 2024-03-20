@@ -69,27 +69,28 @@ int WIOE5_Join(void);
 /**
  * @brief Send Message
  * @param message data
+ * @return status 1 - ok, 2 - data
 */
-void WIOE5_Send(char *message);
+int WIOE5_Send(char *message);
 
 /**
  * @brief Send Confirmed Message
  * @param message data
- * @return status 0 - message received -1 - failed
+ * @return status 1 - ok, 2 - data, -1 - failed
 */
 int WIOE5_SendConfirmed(char *message);
 
 /**
  * @brief Send Hex Message
  * @param message hex data
- * @return sent
+ * @return status 1 - ok, 2 - data, -1 - failed
 */
 int WIOE5_SendHex(char *message);
 
 /**
  * @brief Send Confirmed Hex Message
  * @param message hex data
- * @return status 0 - message received -1 - failed
+ * @return status 1 - ok, 2 - data, -1 - failed
 */
 int WIOE5_SendConfirmedHex(char *message);
 
@@ -145,3 +146,9 @@ void WIOE5_SetMemory(char address, char value);
  * @return value 
  */
 char WIOE5_GetMemory(char address);
+
+/**
+ * @brief Get Return Data
+ * @return data pointer in hex
+ */
+char *WIOE5_GetData(void);

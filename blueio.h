@@ -47,9 +47,17 @@ int Blueio_Version(void);
 /**
  * @brief Add Note
  * @param note json data
+ * @param file to use or NULL
  * @return total
  */
-int Blueio_Add(char *note);
+int Blueio_Add(char *note, char *file);
+
+/**
+ * @brief Add Note with Payload
+ * @param payload to add base64
+ * @return total
+*/
+int Blueio_AddPayload(char *payload);
 
 /**
  * @brief Check for note file

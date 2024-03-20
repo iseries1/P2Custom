@@ -45,3 +45,8 @@ void Servo_SetAngle(int pin, int angle)
     a = a * angle / 10 + _SLow;
     Servo_Set(pin, a);
 }
+
+void Servo_Disable(int pin)
+{
+    _pinf(pin);
+}

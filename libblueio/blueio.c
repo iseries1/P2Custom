@@ -17,6 +17,7 @@
 
 
 void Blueio_IO(void *);
+void Blueio_Send(char *);
 int Blueio_Return(void);
 
 
@@ -24,12 +25,12 @@ FILE *bsr;
 int brecv;
 int btrans;
 int *_px;
-volatile int _head;
-volatile int _tail;
+volatile int _head, _tail;
+volatile int _thead, _ttail;
 int bstack[50];
 char _XBuffer[4096];
-char _XCmd[4096];
-volatile int _trans;
+char _TBuffer[4096];
+char _XCmd[1024];
 volatile int _Ready;
 
 
@@ -53,14 +54,16 @@ int Blueio_Init(int receive, int transmit)
 
 int Blueio_Request(char *request)
 {
-    json_init(_XCmd);
-    json_putStr("req", request);
+    int i;
 
-    _trans = strlen(_XCmd);
+    json_init(_XCmd);
+    i = json_putStr("req", request);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("request: %s\n", _XCmd);
 #endif
-    return _trans;
+    return i;
 }
 
 int Blueio_Receive(char *buffer)
@@ -71,9 +74,12 @@ int Blueio_Receive(char *buffer)
     while (_head != _tail)
     {
         buffer[i++] = _XBuffer[_tail++];
-        buffer[i] = 0;
         _tail = _tail & 4095;
+        buffer[i] = 0;
     }
+#ifdef DEBUG
+    printf("Received(%d): %s\n", i, buffer);
+#endif
     _Ready = 0;
     return i;
 }
@@ -84,7 +90,7 @@ void Blueio_Sync(void)
 
     Blueio_Request("hub.sync");
 
-    Blueio_Return();
+    s = Blueio_Return();
 }
 
 int Blueio_Status(void)
@@ -116,6 +122,9 @@ int Blueio_Version(void)
     Blueio_Request("card.version");
 
     status = Blueio_Return();
+#ifdef DEBUG
+    printf("Version: %s\n", _XCmd);
+#endif
     if (status > 0)
     {
         json_init(_XCmd);
@@ -127,20 +136,51 @@ int Blueio_Version(void)
     return 0;
 }
 
-int Blueio_Add(char *note)
+int Blueio_Add(char *note, char *file)
+{
+    int i;
+    char *x;
+    char data[10];
+
+    json_init(_XCmd);
+    json_putStr("req", "note.add");
+    if (file != NULL)
+        json_putStr("file", file);
+    i = json_putObject("body");
+    _XCmd[i-1] = 0;
+    strcat(_XCmd, note);
+    strcat(_XCmd, "}");
+
+    Blueio_Send(_XCmd);
+
+#ifdef DEBUG
+    printf("Add:%s\n", _XCmd);
+#endif
+
+    i = Blueio_Return();
+    if (i > 0)
+    {
+        json_init(_XCmd);
+        x = json_find("total");
+        if (x == NULL)
+            return 0;
+        else
+            return atoi(x);
+    }
+    return -1;
+}
+
+int Blueio_AddPayload(char *payload)
 {
     int i;
     char *x;
 
     json_init(_XCmd);
     json_putStr("req", "note.add");
-    json_putObject("body");
-    i = strlen(_XCmd);
-    _XCmd[i-1] = 0;
-    strcat(_XCmd, note);
-    strcat(_XCmd, "}\r\n");
+    json_putStr("file", "data.qo");
+    json_putStr("payload", payload);
 
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
 
 #ifdef DEBUG
     printf("Add:%s\n", _XCmd);
@@ -169,7 +209,8 @@ int Blueio_Check(void)
     json_putArray("files");
     json_putItem("data.qi");
     json_putItem(NULL);
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("Check:%s\n", _XCmd);
 #endif
@@ -196,7 +237,8 @@ int Blueio_GetData(char *data, int remove)
     json_putStr("file", "data.qi");
     if (remove != 0)
         json_putBool("delete", 1);
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("Get:%s\n", _XCmd);
 #endif
@@ -219,7 +261,8 @@ void Blueio_SetAttn(int mode, int time)
     if (mode == 3)
         json_putStr("mode", "disarm");
     json_putDec("seconds", itoa(time));
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("Attn:%s\n", _XCmd);
 #endif
@@ -238,7 +281,8 @@ float Blueio_GetVoltage(void)
 
     json_init(_XCmd);
     json_putStr("req", "card.voltage");
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("Voltage:%s\n", _XCmd);
 #endif
@@ -260,7 +304,8 @@ float Blueio_GetTemperature(void)
 
     json_init(_XCmd);
     json_putStr("req", "card.temp");
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+
 #ifdef DEBUG
     printf("Temp:%s\n", _XCmd);
 #endif
@@ -282,7 +327,8 @@ int Blueio_GetTime(void)
 
     json_init(_XCmd);
     json_putStr("req", "card.time");
-    _trans = strlen(_XCmd);
+    Blueio_Send(_XCmd);
+    
 #ifdef DEBUG
     printf("Time:%s\n", _XCmd);
 #endif
@@ -309,37 +355,48 @@ void Blueio_IO(void *par)
     bsr = serial_open(brecv, btrans, 9600);
     _head = 0;
     _tail = 0;
-    _trans = 0;
+    _thead = 0;
+    _ttail = 0;
     _Ready = 0;
 
     while (1)
     {
         if (serial_rxReady(bsr) != 0)
         {
-            _XBuffer[_head++] = serial_rxChar(bsr);
-            if (_XBuffer[_head-1] == '\n')
+            _XBuffer[_head] = serial_rxChar(bsr);
+            if (_XBuffer[_head++] == '\n')
                 _Ready = 1;
 
             _head = _head & 4095;
         }
 
-        if (_trans > 0)
+        if (_thead != _ttail)
         {
-            i = 0;
-            while (_trans > 250)
-            {
-                serial_write(bsr, &_XCmd[i], 250);
-                i += 250;
-                _trans -= 250;
-                _waitms(300);
-            }
-            i = serial_write(bsr, &_XCmd[i], _trans);
-            serial_txChar(bsr, '\r');
-            serial_txChar(bsr, '\n');
-            _trans = 0;
+            serial_txChar(bsr, _TBuffer[_ttail]);
+            if (_TBuffer[_ttail] == '\n')
+                _waitms(1);
+            _ttail++;
+            _ttail = _ttail & 4095;
         }
         usleep(50);
     }
+}
+
+/* Send Command Data */
+void Blueio_Send(char *cmd)
+{
+    int len;
+
+    len = strlen(cmd);
+    for (int i=0;i<len;i++)
+    {
+        _TBuffer[_thead++] = cmd[i];
+        _thead = _thead & 4095;
+    }
+    _TBuffer[_thead++] = '\r';
+    _thead = _thead & 4095;
+    _TBuffer[_thead++] = '\n';
+    _thead = _thead & 4095;
 }
 
 /* wait 30 seconds for return data */
