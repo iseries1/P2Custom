@@ -12,14 +12,16 @@
 #include "json.h"
 #include "ina260.h"
 
-#define BLRX 20
-#define BLTX 21
-#define INACLK 40
-#define INADTA 41
+#define BLRX 40
+#define BLTX 41
+#define BLAT 42
+#define INACLK 8
+#define INADTA 9
 
 
 char Buffer[4096];
 char *x;
+time_t tm;
 
 
 int main(int argc, char** argv)
@@ -38,6 +40,19 @@ int main(int argc, char** argv)
 
     printf("Version:%d\n", i);
 
+    /* status of the Notecard */
+    for (int j=0;j<120;j++)
+    {
+        i = Blueio_Status();
+        if (i > 0)
+        {
+            printf("Wait:%d seconds\n", j);
+            break;
+        }
+        _waitms(1000);
+    }
+    printf("Status:%d\n", i);
+
     json_init(Buffer);
     json_putDec("temp", "26.54");
     json_putDec("humid", "35.53");
@@ -45,34 +60,33 @@ int main(int argc, char** argv)
     json_putDec("ohms", "51769.47");
 
     /* add the data to the Notecard */
-    //i = Blueio_Add(Buffer);
+    //i = Blueio_Add(Buffer, NULL);
 
     /* send/receive data from the cloud */
-    Blueio_Sync();
+    //Blueio_Sync();
 
-    /* status of the Notecard */
-    Blueio_Status();
+    i = Blueio_GetTime();
+    printf("Time: %d\n", i);
+    tm = i-18000;
+
+    /* get temperature */
+    i = Blueio_GetTemperature();
+    printf("Temperature: %d\n", i);
 
     /* check if there is data from the cloud */
     i = Blueio_Check();
     printf("Check: %d\n", i);
 
     /* get the data from the Notecard */
-    i = Blueio_Get(Buffer, 0);
+    i = Blueio_GetData(Buffer, 0);
     printf("Data:%s", Buffer);
 
-    /* some test code to make sure nothing is left hanging */
-    for (i=0;i<10;i++)
-    {
-        if (Blueio_Ready() != 0)
-        {
-            Blueio_Receive(Buffer);
-            printf(Buffer);
-            printf("\n");
-            break;
-        }
-        _waitms(1000);
-    }
+    i = Blueio_Receive(Buffer);
+    if (i > 0)
+        printf("Left Over: %s\n", Buffer);
+
+    printf("\n");
+    printf(asctime(localtime(&tm)));
 
     printf("\nDone\n");
 
@@ -82,6 +96,7 @@ int main(int argc, char** argv)
         printf("Current: %d\n", i);
         i = INA260_getVoltage();
         printf("Voltage: %d\n", i);
-        _waitms(1000);
+        _waitms(5000);
 	}
 }
+
