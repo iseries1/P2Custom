@@ -2,9 +2,12 @@
  * @file esp8266.h
  * @brief esp8266 command driver library
  * @author Michael Burmeister
- * @version 1.0
+ * @version 1.2
  * @date November 29, 2023
  */
+
+#define HTTP 0xF7
+#define WS 0xF6
 
 /**
  * @brief Open connection to ESP8266 unit
@@ -131,7 +134,35 @@ int esp8266_Listen(char *protocol, char *uri);
 int esp8266_Reply(char handle, char *data);
 
 /**
+ * @brief Wait for incoming connection
+ * @param type character pointer to the return type
+ * @return handle
+*/
+int esp8266_Wait(char *type);
+
+/**
  * @brief Path from connection request
  * @return path pointer to path data
  */
 char *esp8266_Path(char handle);
+
+/**
+ * @brief Get argument values
+ * @param handle of connection
+ * @param name of argument
+ * @return value
+*/
+char *esp8266_arg(char handle, char *name);
+
+/**
+ * @brief Drop WiFi connection
+ * @return status
+ */
+int esp8266_Drop(void);
+
+/**
+ * @brief Special print
+ * @param data to print
+ * @param size of data
+ */
+void esp8266_Print(char *data, int size);

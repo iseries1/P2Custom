@@ -24,7 +24,7 @@ FILE *serial_open(int rxpin, int txpin, int baudrate) __fromfile("libserial/seri
  * @brief Close serial connection.  
  * @param device file descriptor for serial connnection.
  */
-int serial_close(FILE *device) __fromfile("libserial/serial.c");
+int serial_close(FILE *device);
 
 /**
  * @brief Check if a character is available and return it
@@ -87,5 +87,40 @@ ssize_t serial_read(FILE *device, void *buff, size_t count);
  * @return size of data written to device
  */
 ssize_t serial_write(FILE *device, const void *buff, size_t count);
+
+/**
+ * @brief Start Full Duplex Driver
+ * @param device file descripter for serial connection
+ */
+void serial_startFullDuplex(FILE *device);
+
+/**
+ * @brief Get serial read data count
+ * @return count of data available
+ */
+int serial_count(void);
+
+/**
+ * @brief Read full duplex data
+ * @param data pointer to buffer to hold data
+ * @param count of data to receive
+ * @return count of data returned
+ */
+int serial_readFull(char *data, int count);
+
+/**
+ * @brief Write full duplex data
+ * @param data pointer to buffer to write
+ * @param count of data to write (127) max
+ * @return count of data written
+ */
+int serial_writeFull(char *data, int count);
+
+/**
+ * @brief Read Full Duplex Line
+ * @param data pointer to buffer to hold data
+ * @return count of data returned
+ */
+int serial_readFullLine(char *data);
 
 #endif

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.2</span>
+   &#160;<span id="projectnumber">2.3</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -80,10 +80,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a843029134415263eee1ea815ad52f2e4"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">serial_open</a> (int rxpin, int txpin, int baudrate) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
 <tr class="memdesc:a843029134415263eee1ea815ad52f2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a serial connection.  <a href="serial_8h.html#a843029134415263eee1ea815ad52f2e4">More...</a><br /></td></tr>
 <tr class="separator:a843029134415263eee1ea815ad52f2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab49247b189705672bd6c3800a0763b1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">serial_close</a> (FILE *device) __fromfile(&quot;libserial/serial.c&quot;)</td></tr>
-<tr class="memdesc:ab49247b189705672bd6c3800a0763b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close serial connection. <br  />
-  <a href="serial_8h.html#ab49247b189705672bd6c3800a0763b1e">More...</a><br /></td></tr>
-<tr class="separator:ab49247b189705672bd6c3800a0763b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac42ca630038c7e22bf9f0c75cbbd3949"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ac42ca630038c7e22bf9f0c75cbbd3949">serial_close</a> (FILE *device)</td></tr>
+<tr class="memdesc:ac42ca630038c7e22bf9f0c75cbbd3949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close serial connection. <br  />
+  <a href="serial_8h.html#ac42ca630038c7e22bf9f0c75cbbd3949">More...</a><br /></td></tr>
+<tr class="separator:ac42ca630038c7e22bf9f0c75cbbd3949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae16c9aa9181e2bb37297cb414baee236"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">serial_rxCheck</a> (FILE *device)</td></tr>
 <tr class="memdesc:ae16c9aa9181e2bb37297cb414baee236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a character is available and return it.  <a href="serial_8h.html#ae16c9aa9181e2bb37297cb414baee236">More...</a><br /></td></tr>
 <tr class="separator:ae16c9aa9181e2bb37297cb414baee236"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,6 +108,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a501c1b27c737cc2b7777c33ecacc377b"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">serial_write</a> (FILE *device, const void *buff, size_t count)</td></tr>
 <tr class="memdesc:a501c1b27c737cc2b7777c33ecacc377b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write number of bytes to device.  <a href="serial_8h.html#a501c1b27c737cc2b7777c33ecacc377b">More...</a><br /></td></tr>
 <tr class="separator:a501c1b27c737cc2b7777c33ecacc377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ed0c2674000b4686838a3b7b88cb56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#af8ed0c2674000b4686838a3b7b88cb56">serial_startFullDuplex</a> (FILE *device)</td></tr>
+<tr class="memdesc:af8ed0c2674000b4686838a3b7b88cb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start Full Duplex Driver.  <a href="serial_8h.html#af8ed0c2674000b4686838a3b7b88cb56">More...</a><br /></td></tr>
+<tr class="separator:af8ed0c2674000b4686838a3b7b88cb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac186a7930e7a5eaaa6caa5868fd2e126"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#ac186a7930e7a5eaaa6caa5868fd2e126">serial_count</a> (void)</td></tr>
+<tr class="memdesc:ac186a7930e7a5eaaa6caa5868fd2e126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get serial read data count.  <a href="serial_8h.html#ac186a7930e7a5eaaa6caa5868fd2e126">More...</a><br /></td></tr>
+<tr class="separator:ac186a7930e7a5eaaa6caa5868fd2e126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3ee4660ee8ea0e9a716da06a9f092b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a6a3ee4660ee8ea0e9a716da06a9f092b">serial_readFull</a> (char *data, int count)</td></tr>
+<tr class="memdesc:a6a3ee4660ee8ea0e9a716da06a9f092b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read full duplex data.  <a href="serial_8h.html#a6a3ee4660ee8ea0e9a716da06a9f092b">More...</a><br /></td></tr>
+<tr class="separator:a6a3ee4660ee8ea0e9a716da06a9f092b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28262d30d69c397d7141c166eec068c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#a28262d30d69c397d7141c166eec068c6">serial_writeFull</a> (char *data, int count)</td></tr>
+<tr class="memdesc:a28262d30d69c397d7141c166eec068c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write full duplex data.  <a href="serial_8h.html#a28262d30d69c397d7141c166eec068c6">More...</a><br /></td></tr>
+<tr class="separator:a28262d30d69c397d7141c166eec068c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e3d48cc53d8b24d0b5555336cbcf31"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="serial_8h.html#af7e3d48cc53d8b24d0b5555336cbcf31">serial_readFullLine</a> (char *data)</td></tr>
+<tr class="memdesc:af7e3d48cc53d8b24d0b5555336cbcf31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read Full Duplex Line.  <a href="serial_8h.html#af7e3d48cc53d8b24d0b5555336cbcf31">More...</a><br /></td></tr>
+<tr class="separator:af7e3d48cc53d8b24d0b5555336cbcf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Serial Driver. </p>
@@ -115,8 +130,8 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>Feburary 13, 2021 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab49247b189705672bd6c3800a0763b1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab49247b189705672bd6c3800a0763b1e">&#9670;&nbsp;</a></span>serial_close()</h2>
+<a id="ac42ca630038c7e22bf9f0c75cbbd3949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42ca630038c7e22bf9f0c75cbbd3949">&#9670;&nbsp;</a></span>serial_close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,6 +154,27 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac186a7930e7a5eaaa6caa5868fd2e126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac186a7930e7a5eaaa6caa5868fd2e126">&#9670;&nbsp;</a></span>serial_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial_count </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get serial read data count. </p>
+<dl class="section return"><dt>Returns</dt><dd>count of data available </dd></dl>
 
 </div>
 </div>
@@ -297,6 +333,71 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6a3ee4660ee8ea0e9a716da06a9f092b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3ee4660ee8ea0e9a716da06a9f092b">&#9670;&nbsp;</a></span>serial_readFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial_readFull </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read full duplex data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>pointer to buffer to hold data </td></tr>
+    <tr><td class="paramname">count</td><td>of data to receive </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of data returned </dd></dl>
+
+</div>
+</div>
+<a id="af7e3d48cc53d8b24d0b5555336cbcf31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e3d48cc53d8b24d0b5555336cbcf31">&#9670;&nbsp;</a></span>serial_readFullLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial_readFullLine </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read Full Duplex Line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>pointer to buffer to hold data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of data returned </dd></dl>
+
+</div>
+</div>
 <a id="a09407a08bcd756a4f5e6981f66c071a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09407a08bcd756a4f5e6981f66c071a8">&#9670;&nbsp;</a></span>serial_rxChar()</h2>
 
@@ -375,6 +476,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>status none zero if a byte is available </dd></dl>
+
+</div>
+</div>
+<a id="af8ed0c2674000b4686838a3b7b88cb56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8ed0c2674000b4686838a3b7b88cb56">&#9670;&nbsp;</a></span>serial_startFullDuplex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void serial_startFullDuplex </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start Full Duplex Driver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>file descripter for serial connection </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -458,6 +585,44 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>size of data written to device </dd></dl>
+
+</div>
+</div>
+<a id="a28262d30d69c397d7141c166eec068c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28262d30d69c397d7141c166eec068c6">&#9670;&nbsp;</a></span>serial_writeFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial_writeFull </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write full duplex data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>pointer to buffer to write </td></tr>
+    <tr><td class="paramname">count</td><td>of data to write (127) max </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>count of data written </dd></dl>
 
 </div>
 </div>

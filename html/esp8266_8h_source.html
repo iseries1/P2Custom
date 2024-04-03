@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.2</span>
+   &#160;<span id="projectnumber">2.3</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -98,9 +98,18 @@ $(function() {
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="esp8266_8h.html#a47afaa7b9d278449cff92d3eeadbcb6d">  131</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="esp8266_8h.html#a47afaa7b9d278449cff92d3eeadbcb6d">esp8266_Reply</a>(<span class="keywordtype">char</span> handle, <span class="keywordtype">char</span> *data);</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">  137</a></span>&#160;<span class="keywordtype">char</span> *<a class="code" href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">esp8266_Path</a>(<span class="keywordtype">char</span> handle);</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="esp8266_8h.html#a07c0424459bc33b865004819bd3a707c">  138</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="esp8266_8h.html#a07c0424459bc33b865004819bd3a707c">esp8266_Wait</a>(<span class="keywordtype">char</span> *type);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">  144</a></span>&#160;<span class="keywordtype">char</span> *<a class="code" href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">esp8266_Path</a>(<span class="keywordtype">char</span> handle);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="esp8266_8h.html#a8c367789890bfbb6d1aafdbab79b3936">  152</a></span>&#160;<span class="keywordtype">char</span> *<a class="code" href="esp8266_8h.html#a8c367789890bfbb6d1aafdbab79b3936">esp8266_arg</a>(<span class="keywordtype">char</span> handle, <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="esp8266_8h.html#af4f7dbf464af6da37d3a2e4f6f2842d8">  158</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="esp8266_8h.html#af4f7dbf464af6da37d3a2e4f6f2842d8">esp8266_Drop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="esp8266_8h.html#aedaa06f219f9554081db1c2185a7c45a">  165</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="esp8266_8h.html#aedaa06f219f9554081db1c2185a7c45a">esp8266_Print</a>(<span class="keywordtype">char</span> *data, <span class="keywordtype">int</span> size);</div>
 <div class="ttc" id="aesp8266_8h_html_a01d965ee9087c1a69d459bbcfcd308a3"><div class="ttname"><a href="esp8266_8h.html#a01d965ee9087c1a69d459bbcfcd308a3">esp8266_Open</a></div><div class="ttdeci">void esp8266_Open(int rx, int tx, int baud) __fromfile(&quot;libesp8266/esp8266.c&quot;)</div><div class="ttdoc">Open connection to ESP8266 unit.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a06f3d563f78566a8f055de83d73cdc82"><div class="ttname"><a href="esp8266_8h.html#a06f3d563f78566a8f055de83d73cdc82">esp8266_Listen</a></div><div class="ttdeci">int esp8266_Listen(char *protocol, char *uri)</div><div class="ttdoc">Set Listen URI.</div></div>
+<div class="ttc" id="aesp8266_8h_html_a07c0424459bc33b865004819bd3a707c"><div class="ttname"><a href="esp8266_8h.html#a07c0424459bc33b865004819bd3a707c">esp8266_Wait</a></div><div class="ttdeci">int esp8266_Wait(char *type)</div><div class="ttdoc">Wait for incoming connection.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a0e40123393648059cec906f1175c8cfb"><div class="ttname"><a href="esp8266_8h.html#a0e40123393648059cec906f1175c8cfb">esp8266_UDP</a></div><div class="ttdeci">int esp8266_UDP(char *url, short port)</div><div class="ttdoc">Send UDP Packet.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a1bd99b8f79421a65262178d174cdb3e2"><div class="ttname"><a href="esp8266_8h.html#a1bd99b8f79421a65262178d174cdb3e2">esp8266_Connect</a></div><div class="ttdeci">int esp8266_Connect(char *url, short port)</div><div class="ttdoc">Open connection to target.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a218786317cbba273610c114c8c4b003a"><div class="ttname"><a href="esp8266_8h.html#a218786317cbba273610c114c8c4b003a">esp8266_Http</a></div><div class="ttdeci">int esp8266_Http(char handle, char *request, short opt)</div><div class="ttdoc">Send HTTP request.</div></div>
@@ -109,12 +118,15 @@ $(function() {
 <div class="ttc" id="aesp8266_8h_html_a4d816d4779eafacf788483f362040dda"><div class="ttname"><a href="esp8266_8h.html#a4d816d4779eafacf788483f362040dda">esp8266_Check</a></div><div class="ttdeci">char * esp8266_Check(char *env)</div><div class="ttdoc">Check environment value.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a6c398cd68d5392fa02cea38f67dc8026"><div class="ttname"><a href="esp8266_8h.html#a6c398cd68d5392fa02cea38f67dc8026">esp8266_setHeader</a></div><div class="ttdeci">void esp8266_setHeader(char *header)</div><div class="ttdoc">Set header for http request.</div></div>
 <div class="ttc" id="aesp8266_8h_html_a74d18a809785245949b65978f876545a"><div class="ttname"><a href="esp8266_8h.html#a74d18a809785245949b65978f876545a">esp8266_SendBin</a></div><div class="ttdeci">int esp8266_SendBin(char handle, char *data, int size)</div><div class="ttdoc">Send binary data request.</div></div>
+<div class="ttc" id="aesp8266_8h_html_a8c367789890bfbb6d1aafdbab79b3936"><div class="ttname"><a href="esp8266_8h.html#a8c367789890bfbb6d1aafdbab79b3936">esp8266_arg</a></div><div class="ttdeci">char * esp8266_arg(char handle, char *name)</div><div class="ttdoc">Get argument values.</div></div>
 <div class="ttc" id="aesp8266_8h_html_aa2d608df08e820410e1e084730a1e803"><div class="ttname"><a href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">esp8266_Path</a></div><div class="ttdeci">char * esp8266_Path(char handle)</div><div class="ttdoc">Path from connection request.</div></div>
 <div class="ttc" id="aesp8266_8h_html_ac7327953055e718659639e208763de32"><div class="ttname"><a href="esp8266_8h.html#ac7327953055e718659639e208763de32">esp8266_Join</a></div><div class="ttdeci">int esp8266_Join(char *sid, char pwd)</div><div class="ttdoc">Join network access point.</div></div>
 <div class="ttc" id="aesp8266_8h_html_ad5880a91bf8943c3dd7c7f43cc72bcf2"><div class="ttname"><a href="esp8266_8h.html#ad5880a91bf8943c3dd7c7f43cc72bcf2">esp8266_Close</a></div><div class="ttdeci">void esp8266_Close(char handle)</div><div class="ttdoc">Close open connection.</div></div>
 <div class="ttc" id="aesp8266_8h_html_ae94b1ecaa7e5b4b6e4bf55ece6c1bc12"><div class="ttname"><a href="esp8266_8h.html#ae94b1ecaa7e5b4b6e4bf55ece6c1bc12">esp8266_Recv</a></div><div class="ttdeci">int esp8266_Recv(char handle, char *data, int size)</div><div class="ttdoc">Receive requested data.</div></div>
 <div class="ttc" id="aesp8266_8h_html_aeab92c9a0076540daf8a28194b1c3421"><div class="ttname"><a href="esp8266_8h.html#aeab92c9a0076540daf8a28194b1c3421">esp8266_Send</a></div><div class="ttdeci">int esp8266_Send(char handle, char *request)</div><div class="ttdoc">Send request data.</div></div>
 <div class="ttc" id="aesp8266_8h_html_aeb0aa62ad19dcd35b6a805b29d3133c5"><div class="ttname"><a href="esp8266_8h.html#aeb0aa62ad19dcd35b6a805b29d3133c5">esp8266_Poll</a></div><div class="ttdeci">int esp8266_Poll(int mask)</div><div class="ttdoc">Poll connection status.</div></div>
+<div class="ttc" id="aesp8266_8h_html_aedaa06f219f9554081db1c2185a7c45a"><div class="ttname"><a href="esp8266_8h.html#aedaa06f219f9554081db1c2185a7c45a">esp8266_Print</a></div><div class="ttdeci">void esp8266_Print(char *data, int size)</div><div class="ttdoc">Special print.</div></div>
+<div class="ttc" id="aesp8266_8h_html_af4f7dbf464af6da37d3a2e4f6f2842d8"><div class="ttname"><a href="esp8266_8h.html#af4f7dbf464af6da37d3a2e4f6f2842d8">esp8266_Drop</a></div><div class="ttdeci">int esp8266_Drop(void)</div><div class="ttdoc">Drop WiFi connection.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

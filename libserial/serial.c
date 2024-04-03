@@ -8,6 +8,16 @@
 #include <smartpins.h>
 #include "serial.h"
 
+void SFDuplex(void *);
+
+unsigned long SFDStack[200];
+unsigned char _RBuff[128];
+unsigned char _TBuff[128];
+volatile int _RHead, _RTail;
+volatile int _THead, _TTail;
+volatile char _FDON = 0;
+
+
 FILE *serial_open(int rxpin, int txpin, int baudrate)
 {
     int i;
@@ -22,10 +32,6 @@ FILE *serial_open(int rxpin, int txpin, int baudrate)
     if (i == _MAX_FILES)
       return _seterror(EMFILE);
     
-//    b = malloc(sizeof(struct _default_buffer));
-//    b->cnt = 0;
-//    b->ptr = b->buf;
-
     fd->vfsdata = b;
 
     fd->flags = O_RDWR;
@@ -191,4 +197,117 @@ ssize_t serial_write(FILE *device, const void *buff, size_t count)
     }
 
     return count;
+}
+
+void serial_startFullDuplex(FILE *device)
+{
+    if (_FDON == 1)
+        return;
+
+    _FDON = 1;
+    cogstart(SFDuplex, device, SFDStack, 50);
+}
+
+int serial_count(void)
+{
+    int i;
+
+    if (_FDON == 0)
+        return 0;
+    
+    i = _RHead - _RTail;
+    if (i < 0)
+        i = i + 128;
+    
+    return i;
+}
+
+int serial_readFull(char *data, int count)
+{
+    int i;
+
+    if (_FDON == 0)
+        return;
+
+    for (i=0;i<count;i++)
+    {
+        data[i] = 0;
+        if (_RTail == _RHead)
+            return i;
+        data[i] = _RBuff[_RTail++];
+        _RTail = _RTail & 127;
+    }
+    data[i] = 0;
+    return i;
+}
+
+int serial_writeFull(char *data, int count)
+{
+    int i;
+
+    if (_FDON == 0)
+        return 0;
+
+    for (i=0;i<count;i++)
+    {
+        _TBuff[_THead++] = data[i];
+        _THead = _THead & 127;
+    }
+
+    return i;
+}
+
+int serial_readFullLine(char *data)
+{
+    int i;
+
+    if (_FDON == 0)
+        return;
+
+    i = 0;
+    while (_RTail != _RHead)
+    {
+        data[i] = _RBuff[_RTail++];
+        _RTail = _RTail & 127;
+        if (data[i++] == '\n')
+        {
+            data[i-1] = 0;
+            return i-1;
+        }
+        data[i] = 0;
+    }
+
+    return i;
+}
+
+/**
+ * Full Duplex background process
+ * 
+ */
+void SFDuplex(void *par)
+{
+    int ch;
+    _RHead = 0;
+    _RTail = 0;
+    _THead = 0;
+    _TTail = 0;
+    FILE *f;
+
+    f = par;
+
+    while (_FDON)
+    {
+        ch = serial_rxCheck(f);
+        if (ch >=0)
+        {
+            _RBuff[_RHead++] = ch;
+            _RHead = _RHead & 127;
+        }
+
+        if (_THead != _TTail)
+        {
+            serial_txChar(f, _TBuff[_TTail++]);
+            _TTail = _TTail & 127;
+        }
+    }
 }

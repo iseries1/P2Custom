@@ -32,6 +32,7 @@
  *  <a href="lcddisplay_8h.html">Parallax LCD Driver.</a><br>
  *  <a href="mdd3a_8h.html">MDD3A Brushed Motor Driver.</a><br>
  *  <a href="newhaven_8h.html">New Haven Display Driver.</a><br>
+ *  <a href="pcf8523_8h.html">P2 Real Time Clock Module Driver.</a><br>
  *  <a href="_sbus_8h.html">SBUS driver for X8R Receiver.</a><br>
  *  <a href="serial_8h.html">Smart Pin serial driver.</a><br>
  *  <a href="_s_s_d1331_8h.html">SSD1331 Color OLED display.</a><br>

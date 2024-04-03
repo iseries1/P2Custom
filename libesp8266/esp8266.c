@@ -1,7 +1,7 @@
 /**
  * @brief ESP8266 command driver library
  * @author Michael Burmeister
- * @version 1.0
+ * @version 1.2
  * @date November 29, 2023
  * 
  */
@@ -37,7 +37,7 @@ int DoWait(void);
 #define UDP     0xDE
 #define SLEEP   0xF1
 
-int ESPStack[50];
+int ESPStack[100];
 char _RBuff[128];
 char _TBuff[128];
 char _Buffer[1050];
@@ -261,6 +261,8 @@ int esp8266_Poll(int mask)
 {
     int i;
 
+    if (mask == 0)
+        mask = -1;
     sprintf(_URL, "%c%c%d\r", CMD, POLL, mask);
     PutStr(_URL);
 
@@ -268,16 +270,14 @@ int esp8266_Poll(int mask)
     if (i <= 0)
         return i;
     
-    i = atoi(&_Buffer[6]);
-
-    return i;
+    return _Status;
 }
 
 int esp8266_Listen(char *protocol, char *uri)
 {
     int i;
 
-    sprintf(_URL, "%c%c%s,%s\r", protocol, uri);
+    sprintf(_URL, "%c%c%c%s\r", CMD, LISTEN, protocol, uri);
     PutStr(_URL);
     i = DoWait();
     if (i <= 0)
@@ -319,6 +319,13 @@ int esp8266_Reply(char handle, char *data)
     return -_SValue;
 }
 
+int esp8266_Wait(char *type)
+{
+    while (DoWait() <= 0);
+    *type = _Status;
+    return _SValue;
+}
+
 char *esp8266_Path(char handle)
 {
     int i;
@@ -335,6 +342,39 @@ char *esp8266_Path(char handle)
     
     return NULL;
 }
+
+char *esp8266_arg(char handle, char *name)
+{
+    sprintf(_URL, "%c%c%d,%s\r", CMD, ARG, handle, name);
+    PutStr(_URL);
+    if (DoWait() <= 0)
+        return NULL;
+    
+    if (_Status == 'S')
+        return &_Buffer[4];
+    
+    return NULL;
+}
+
+void esp8266_Print(char *data, int size)
+{
+    for (int n=0;n < size;n++)
+    {
+        if ((data[n] <= 128) && (data[n] != ' '))
+            PutChar(data[n]);
+        else if (data[n] == 0)
+        {
+            printf("[0]");
+            break;
+        }
+        else if (data[n] == '\n')
+            PutChar('\n');
+        else
+            printf("[%x]", data[n]);
+
+    }
+}
+
 
 /* Process Requests */
 int DoRecv()
@@ -372,6 +412,10 @@ int DoRecv()
 void DoESP8266(void *par)
 {
     FILE *esp;
+
+    _pinl(_TXpin);
+    _waitms(5);
+    _pinh(_TXpin);
 
     esp = serial_open(_RXpin, _TXpin, _Baud);
     int ch;

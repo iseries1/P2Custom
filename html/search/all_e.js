@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operation_20mode_497',['Operation mode',['../group__bme68x_api_om.html',1,'']]],
-  ['opennewhaven_498',['openNewHaven',['../newhaven_8h.html#a8a1c9e5471a648c9bcb9a3a70a9b1c42',1,'newhaven.h']]]
+  ['operation_20mode_501',['Operation mode',['../group__bme68x_api_om.html',1,'']]],
+  ['opennewhaven_502',['openNewHaven',['../newhaven_8h.html#a8a1c9e5471a648c9bcb9a3a70a9b1c42',1,'newhaven.h']]]
 ];

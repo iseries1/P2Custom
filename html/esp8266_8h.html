@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">FlexProp Custom Libraries
-   &#160;<span id="projectnumber">2.2</span>
+   &#160;<span id="projectnumber">2.3</span>
    </div>
    <div id="projectbrief">Custom Libraries to be used with FlexProp and Propeller 2</div>
   </td>
@@ -122,16 +122,66 @@ Functions</h2></td></tr>
 <tr class="memitem:a47afaa7b9d278449cff92d3eeadbcb6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#a47afaa7b9d278449cff92d3eeadbcb6d">esp8266_Reply</a> (char handle, char *data)</td></tr>
 <tr class="memdesc:a47afaa7b9d278449cff92d3eeadbcb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reply to request.  <a href="esp8266_8h.html#a47afaa7b9d278449cff92d3eeadbcb6d">More...</a><br /></td></tr>
 <tr class="separator:a47afaa7b9d278449cff92d3eeadbcb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c0424459bc33b865004819bd3a707c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#a07c0424459bc33b865004819bd3a707c">esp8266_Wait</a> (char *type)</td></tr>
+<tr class="memdesc:a07c0424459bc33b865004819bd3a707c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for incoming connection.  <a href="esp8266_8h.html#a07c0424459bc33b865004819bd3a707c">More...</a><br /></td></tr>
+<tr class="separator:a07c0424459bc33b865004819bd3a707c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d608df08e820410e1e084730a1e803"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">esp8266_Path</a> (char handle)</td></tr>
 <tr class="memdesc:aa2d608df08e820410e1e084730a1e803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path from connection request.  <a href="esp8266_8h.html#aa2d608df08e820410e1e084730a1e803">More...</a><br /></td></tr>
 <tr class="separator:aa2d608df08e820410e1e084730a1e803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c367789890bfbb6d1aafdbab79b3936"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#a8c367789890bfbb6d1aafdbab79b3936">esp8266_arg</a> (char handle, char *name)</td></tr>
+<tr class="memdesc:a8c367789890bfbb6d1aafdbab79b3936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get argument values.  <a href="esp8266_8h.html#a8c367789890bfbb6d1aafdbab79b3936">More...</a><br /></td></tr>
+<tr class="separator:a8c367789890bfbb6d1aafdbab79b3936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4f7dbf464af6da37d3a2e4f6f2842d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#af4f7dbf464af6da37d3a2e4f6f2842d8">esp8266_Drop</a> (void)</td></tr>
+<tr class="memdesc:af4f7dbf464af6da37d3a2e4f6f2842d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drop WiFi connection.  <a href="esp8266_8h.html#af4f7dbf464af6da37d3a2e4f6f2842d8">More...</a><br /></td></tr>
+<tr class="separator:af4f7dbf464af6da37d3a2e4f6f2842d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedaa06f219f9554081db1c2185a7c45a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp8266_8h.html#aedaa06f219f9554081db1c2185a7c45a">esp8266_Print</a> (char *data, int size)</td></tr>
+<tr class="memdesc:aedaa06f219f9554081db1c2185a7c45a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special print.  <a href="esp8266_8h.html#aedaa06f219f9554081db1c2185a7c45a">More...</a><br /></td></tr>
+<tr class="separator:aedaa06f219f9554081db1c2185a7c45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>esp8266 command driver library </p>
 <dl class="section author"><dt>Author</dt><dd>Michael Burmeister </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>November 29, 2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a8c367789890bfbb6d1aafdbab79b3936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c367789890bfbb6d1aafdbab79b3936">&#9670;&nbsp;</a></span>esp8266_arg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* esp8266_arg </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get argument values. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>of connection </td></tr>
+    <tr><td class="paramname">name</td><td>of argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
+
+</div>
+</div>
 <a id="a4d816d4779eafacf788483f362040dda"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d816d4779eafacf788483f362040dda">&#9670;&nbsp;</a></span>esp8266_Check()</h2>
 
@@ -221,6 +271,27 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>handle or error </dd></dl>
+
+</div>
+</div>
+<a id="af4f7dbf464af6da37d3a2e4f6f2842d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f7dbf464af6da37d3a2e4f6f2842d8">&#9670;&nbsp;</a></span>esp8266_Drop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int esp8266_Drop </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drop WiFi connection. </p>
+<dl class="section return"><dt>Returns</dt><dd>status </dd></dl>
 
 </div>
 </div>
@@ -434,6 +505,43 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>status </dd></dl>
+
+</div>
+</div>
+<a id="aedaa06f219f9554081db1c2185a7c45a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedaa06f219f9554081db1c2185a7c45a">&#9670;&nbsp;</a></span>esp8266_Print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void esp8266_Print </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Special print. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>to print </td></tr>
+    <tr><td class="paramname">size</td><td>of data </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -702,6 +810,33 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>status </dd></dl>
+
+</div>
+</div>
+<a id="a07c0424459bc33b865004819bd3a707c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c0424459bc33b865004819bd3a707c">&#9670;&nbsp;</a></span>esp8266_Wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int esp8266_Wait </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wait for incoming connection. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>character pointer to the return type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>handle </dd></dl>
 
 </div>
 </div>

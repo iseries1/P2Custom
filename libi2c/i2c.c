@@ -8,9 +8,8 @@
 
 #include <stdlib.h>
 #include <propeller.h>
+#include <smartpins.h>
 #include "i2c.h"
-
-//#define CLKSTR
 
 i2c_t *I2C_Init(int scl, int sda, int spd)
 {
@@ -28,6 +27,7 @@ i2c_t *I2C_Init(int scl, int sda, int spd)
     if (spd == I2C_HIGH)
     	i = 0;
     i = scl | (sda << 8) | (i << 16);
+    _wrpin(scl, P_HIGH_1K5);
     *x = (i2c_t)i;
     _dirh(scl);
     _dirh(sda);
@@ -99,22 +99,20 @@ int I2C_WriteByte(i2c_t *x, int b)
     for (i=0;i<8;i++)
     {
         if (b & 0x80)
-        	_dirl(d); // float pin
+        	_pinh(d); // float pin
         else
-        	_dirh(d); // enable out
+        	_pinl(d); // enable out
         usleep(s);
         _pinh(c);
+        while (_pinr(c) == 0);
         usleep(s);
         b = b << 1;
         _pinl(c);
     }
 	_dirl(d); // float answer
     usleep(s);
-    _dirl(c);
-#ifdef CLKSTR
+    _pinh(c);
     while (_pinr(c) == 0);
-	_pinh(c);
-#endif
 	usleep(s);
 	d = _pinr(d); //ACK=low
 	_pinl(c);
@@ -148,18 +146,16 @@ int I2C_ReadByte(i2c_t *x, int ack)
 	}
 	
 	if (ack)
-		_dirl(d);
+		_pinh(d);
 	else
-		_dirh(d);
+		_pinl(d);
     usleep(s);
-#ifdef CLKSTR
-    _dirl(c);
-    while (_pinr(c) == 0);
-#endif
 	_pinh(c);
+    while (_pinr(c) == 0);
 	usleep(s);
 	_pinl(c);
 	usleep(s);
+    usleep(s);
 	return b;
 }
 
